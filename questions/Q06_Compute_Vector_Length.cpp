@@ -1,0 +1,37 @@
+// Run: .\build\Debug\Q06_Compute_Vector_Length.exe
+/*
+Question 6: Compute Vector Length
+
+Description:
+Given a vector, return its magnitude/length.
+
+Task:
+Implement this function:
+    float Length(const Vec3& v);
+
+How to run this file:
+    g++ -std=c++17 -I../include Q06_Compute_Vector_Length.cpp -o q06 && ./q06
+
+Notes:
+- Edit only the TODO function unless you want to add your own tests.
+- The tests are at the bottom of this file.
+*/
+
+#include "MathTypes.h"
+
+float Length(const Vec3& v) {
+    // TODO: implement this function.
+    return 0.0f;
+}
+
+bool RunTests() {
+
+    EXPECT_NEAR(Length({3,4,0}), 5.0f);
+    EXPECT_NEAR(Length({0,0,0}), 0.0f);
+    EXPECT_NEAR(Length({1,2,2}), 3.0f);
+
+    return true;
+}
+
+RUN_TESTS()
+

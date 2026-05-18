@@ -1,0 +1,24 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build active question (MSVC)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "if (!(Test-Path '${workspaceFolder}\\build')) { New-Item -ItemType Directory -Path '${workspaceFolder}\\build' | Out-Null }; cl /std:c++17 /EHsc /nologo /I\"${fileDirname}\\..\\include\" \"${file}\" /Fe:\"${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe\" /Fo:\"${workspaceFolder}\\build\\${fileBasenameNoExtension}.obj\""
+      ],
+      "problemMatcher": [
+        "$msCompile"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
