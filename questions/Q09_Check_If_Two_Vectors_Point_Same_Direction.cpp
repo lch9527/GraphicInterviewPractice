@@ -22,6 +22,11 @@ Notes:
 
 bool SameDirection(const Vec3& a, const Vec3& b) {
     // TODO: implement this function.
+    Vec3 newA = NormalizeHelper(a);
+    Vec3 newB = NormalizeHelper(b);
+    if (Dot(newA, newB) > 0.9) {
+        return true;
+    }
     return false;
 }
 

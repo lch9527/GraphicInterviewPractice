@@ -11,7 +11,7 @@ Implement this function:
     Vec3 NormalizeSafe(const Vec3& v);
 
 How to run this file:
-    g++ -std=c++17 -I../include Q07_Normalize_a_Vector_Safely.cpp -o q07 && ./q07
+
 
 Notes:
 - Edit only the TODO function unless you want to add your own tests.
@@ -22,6 +22,14 @@ Notes:
 
 Vec3 NormalizeSafe(const Vec3& v) {
     // TODO: implement this function.
+    Vec3 result;
+    float length = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+    if (length > 1e-6f) {
+        result.x = v.x / length;
+        result.y = v.y / length;
+        result.z = v.z / length;
+        return result;
+    }   
     return {};
 }
 

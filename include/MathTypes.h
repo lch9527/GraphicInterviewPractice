@@ -98,8 +98,31 @@ inline float DotHelper(const Vec3& a, const Vec3& b) {
     return a.x * b.x + a.y * b.y + a.z * b.z;
 }
 
+template <typename V>
+inline float Dot(const V& a, const V& b) {
+    return DotHelper(a, b);
+}
+
+template <typename V>
+inline float dot(const V& a, const V& b) {
+    return DotHelper(a, b);
+}
+
 inline float LengthHelper(const Vec3& v) {
     return std::sqrt(DotHelper(v, v));
+}
+
+inline float DistanceHelper(const Vec3& a, const Vec3& b) {
+    return LengthHelper(a - b);
+}
+
+inline float LengthBetween(const Vec3& a, const Vec3& b) {
+    return DistanceHelper(a, b);
+}
+
+template <typename V>
+inline float Distance(const V& a, const V& b) {
+    return DistanceHelper(a, b);
 }
 
 inline Vec3 NormalizeHelper(const Vec3& v) {
@@ -114,6 +137,16 @@ inline Vec3 CrossHelper(const Vec3& a, const Vec3& b) {
         a.z * b.x - a.x * b.z,
         a.x * b.y - a.y * b.x
     };
+}
+
+template <typename V>
+inline Vec3 Cross(const V& a, const V& b) {
+    return CrossHelper(a, b);
+}
+
+template <typename V>
+inline Vec3 cross(const V& a, const V& b) {
+    return CrossHelper(a, b);
 }
 
 inline float DegreesToRadiansHelper(float degrees) {

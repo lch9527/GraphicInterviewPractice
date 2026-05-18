@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 set -u
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-BUILD="$ROOT/build"
-mkdir -p "$BUILD"
 FAILED=0
 PASSED=0
 
 for f in "$ROOT"/questions/Q*.cpp; do
     name=$(basename "$f" .cpp)
-    exe="$BUILD/$name"
+    number="${name:1:2}"
+    exe="$ROOT/questions/q$number"
     echo "==== $name ===="
     if g++ -std=c++17 -I"$ROOT/include" "$f" -o "$exe"; then
         if "$exe"; then

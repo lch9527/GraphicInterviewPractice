@@ -21,8 +21,7 @@ Notes:
 #include "MathTypes.h"
 
 bool ArePerpendicular(const Vec3& a, const Vec3& b) {
-    // TODO: implement this function.
-    return false;
+    return std::fabs(Dot(a, b)) <= EPSILON;
 }
 
 bool RunTests() {
@@ -35,5 +34,4 @@ bool RunTests() {
 }
 
 RUN_TESTS()
-
 

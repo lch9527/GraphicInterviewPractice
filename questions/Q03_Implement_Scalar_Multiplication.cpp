@@ -21,8 +21,13 @@ Notes:
 #include "MathTypes.h"
 
 Vec3 Multiply(const Vec3& v, float s) {
+    Vec3 result;
+    result.x = v.x * s;
+    result.y = v.y * s;
+    result.z = v.z * s;
+
     // TODO: implement this function.
-    return {};
+    return result;
 }
 
 bool RunTests() {

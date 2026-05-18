@@ -13,6 +13,7 @@ Implement this function:
 How to run this file:
     g++ -std=c++17 -I../include Q12_Calculate_Triangle_Normal.cpp -o q12 && ./q12
 
+
 Notes:
 - Edit only the TODO function unless you want to add your own tests.
 - The tests are at the bottom of this file.
@@ -22,7 +23,13 @@ Notes:
 
 Vec3 CalculateTriangleNormal(const Vec3& a, const Vec3& b, const Vec3& c) {
     // TODO: implement this function.
-    return {};
+    Vec3 v1 = a-b;
+    Vec3 v2 = c-b;
+
+    Vec3 normal = NormalizeHelper(cross(v2 ,v1));
+
+
+    return normal;
 }
 
 bool RunTests() {

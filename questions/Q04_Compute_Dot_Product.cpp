@@ -21,8 +21,9 @@ Notes:
 #include "MathTypes.h"
 
 float Dot(const Vec3& a, const Vec3& b) {
+    int result = a.x * b.x + a.y * b.y + a.z * b.z;
     // TODO: implement this function.
-    return 0.0f;
+    return result;
 }
 
 bool RunTests() {

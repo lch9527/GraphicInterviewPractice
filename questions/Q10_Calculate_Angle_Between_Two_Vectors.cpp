@@ -21,8 +21,15 @@ Notes:
 #include "MathTypes.h"
 
 float AngleBetweenDegrees(const Vec3& a, const Vec3& b) {
+    float result = 0.0f;
     // TODO: implement this function.
-    return 0.0f;
+    Vec3 newA = NormalizeHelper(a);
+    Vec3 newB = NormalizeHelper(b);
+    float dot = Dot(newA, newB);
+    dot = std::clamp(dot, -1.0f, 1.0f);
+    result = std::acos(dot) * 180.0f / M_PI;
+    
+    return result;
 }
 
 bool RunTests() {

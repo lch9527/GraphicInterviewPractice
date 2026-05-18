@@ -22,6 +22,11 @@ Notes:
 
 bool IsTriangleFacingCamera(const Vec3& a, const Vec3& b, const Vec3& c, const Vec3& cameraPos) {
     // TODO: implement this function.
+    Vec3 Tnormal = NormalizeHelper(cross(a-b,c-b));
+
+    if(dot(Tnormal,cameraPos) < -0.9){
+        return true;
+    }
     return false;
 }
 
