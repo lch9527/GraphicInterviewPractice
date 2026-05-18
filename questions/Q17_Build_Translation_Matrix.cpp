@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q17_Build_Translation_Matrix
 // Run: .\build\Debug\Q17_Build_Translation_Matrix.exe
 /*
 Question 17: Build Translation Matrix
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

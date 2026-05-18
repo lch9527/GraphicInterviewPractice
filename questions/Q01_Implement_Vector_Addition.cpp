@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q01_Implement_Vector_Addition
 // Run: .\build\Debug\Q01_Implement_Vector_Addition.exe
 /*
 Question 1: Implement Vector Addition
@@ -38,4 +39,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

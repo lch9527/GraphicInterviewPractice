@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q06_Compute_Vector_Length
 // Run: .\build\Debug\Q06_Compute_Vector_Length.exe
 /*
 Question 6: Compute Vector Length
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

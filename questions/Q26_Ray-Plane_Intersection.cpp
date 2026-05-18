@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q26_Ray-Plane_Intersection
 // Run: .\build\Debug\Q26_Ray-Plane_Intersection.exe
 /*
 Question 26: Ray-Plane Intersection
@@ -36,4 +37,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q14_Reflect_a_Vector_Around_a_Normal
 // Run: .\build\Debug\Q14_Reflect_a_Vector_Around_a_Normal.exe
 /*
 Question 14: Reflect a Vector Around a Normal
@@ -33,4 +34,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q29_Linear_Interpolation
 // Run: .\build\Debug\Q29_Linear_Interpolation.exe
 /*
 Question 29: Linear Interpolation
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

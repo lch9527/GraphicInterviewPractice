@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q27_Ray-Sphere_Intersection
 // Run: .\build\Debug\Q27_Ray-Sphere_Intersection.exe
 /*
 Question 27: Ray-Sphere Intersection
@@ -37,4 +38,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

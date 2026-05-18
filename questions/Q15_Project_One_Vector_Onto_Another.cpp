@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q15_Project_One_Vector_Onto_Another
 // Run: .\build\Debug\Q15_Project_One_Vector_Onto_Another.exe
 /*
 Question 15: Project One Vector Onto Another
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

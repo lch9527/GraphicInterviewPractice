@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q35_Check_If_Point_Is_Inside_Rectangle
 // Run: .\build\Debug\Q35_Check_If_Point_Is_Inside_Rectangle.exe
 /*
 Question 35: Check If Point Is Inside Rectangle
@@ -35,4 +36,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

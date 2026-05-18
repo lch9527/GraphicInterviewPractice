@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q21_Compose_Transform_Matrix
 // Run: .\build\Debug\Q21_Compose_Transform_Matrix.exe
 /*
 Question 21: Compose Transform Matrix
@@ -38,4 +39,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

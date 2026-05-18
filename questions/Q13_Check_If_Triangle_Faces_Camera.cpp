@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q13_Check_If_Triangle_Faces_Camera
 // Run: .\build\Debug\Q13_Check_If_Triangle_Faces_Camera.exe
 /*
 Question 13: Check If Triangle Faces Camera
@@ -33,4 +34,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

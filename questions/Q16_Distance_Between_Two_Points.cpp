@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q16_Distance_Between_Two_Points
 // Run: .\build\Debug\Q16_Distance_Between_Two_Points.exe
 /*
 Question 16: Distance Between Two Points
@@ -33,4 +34,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

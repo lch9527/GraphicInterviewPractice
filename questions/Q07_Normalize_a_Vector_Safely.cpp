@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q07_Normalize_a_Vector_Safely
 // Run: .\build\Debug\Q07_Normalize_a_Vector_Safely.exe
 /*
 Question 7: Normalize a Vector Safely
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

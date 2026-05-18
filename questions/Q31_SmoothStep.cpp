@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q31_SmoothStep
 // Run: .\build\Debug\Q31_SmoothStep.exe
 /*
 Question 31: SmoothStep
@@ -36,4 +37,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

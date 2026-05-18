@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q10_Calculate_Angle_Between_Two_Vectors
 // Run: .\build\Debug\Q10_Calculate_Angle_Between_Two_Vectors.exe
 /*
 Question 10: Calculate Angle Between Two Vectors
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

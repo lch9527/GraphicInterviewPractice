@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q02_Implement_Vector_Subtraction
 // Run: .\build\Debug\Q02_Implement_Vector_Subtraction.exe
 /*
 Question 2: Implement Vector Subtraction
@@ -33,4 +34,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

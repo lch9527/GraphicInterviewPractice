@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q19_Transform_Point_by_Matrix
 // Run: .\build\Debug\Q19_Transform_Point_by_Matrix.exe
 /*
 Question 19: Transform Point by Matrix
@@ -35,4 +36,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

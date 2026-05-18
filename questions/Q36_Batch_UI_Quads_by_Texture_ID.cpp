@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q36_Batch_UI_Quads_by_Texture_ID
 // Run: .\build\Debug\Q36_Batch_UI_Quads_by_Texture_ID.exe
 /*
 Question 36: Batch UI Quads by Texture ID
@@ -36,4 +37,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

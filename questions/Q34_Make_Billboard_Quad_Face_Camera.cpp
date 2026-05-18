@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q34_Make_Billboard_Quad_Face_Camera
 // Run: .\build\Debug\Q34_Make_Billboard_Quad_Face_Camera.exe
 /*
 Question 34: Make Billboard Quad Face Camera
@@ -37,4 +38,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

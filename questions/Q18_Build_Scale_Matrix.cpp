@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q18_Build_Scale_Matrix
 // Run: .\build\Debug\Q18_Build_Scale_Matrix.exe
 /*
 Question 18: Build Scale Matrix
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

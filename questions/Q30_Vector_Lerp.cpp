@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q30_Vector_Lerp
 // Run: .\build\Debug\Q30_Vector_Lerp.exe
 /*
 Question 30: Vector Lerp
@@ -33,4 +34,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

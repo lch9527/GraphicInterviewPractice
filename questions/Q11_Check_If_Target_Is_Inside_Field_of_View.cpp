@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q11_Check_If_Target_Is_Inside_Field_of_View
 // Run: .\build\Debug\Q11_Check_If_Target_Is_Inside_Field_of_View.exe
 /*
 Question 11: Check If Target Is Inside Field of View
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q24_Implement_LookAt_View_Matrix
 // Run: .\build\Debug\Q24_Implement_LookAt_View_Matrix.exe
 /*
 Question 24: Implement LookAt View Matrix
@@ -38,4 +39,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

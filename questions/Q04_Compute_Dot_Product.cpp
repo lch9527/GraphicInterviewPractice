@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q04_Compute_Dot_Product
 // Run: .\build\Debug\Q04_Compute_Dot_Product.exe
 /*
 Question 4: Compute Dot Product
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

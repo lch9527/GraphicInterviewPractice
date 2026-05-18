@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q22_Convert_Degrees_to_Radians
 // Run: .\build\Debug\Q22_Convert_Degrees_to_Radians.exe
 /*
 Question 22: Convert Degrees to Radians
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

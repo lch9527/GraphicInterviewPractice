@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q32_Clamp
 // Run: .\build\Debug\Q32_Clamp.exe
 /*
 Question 32: Clamp
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

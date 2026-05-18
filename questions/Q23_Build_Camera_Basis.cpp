@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q23_Build_Camera_Basis
 // Run: .\build\Debug\Q23_Build_Camera_Basis.exe
 /*
 Question 23: Build Camera Basis
@@ -35,4 +36,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q20_Transform_Direction_by_Matrix
 // Run: .\build\Debug\Q20_Transform_Direction_by_Matrix.exe
 /*
 Question 20: Transform Direction by Matrix
@@ -35,4 +36,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

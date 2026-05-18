@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q25_Convert_World_Position_to_Screen_Position
 // Run: .\build\Debug\Q25_Convert_World_Position_to_Screen_Position.exe
 /*
 Question 25: Convert World Position to Screen Position
@@ -35,4 +36,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

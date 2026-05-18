@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q05_Compute_Cross_Product
 // Run: .\build\Debug\Q05_Compute_Cross_Product.exe
 /*
 Question 5: Compute Cross Product
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

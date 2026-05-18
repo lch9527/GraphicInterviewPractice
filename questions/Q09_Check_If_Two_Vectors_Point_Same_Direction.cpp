@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q09_Check_If_Two_Vectors_Point_Same_Direction
 // Run: .\build\Debug\Q09_Check_If_Two_Vectors_Point_Same_Direction.exe
 /*
 Question 9: Check If Two Vectors Point Same Direction
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

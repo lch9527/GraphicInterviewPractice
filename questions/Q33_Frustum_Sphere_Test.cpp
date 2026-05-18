@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q33_Frustum_Sphere_Test
 // Run: .\build\Debug\Q33_Frustum_Sphere_Test.exe
 /*
 Question 33: Frustum Sphere Test
@@ -39,4 +40,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

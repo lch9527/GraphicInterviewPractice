@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q03_Implement_Scalar_Multiplication
 // Run: .\build\Debug\Q03_Implement_Scalar_Multiplication.exe
 /*
 Question 3: Implement Scalar Multiplication
@@ -33,4 +34,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

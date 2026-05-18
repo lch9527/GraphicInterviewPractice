@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q08_Check_If_Two_Vectors_Are_Perpendicular
 // Run: .\build\Debug\Q08_Check_If_Two_Vectors_Are_Perpendicular.exe
 /*
 Question 8: Check If Two Vectors Are Perpendicular
@@ -34,4 +35,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

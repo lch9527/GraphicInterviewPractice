@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q28_Ray-AABB_Intersection
 // Run: .\build\Debug\Q28_Ray-AABB_Intersection.exe
 /*
 Question 28: Ray-AABB Intersection
@@ -37,4 +38,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 

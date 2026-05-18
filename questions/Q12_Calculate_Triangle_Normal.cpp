@@ -1,3 +1,4 @@
+// Build: cmake --build build --config Debug --target Q12_Calculate_Triangle_Normal
 // Run: .\build\Debug\Q12_Calculate_Triangle_Normal.exe
 /*
 Question 12: Calculate Triangle Normal
@@ -33,4 +34,5 @@ bool RunTests() {
 }
 
 RUN_TESTS()
+
 
