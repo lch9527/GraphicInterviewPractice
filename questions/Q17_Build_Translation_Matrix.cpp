@@ -22,6 +22,7 @@ Notes:
 
 Mat4 MakeTranslation(float tx, float ty, float tz) {
     // TODO: implement this function.
+
     return {};
 }
 

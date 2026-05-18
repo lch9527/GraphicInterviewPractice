@@ -22,7 +22,7 @@ Notes:
 
 Vec3 ProjectVector(const Vec3& a, const Vec3& b) {
     // TODO: implement this function.
-    return {};
+    return Dot(a,NormalizeHelper(b)) * NormalizeHelper(b);
 }
 
 bool RunTests() {

@@ -22,7 +22,9 @@ Notes:
 
 float Distance(const Vec3& a, const Vec3& b) {
     // TODO: implement this function.
-    return 0.0f;
+    Vec3 AB = b - a;
+    float result = sqrt(AB.x*AB.x + AB.y*AB.y + AB.z*AB.z);
+    return result;
 }
 
 bool RunTests() {

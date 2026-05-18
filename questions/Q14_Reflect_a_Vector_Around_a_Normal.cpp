@@ -22,7 +22,8 @@ Notes:
 
 Vec3 Reflect(const Vec3& I, const Vec3& N) {
     // TODO: implement this function.
-    return {};
+    return I - (Dot(I,N) * N ) * 2;
+
 }
 
 bool RunTests() {
