@@ -21,8 +21,11 @@ Notes:
 #include "MathTypes.h"
 
 Mat4 MakeScale(float sx, float sy, float sz) {
-    // TODO: implement this function.
-    return {};
+     Mat4 result = Identity4();
+    result.m[0][0] = sx;
+    result.m[1][1] = sy;
+    result.m[2][2] = sz;
+    return result;
 }
 
 bool RunTests() {

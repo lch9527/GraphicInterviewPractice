@@ -5,9 +5,7 @@
       "name": "Win32",
       "includePath": [
         "${workspaceFolder}/include",
-        "${workspaceFolder}/questions",
-        "${workspaceFolder}/GraphicInterviewPractice/include",
-        "${workspaceFolder}/GraphicInterviewPractice/questions"
+        "${workspaceFolder}/questions"
       ],
       "defines": [],
       "compilerPath": "cl.exe",

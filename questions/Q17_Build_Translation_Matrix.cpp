@@ -22,8 +22,11 @@ Notes:
 
 Mat4 MakeTranslation(float tx, float ty, float tz) {
     // TODO: implement this function.
-
-    return {};
+    Mat4 result = Identity4();
+    result.m[0][3] = tx;    
+    result.m[1][3] = ty;
+    result.m[2][3] = tz;
+    return result;
 }
 
 bool RunTests() {

@@ -22,7 +22,14 @@ Notes:
 
 Vec3 TransformDirection(const Mat4& m, const Vec3& dir) {
     // TODO: implement this function.
-    return {};
+    Mat4 transposed = m;
+    Vec4 homogeneousPoint = Vec4{dir.x, dir.y, dir.z, 0.0f};  
+    Vec4 transformedPoint = Vec4{
+        transposed.m[0][0] * homogeneousPoint.x + transposed.m[0][1] * homogeneousPoint.y + transposed.m[0][2] * homogeneousPoint.z,
+        transposed.m[1][0] * homogeneousPoint.x + transposed.m[1][1] * homogeneousPoint.y + transposed.m[1][2] * homogeneousPoint.z,
+        transposed.m[2][0] * homogeneousPoint.x + transposed.m[2][1] * homogeneousPoint.y + transposed.m[2][2] * homogeneousPoint.z,
+    };
+    return Vec3{transformedPoint.x, transformedPoint.y, transformedPoint.z};
 }
 
 bool RunTests() {

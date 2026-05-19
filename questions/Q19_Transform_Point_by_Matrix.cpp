@@ -22,7 +22,27 @@ Notes:
 
 Vec3 TransformPoint(const Mat4& m, const Vec3& p) {
     // TODO: implement this function.
-    return {};
+    Mat4 transposed = m;
+    Vec4 homogeneousPoint = Vec4{p.x, p.y, p.z, 1.0f};  
+    Vec4 transformedPoint = Vec4{
+        transposed.m[0][0] * homogeneousPoint.x + transposed.m[0][1] * homogeneousPoint.y + transposed.m[0][2] * homogeneousPoint.z + transposed.m[0][3] * homogeneousPoint.w,
+        transposed.m[1][0] * homogeneousPoint.x + transposed.m[1][1] * homogeneousPoint.y + transposed.m[1][2] * homogeneousPoint.z + transposed.m[1][3] * homogeneousPoint.w,
+        transposed.m[2][0] * homogeneousPoint.x + transposed.m[2][1] * homogeneousPoint.y + transposed.m[2][2] * homogeneousPoint.z + transposed.m[2][3] * homogeneousPoint.w,
+        transposed.m[3][0] * homogeneousPoint.x + transposed.m[3][1] * homogeneousPoint.y + transposed.m[3][2] * homogeneousPoint.z + transposed.m[3][3] * homogeneousPoint.w       
+    };
+    /*
+    1 0 0 10
+    0 1 0 0
+    0 0 1 0
+    0 0 0 1
+    
+    */
+    if (transformedPoint.w != 0.0f) {
+        transformedPoint.x /= transformedPoint.w;
+        transformedPoint.y /= transformedPoint.w;
+        transformedPoint.z /= transformedPoint.w;
+    }
+    return Vec3{transformedPoint.x, transformedPoint.y, transformedPoint.z};    
 }
 
 bool RunTests() {
