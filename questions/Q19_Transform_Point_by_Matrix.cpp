@@ -22,21 +22,7 @@ Notes:
 
 Vec3 TransformPoint(const Mat4& m, const Vec3& p) {
     // TODO: implement this function.
-    Mat4 transposed = m;
-    Vec4 homogeneousPoint = Vec4{p.x, p.y, p.z, 1.0f};  
-    Vec4 transformedPoint = Vec4{
-        transposed.m[0][0] * homogeneousPoint.x + transposed.m[0][1] * homogeneousPoint.y + transposed.m[0][2] * homogeneousPoint.z + transposed.m[0][3] * homogeneousPoint.w,
-        transposed.m[1][0] * homogeneousPoint.x + transposed.m[1][1] * homogeneousPoint.y + transposed.m[1][2] * homogeneousPoint.z + transposed.m[1][3] * homogeneousPoint.w,
-        transposed.m[2][0] * homogeneousPoint.x + transposed.m[2][1] * homogeneousPoint.y + transposed.m[2][2] * homogeneousPoint.z + transposed.m[2][3] * homogeneousPoint.w,
-        transposed.m[3][0] * homogeneousPoint.x + transposed.m[3][1] * homogeneousPoint.y + transposed.m[3][2] * homogeneousPoint.z + transposed.m[3][3] * homogeneousPoint.w       
-    };
-    /*
-    1 0 0 10
-    0 1 0 0
-    0 0 1 0
-    0 0 0 1
-    
-    */
+    Vec4 transformedPoint = Mul(m, Vec4{p.x, p.y, p.z, 1.0f});
     if (transformedPoint.w != 0.0f) {
         transformedPoint.x /= transformedPoint.w;
         transformedPoint.y /= transformedPoint.w;
@@ -47,7 +33,7 @@ Vec3 TransformPoint(const Mat4& m, const Vec3& p) {
 
 bool RunTests() {
 
-    Mat4 t = Identity4(); t.m[0][3] = 10.0f;
+    Mat4 t = Identity4(); t.m[3][0] = 10.0f;
     EXPECT_VEC3(TransformPoint(t, {1,2,3}), Vec3{11,2,3});
     Mat4 s = Identity4(); s.m[0][0] = 2.0f; s.m[1][1] = 3.0f; s.m[2][2] = 4.0f;
     EXPECT_VEC3(TransformPoint(s, {1,2,3}), Vec3{2,6,12});
@@ -56,5 +42,3 @@ bool RunTests() {
 }
 
 RUN_TESTS()
-
-

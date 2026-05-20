@@ -21,8 +21,13 @@ Notes:
 #include "MathTypes.h"
 
 CameraBasis BuildCameraBasis(const Vec3& eye, const Vec3& target, const Vec3& worldUp) {
+
+    Vec3 forward = NormalizeHelper(target - eye);
+    Vec3 right = NormalizeHelper( cross(forward,worldUp));
+    Vec3 up = NormalizeHelper(cross(right,forward));
     // TODO: implement this function.
-    return {};
+
+    return {forward,right,up};
 }
 
 bool RunTests() {

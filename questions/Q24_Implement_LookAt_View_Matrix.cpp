@@ -4,7 +4,7 @@
 Question 24: Implement LookAt View Matrix
 
 Description:
-Return a view matrix for right-handed camera looking from eye to target. Row-major, column-vector style.
+Return a view matrix for right-handed camera looking from eye to target. Column-major, column-vector style.
 
 Task:
 Implement this function:
@@ -22,7 +22,29 @@ Notes:
 
 Mat4 LookAt(const Vec3& eye, const Vec3& target, const Vec3& worldUp) {
     // TODO: implement this function.
-    return {};
+    Vec3 forward = NormalizeHelper(target - eye);
+    Vec3 right = NormalizeHelper(Cross(forward, worldUp));
+    Vec3 up = Cross(right, forward);
+
+    Mat4 result = Identity4();
+
+    result.m[0][0] = right.x;
+    result.m[0][1] = up.x;
+    result.m[0][2] = -forward.x;
+
+    result.m[1][0] = right.y;
+    result.m[1][1] = up.y;
+    result.m[1][2] = -forward.y;
+
+    result.m[2][0] = right.z;
+    result.m[2][1] = up.z;
+    result.m[2][2] = -forward.z;
+
+    result.m[3][0] = -Dot(right, eye);
+    result.m[3][1] = -Dot(up, eye);
+    result.m[3][2] = Dot(forward, eye);
+
+    return result;
 }
 
 bool RunTests() {
@@ -39,5 +61,3 @@ bool RunTests() {
 }
 
 RUN_TESTS()
-
-

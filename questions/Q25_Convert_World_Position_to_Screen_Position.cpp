@@ -22,6 +22,19 @@ Notes:
 
 Vec2 WorldToScreen(const Vec3& worldPos, const Mat4& viewProjection, float screenWidth, float screenHeight) {
     // TODO: implement this function.
+     Vec4 clip = Mul(viewProjection, Vec4{worldPos.x, worldPos.y, worldPos.z, 1.0f});
+        if (std::fabs(clip.w) < EPSILON) {
+            return {};
+        }
+    
+        float ndcX = clip.x / clip.w;
+        float ndcY = clip.y / clip.w;
+    
+        return {
+            (ndcX + 1.0f) * 0.5f * screenWidth,
+            (1.0f - ndcY) * 0.5f * screenHeight
+        };
+
     return {};
 }
 

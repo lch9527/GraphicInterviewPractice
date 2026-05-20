@@ -20,9 +20,19 @@ Notes:
 
 #include "MathTypes.h"
 
-bool RayPlaneIntersection(const Vec3& rayOrigin, const Vec3& rayDir, const Vec3& planeNormal, const Vec3& pointOnPlane, float& outT) {
-    // TODO: implement this function.
-    outT = 0.0f; return false;
+bool RayPlaneIntersection(const Vec3& rayOrigin, const Vec3& rayDir, const Vec3& planeNormal,
+     const Vec3& pointOnPlane, float& outT) {
+    float d = dot(rayDir,planeNormal);
+        if(fabs(d) < 0.0001){
+            return false;
+        }
+
+    outT = dot(planeNormal,pointOnPlane-rayOrigin)/d;
+
+    if (outT < 0){
+        return false;
+    }
+    return true;
 }
 
 bool RunTests() {

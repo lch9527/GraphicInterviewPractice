@@ -22,7 +22,7 @@ Notes:
 
 float DegreesToRadians(float degrees) {
     // TODO: implement this function.
-    return 0.0f;
+    return degrees * 3.1415926/180;
 }
 
 bool RunTests() {
