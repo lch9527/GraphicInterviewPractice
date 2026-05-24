@@ -22,7 +22,7 @@ Notes:
 
 Vec3 LerpVec3(const Vec3& a, const Vec3& b, float t) {
     // TODO: implement this function.
-    return {};
+    return a + (b - a) * t;
 }
 
 bool RunTests() {

@@ -21,8 +21,35 @@ Notes:
 #include "MathTypes.h"
 
 bool RaySphereIntersection(const Vec3& rayOrigin, const Vec3& rayDir, const Vec3& sphereCenter, float sphereRadius, float& outT) {
-    // TODO: implement this function.
-    outT = 0.0f; return false;
+    Vec3 oc = rayOrigin - sphereCenter;
+
+    float a = Dot(rayDir, rayDir);
+    float b = 2.0f * Dot(oc, rayDir);
+    float c = Dot(oc, oc) - sphereRadius * sphereRadius;
+
+    float discriminant = b * b - 4.0f * a * c;
+    if (discriminant < 0.0f) {
+        outT = 0.0f;
+        return false;
+    }
+
+    float sqrtD = sqrt(discriminant);
+    float inv2a = 0.5f / a;
+    float t0 = (-b - sqrtD) * inv2a;
+    float t1 = (-b + sqrtD) * inv2a;
+
+    const float eps = 1e-6f;
+    if (t0 > eps) {
+        outT = t0;
+        return true;
+    }
+    if (t1 > eps) {
+        outT = t1;
+        return true;
+    }
+
+    outT = 0.0f;
+    return false;
 }
 
 bool RunTests() {

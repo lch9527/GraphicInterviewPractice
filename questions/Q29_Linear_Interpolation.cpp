@@ -22,7 +22,7 @@ Notes:
 
 float Lerp(float a, float b, float t) {
     // TODO: implement this function.
-    return 0.0f;
+    return a + (b - a) * t;
 }
 
 bool RunTests() {

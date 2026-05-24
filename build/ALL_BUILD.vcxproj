@@ -178,9 +178,21 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{BB2173CC-E3BA-33C0-BD14-8490EFE7D31D}</Project>
       <Name>Q01_Implement_Vector_Addition</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q01_Vec3_Basic_Operations.vcxproj">
+      <Project>{828D5285-B3D0-31ED-9E2B-58D7A4D42A30}</Project>
+      <Name>Q01_Vec3_Basic_Operations</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q02_Angle_Between_Vectors.vcxproj">
+      <Project>{8D3660ED-1B57-31B0-89AD-2C51A3098209}</Project>
+      <Name>Q02_Angle_Between_Vectors</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q02_Implement_Vector_Subtraction.vcxproj">
       <Project>{9218A8DC-51AD-33A5-B5D4-B48B604E7368}</Project>
       <Name>Q02_Implement_Vector_Subtraction</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q03_Field_Of_View_Test.vcxproj">
+      <Project>{47983203-989D-3B24-BC02-BE45734009A9}</Project>
+      <Name>Q03_Field_Of_View_Test</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q03_Implement_Scalar_Multiplication.vcxproj">
       <Project>{631F56FC-1DDE-36E3-AB45-47762A4F7D92}</Project>
@@ -190,41 +202,85 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{7F1FFED0-4D3D-3358-AA32-47E10DEE82DC}</Project>
       <Name>Q04_Compute_Dot_Product</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q04_Triangle_Normal_Facing_Camera.vcxproj">
+      <Project>{EE547DC3-C0F3-3844-9B43-DB151F4F8EC8}</Project>
+      <Name>Q04_Triangle_Normal_Facing_Camera</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q05_Compute_Cross_Product.vcxproj">
       <Project>{55E76D9D-7F55-3095-B4BE-839FF9E973EC}</Project>
       <Name>Q05_Compute_Cross_Product</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q05_Transform_Point_vs_Direction.vcxproj">
+      <Project>{B753BAFD-76F8-38FD-8E1B-76A3EDCD8567}</Project>
+      <Name>Q05_Transform_Point_vs_Direction</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q06_Compute_Vector_Length.vcxproj">
       <Project>{7F96CAF7-F9FD-301C-8A47-3CCD88BA0493}</Project>
       <Name>Q06_Compute_Vector_Length</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q06_Ray_Plane_Intersection.vcxproj">
+      <Project>{98F6C83E-EFF4-3D10-9A08-2722AACB0CF5}</Project>
+      <Name>Q06_Ray_Plane_Intersection</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q07_Normalize_a_Vector_Safely.vcxproj">
       <Project>{8820E6A6-930D-3DC0-AEFA-C9F287E1FE1B}</Project>
       <Name>Q07_Normalize_a_Vector_Safely</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q07_Ray_Sphere_Intersection.vcxproj">
+      <Project>{35E53713-8157-3C7B-879C-F1D9004F2B7F}</Project>
+      <Name>Q07_Ray_Sphere_Intersection</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q08_Check_If_Two_Vectors_Are_Perpendicular.vcxproj">
       <Project>{D06DD5BD-1250-37A4-BA4F-C697BF1138F5}</Project>
       <Name>Q08_Check_If_Two_Vectors_Are_Perpendicular</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q08_Ray_AABB_Intersection.vcxproj">
+      <Project>{E8FDD12A-C7FF-378B-BC92-7E97E439760C}</Project>
+      <Name>Q08_Ray_AABB_Intersection</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q09_Check_If_Two_Vectors_Point_Same_Direction.vcxproj">
       <Project>{DB944385-522A-3C60-8D48-CB9488DAF4F4}</Project>
       <Name>Q09_Check_If_Two_Vectors_Point_Same_Direction</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q09_Sphere_Frustum_Culling.vcxproj">
+      <Project>{032E7CB0-996F-38EA-B1ED-F32D712F78A8}</Project>
+      <Name>Q09_Sphere_Frustum_Culling</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q10_Calculate_Angle_Between_Two_Vectors.vcxproj">
       <Project>{F7C1F63E-43F2-33E0-8391-7EEB19FE2213}</Project>
       <Name>Q10_Calculate_Angle_Between_Two_Vectors</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q10_UI_Rectangle_Clipping.vcxproj">
+      <Project>{D4CB9F58-5216-3B1A-BDC5-18862017CBEA}</Project>
+      <Name>Q10_UI_Rectangle_Clipping</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q11_Check_If_Target_Is_Inside_Field_of_View.vcxproj">
       <Project>{7535293B-D175-3B42-9ECD-C168476B957A}</Project>
       <Name>Q11_Check_If_Target_Is_Inside_Field_of_View</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q11_Count_UI_Batches.vcxproj">
+      <Project>{D18C8C5C-FA3B-3878-9475-890C98EF2CB3}</Project>
+      <Name>Q11_Count_UI_Batches</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q12_Calculate_Triangle_Normal.vcxproj">
       <Project>{0352DF4A-BD81-3746-B2BE-F2DF0216C961}</Project>
       <Name>Q12_Calculate_Triangle_Normal</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q12_Sort_Render_Commands.vcxproj">
+      <Project>{1B11703F-5367-3022-99B7-404C31CDE7CD}</Project>
+      <Name>Q12_Sort_Render_Commands</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q13_Check_If_Triangle_Faces_Camera.vcxproj">
       <Project>{5439758A-A636-3899-A658-3DFA67231A60}</Project>
       <Name>Q13_Check_If_Triangle_Faces_Camera</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q13_Texture_RenderTarget_Memory_Cost.vcxproj">
+      <Project>{89BB58C3-6A5D-33CC-88CA-9906B1DD14EF}</Project>
+      <Name>Q13_Texture_RenderTarget_Memory_Cost</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q14_Frame_Budget_CPU_GPU_Bottleneck.vcxproj">
+      <Project>{72830DEB-F679-333C-8C4F-5E5019331DCC}</Project>
+      <Name>Q14_Frame_Budget_CPU_GPU_Bottleneck</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q14_Reflect_a_Vector_Around_a_Normal.vcxproj">
       <Project>{EA098A78-AF0D-34D3-8098-E34D5F2CFB73}</Project>

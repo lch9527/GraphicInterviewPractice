@@ -22,7 +22,14 @@ Notes:
 
 bool SphereInFrustum(const Plane planes[6], const Vec3& sphereCenter, float sphereRadius) {
     // TODO: implement this function.
-    return false;
+    for(int i = 0; i < 6; i++){
+        float distance = dot(planes[i].normal, sphereCenter) + planes[i].d;
+        if(distance < -sphereRadius){
+            return false;
+        }
+    }
+    return true;
+
 }
 
 bool RunTests() {
