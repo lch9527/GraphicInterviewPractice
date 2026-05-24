@@ -178,6 +178,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{BB2173CC-E3BA-33C0-BD14-8490EFE7D31D}</Project>
       <Name>Q01_Implement_Vector_Addition</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q01_Longest_Substring_Without_Repeating_Characters.vcxproj">
+      <Project>{D6C7DD2A-8A89-33B9-9565-E365ABACDB85}</Project>
+      <Name>Q01_Longest_Substring_Without_Repeating_Characters</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q01_Vec3_Basic_Operations.vcxproj">
       <Project>{828D5285-B3D0-31ED-9E2B-58D7A4D42A30}</Project>
       <Name>Q01_Vec3_Basic_Operations</Name>
@@ -189,6 +193,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q02_Implement_Vector_Subtraction.vcxproj">
       <Project>{9218A8DC-51AD-33A5-B5D4-B48B604E7368}</Project>
       <Name>Q02_Implement_Vector_Subtraction</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q02_Minimum_Changes_To_Make_Alternating_Binary_String.vcxproj">
+      <Project>{9F984E42-4FE3-3FE4-A32F-65E118D2F50F}</Project>
+      <Name>Q02_Minimum_Changes_To_Make_Alternating_Binary_String</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q03_Basic_Calculator_II.vcxproj">
+      <Project>{D246EA7E-9E8F-3E5D-A761-1C69D93FD29F}</Project>
+      <Name>Q03_Basic_Calculator_II</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q03_Field_Of_View_Test.vcxproj">
       <Project>{47983203-989D-3B24-BC02-BE45734009A9}</Project>
@@ -202,6 +214,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{7F1FFED0-4D3D-3358-AA32-47E10DEE82DC}</Project>
       <Name>Q04_Compute_Dot_Product</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q04_Merge_Intervals.vcxproj">
+      <Project>{FAE0D82C-0F08-3605-9BF0-4A3AA9BA1E2C}</Project>
+      <Name>Q04_Merge_Intervals</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q04_Triangle_Normal_Facing_Camera.vcxproj">
       <Project>{EE547DC3-C0F3-3844-9B43-DB151F4F8EC8}</Project>
       <Name>Q04_Triangle_Normal_Facing_Camera</Name>
@@ -209,6 +225,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q05_Compute_Cross_Product.vcxproj">
       <Project>{55E76D9D-7F55-3095-B4BE-839FF9E973EC}</Project>
       <Name>Q05_Compute_Cross_Product</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q05_Number_of_Islands.vcxproj">
+      <Project>{70A8F660-C5B8-3B4A-921C-96422D96CA11}</Project>
+      <Name>Q05_Number_of_Islands</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q05_Transform_Point_vs_Direction.vcxproj">
       <Project>{B753BAFD-76F8-38FD-8E1B-76A3EDCD8567}</Project>
@@ -218,9 +238,17 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{7F96CAF7-F9FD-301C-8A47-3CCD88BA0493}</Project>
       <Name>Q06_Compute_Vector_Length</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q06_Design_Circular_Queue.vcxproj">
+      <Project>{E6A4AF77-2312-3938-A2C2-EECBCD1489B7}</Project>
+      <Name>Q06_Design_Circular_Queue</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q06_Ray_Plane_Intersection.vcxproj">
       <Project>{98F6C83E-EFF4-3D10-9A08-2722AACB0CF5}</Project>
       <Name>Q06_Ray_Plane_Intersection</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q07_Letter_Combinations_of_a_Phone_Number.vcxproj">
+      <Project>{8DCBCBD5-0144-3B1D-AF00-2EB076E68031}</Project>
+      <Name>Q07_Letter_Combinations_of_a_Phone_Number</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q07_Normalize_a_Vector_Safely.vcxproj">
       <Project>{8820E6A6-930D-3DC0-AEFA-C9F287E1FE1B}</Project>
@@ -237,6 +265,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q08_Ray_AABB_Intersection.vcxproj">
       <Project>{E8FDD12A-C7FF-378B-BC92-7E97E439760C}</Project>
       <Name>Q08_Ray_AABB_Intersection</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q08_Valid_Parentheses.vcxproj">
+      <Project>{E9CF44EE-4F68-3A31-B81C-49CC1B08E001}</Project>
+      <Name>Q08_Valid_Parentheses</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q09_Check_If_Two_Vectors_Point_Same_Direction.vcxproj">
       <Project>{DB944385-522A-3C60-8D48-CB9488DAF4F4}</Project>

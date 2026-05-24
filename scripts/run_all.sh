@@ -4,7 +4,7 @@ set -u
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 FAILED=0
 PASSED=0
-QUESTION_FILES=("$ROOT"/questions/Q*.cpp "$ROOT"/questions/coderpad_rendering/Q*.cpp)
+QUESTION_FILES=("$ROOT"/questions/Q*.cpp "$ROOT"/questions/coderpad_rendering/Q*.cpp "$ROOT"/questions/tesla/Q*.cpp)
 
 for f in "${QUESTION_FILES[@]}"; do
     [ -e "$f" ] || continue
@@ -14,6 +14,8 @@ for f in "${QUESTION_FILES[@]}"; do
     dir=$(dirname "$f")
     if [[ "$dir" == *"coderpad_rendering"* ]]; then
         exe="$ROOT/questions/coderpad_rendering/coderpad_q$number"
+    elif [[ "$dir" == *"tesla"* ]]; then
+        exe="$ROOT/questions/tesla/tesla_q$number"
     else
         exe="$ROOT/questions/q$number"
     fi
