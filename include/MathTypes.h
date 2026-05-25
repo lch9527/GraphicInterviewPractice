@@ -36,8 +36,8 @@ struct Vec4 {
 };
 
 struct Mat4 {
-    // Row-major storage. Most exercises use column-vector style math:
-    // result = M * vec4(x, y, z, w)
+    // OpenGL-style column-major storage with column-vector math:
+    // m[column][row], result = M * vec4(x, y, z, w).
     float m[4][4] = {};
 };
 
@@ -155,19 +155,19 @@ inline float DegreesToRadiansHelper(float degrees) {
 
 inline Vec4 Mul(const Mat4& m, const Vec4& v) {
     return {
-        m.m[0][0] * v.x + m.m[0][1] * v.y + m.m[0][2] * v.z + m.m[0][3] * v.w,
-        m.m[1][0] * v.x + m.m[1][1] * v.y + m.m[1][2] * v.z + m.m[1][3] * v.w,
-        m.m[2][0] * v.x + m.m[2][1] * v.y + m.m[2][2] * v.z + m.m[2][3] * v.w,
-        m.m[3][0] * v.x + m.m[3][1] * v.y + m.m[3][2] * v.z + m.m[3][3] * v.w
+        m.m[0][0] * v.x + m.m[1][0] * v.y + m.m[2][0] * v.z + m.m[3][0] * v.w,
+        m.m[0][1] * v.x + m.m[1][1] * v.y + m.m[2][1] * v.z + m.m[3][1] * v.w,
+        m.m[0][2] * v.x + m.m[1][2] * v.y + m.m[2][2] * v.z + m.m[3][2] * v.w,
+        m.m[0][3] * v.x + m.m[1][3] * v.y + m.m[2][3] * v.z + m.m[3][3] * v.w
     };
 }
 
 inline Mat4 Mul(const Mat4& a, const Mat4& b) {
     Mat4 result{};
-    for (int r = 0; r < 4; ++r) {
-        for (int c = 0; c < 4; ++c) {
+    for (int c = 0; c < 4; ++c) {
+        for (int r = 0; r < 4; ++r) {
             for (int k = 0; k < 4; ++k) {
-                result.m[r][c] += a.m[r][k] * b.m[k][c];
+                result.m[c][r] += a.m[k][r] * b.m[c][k];
             }
         }
     }

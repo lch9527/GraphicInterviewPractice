@@ -18,10 +18,8 @@ Concepts tested:
 
 Vec3 CalculateTriangleNormal(const Vec3& a, const Vec3& b, const Vec3& c) {
     // TODO: compute NormalizeSafe(Cross(b - a, c - a)).
-    (void)a;
-    (void)b;
-    (void)c;
-    return {};
+
+    return NormalizeHelper(cross(b-a,c-a));
 }
 
 bool IsTriangleFacingCamera(const Vec3& a, const Vec3& b, const Vec3& c,
@@ -31,7 +29,10 @@ bool IsTriangleFacingCamera(const Vec3& a, const Vec3& b, const Vec3& c,
     (void)b;
     (void)c;
     (void)cameraPos;
-    return false;
+    Vec3 tn = CalculateTriangleNormal(a,b,c);
+    Vec3 tcenter = a+b+c/3;
+
+    return dot(tn,NormalizeHelper(cameraPos - tcenter)) > 0;
 }
 
 bool RunTests() {

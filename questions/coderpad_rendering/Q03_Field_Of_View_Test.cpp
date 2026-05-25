@@ -20,12 +20,28 @@ constexpr float LOCAL_EPSILON = 1e-6f;
 
 bool IsTargetInFOV(const Vec3& actorPos, const Vec3& actorForward,
                    const Vec3& targetPos, float fovDegrees) {
-    // TODO: compare dot(normalizedForward, normalizedToTarget) to cos(halfFOV).
-    (void)actorPos;
-    (void)actorForward;
-    (void)targetPos;
-    (void)fovDegrees;
-    return false;
+    Vec3 totarget = NormalizeHelper(targetPos - actorPos);
+    Vec3 Forward = NormalizeHelper(actorForward);
+
+    if(LengthHelper(totarget) < LOCAL_EPSILON || LengthHelper(Forward) < LOCAL_EPSILON){
+        return false;
+    }
+
+    float dotresult = dot(totarget ,Forward);
+
+    if (dotresult > 1){
+        dotresult = 1;
+    }
+    if (dotresult < -1){
+        dotresult = -1;
+    }
+
+    float helfr = fovDegrees/2 * LOCAL_PI/180;
+    
+    float threshold = cos(helfr);
+
+    return dotresult >= threshold;
+
 }
 
 bool RunTests() {

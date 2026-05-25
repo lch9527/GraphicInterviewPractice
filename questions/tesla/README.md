@@ -16,6 +16,16 @@ This folder tracks the Tesla entries from the upstream `5. All.csv` list and add
 | `Q06_Design_Circular_Queue.cpp` | Design Circular Queue | Array, Design, Queue |
 | `Q07_Letter_Combinations_of_a_Phone_Number.cpp` | Letter Combinations of a Phone Number | Hash Table, String, Backtracking |
 | `Q08_Valid_Parentheses.cpp` | Valid Parentheses | String, Stack |
+| `Q09_Implement_Singly_Linked_List.cpp` | Build a functional singly linked list | Linked List |
+| `Q10_Implement_Doubly_Linked_List.cpp` | Build a functional doubly linked list | Linked List |
+| `Q11_Implement_Binary_Search_Tree.cpp` | Build a functional binary search tree | Tree |
+| `Q12_Implement_Min_Heap.cpp` | Build a functional min heap | Heap |
+| `Q13_Implement_Hash_Map.cpp` | Build a functional integer hash map | Hash Map |
+| `Q14_Implement_Trie.cpp` | Build a functional prefix tree | Trie, Tree, Map |
+| `Q15_Implement_Circular_Buffer_Queue.cpp` | Build a functional circular buffer queue | Queue |
+| `Q16_Implement_Graph_Adjacency_List.cpp` | Build a functional directed graph | Graph |
+
+Q09-Q16 are data-structure construction exercises. The goal is to implement the structure itself; the tests only verify that the structure behaves correctly.
 
 ## Full Tesla List From `5. All.csv`
 

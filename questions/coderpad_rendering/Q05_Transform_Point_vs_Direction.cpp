@@ -16,16 +16,22 @@ Concepts tested:
 
 Vec3 TransformPoint(const Mat4& m, const Vec3& p) {
     // TODO: multiply p as a Vec4 with w = 1, then perspective divide if needed.
-    (void)m;
-    (void)p;
-    return {};
+    Vec4 res = Mul(m,Vec4{p.x,p.y,p.z,1});
+    Vec3 ans;
+    if (res.w > 0.00001){
+        res.x /= res.w;
+        res.y /= res.w;
+        res.z /= res.w;
+    }
+
+    
+    return Vec3{res.x,res.y,res.z};
 }
 
 Vec3 TransformDirection(const Mat4& m, const Vec3& dir) {
     // TODO: multiply dir as a Vec4 with w = 0 so translation is ignored.
-    (void)m;
-    (void)dir;
-    return {};
+    Vec4 res = Mul(m,Vec4{dir.x,dir.y,dir.z,0});
+    return Vec3{res.x,res.y,res.z};
 }
 
 Mat4 MakeTranslation(float x, float y, float z) {

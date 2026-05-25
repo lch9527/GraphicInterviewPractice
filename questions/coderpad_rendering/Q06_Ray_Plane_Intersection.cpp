@@ -20,12 +20,19 @@ bool RayPlaneIntersection(const Vec3& rayOrigin, const Vec3& rayDir,
                           const Vec3& planeNormal, const Vec3& pointOnPlane,
                           float& outT) {
     // TODO: use planeD and normalDotRayDir to solve for t.
-    (void)rayOrigin;
-    (void)rayDir;
-    (void)planeNormal;
-    (void)pointOnPlane;
-    outT = 0.0f;
-    return false;
+    float dotr = dot(NormalizeHelper(rayDir), planeNormal);
+    if (abs(dotr) < 0.001){
+        return false;
+    }
+
+    Vec3 toplane = pointOnPlane - rayOrigin;
+
+    outT = dot(planeNormal,toplane) / dotr;
+    if(outT < 0){
+        return false;
+    }
+
+    return true;
 }
 
 bool RunTests() {

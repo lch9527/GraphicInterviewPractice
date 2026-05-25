@@ -20,47 +20,50 @@ Vec3 Add(const Vec3& a, const Vec3& b) {
     // TODO: return a + b component-by-component.
     (void)a;
     (void)b;
-    return {};
+    return {a.x + b.x, a.y + b.y, a.z + b.z};
 }
 
 Vec3 Subtract(const Vec3& a, const Vec3& b) {
     // TODO: return a - b component-by-component.
-    (void)a;
-    (void)b;
-    return {};
+    return {a.x - b.x, a.y-b.y, a.z-b.z};
 }
 
 Vec3 Multiply(const Vec3& v, float s) {
     // TODO: multiply each component by s.
     (void)v;
     (void)s;
-    return {};
+    return {v.x * s, v.y * s, v.z * s};
 }
 
 float Dot(const Vec3& a, const Vec3& b) {
     // TODO: compute the alignment between a and b.
     (void)a;
     (void)b;
-    return 0.0f;
+    return a.x*b.x + a.y*b.y + a.z*b.z;
 }
 
 Vec3 Cross(const Vec3& a, const Vec3& b) {
     // TODO: return a vector perpendicular to a and b.
-    (void)a;
-    (void)b;
-    return {};
+    Vec3 result;
+    result.x = a.y * b.z - a.z * b.y;
+    result.y = a.z * b.x - a.x * b.z;
+    result.z = a.x * b.y - a.y * b.x;   
+    return result;
 }
 
 float Length(const Vec3& v) {
     // TODO: compute the vector length.
     (void)v;
-    return 0.0f;
+    return sqrtf(v.x*v.x + v.y*v.y + v.z*v.z);
 }
 
 Vec3 NormalizeSafe(const Vec3& v) {
     // TODO: normalize v, but return {0,0,0} for tiny vectors.
-    (void)v;
-    return {};
+    float len = Length(v);
+    if (len <= 0.01){
+        return {0,0,0};
+    }
+    return v/Length(v);
 }
 
 bool RunTests() {

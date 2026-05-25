@@ -1,3 +1,4 @@
 build/
 build-linux/
+questions_artifacts/
 questions/q[0-9][0-9]

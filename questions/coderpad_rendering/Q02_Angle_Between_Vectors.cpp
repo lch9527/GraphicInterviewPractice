@@ -20,9 +20,17 @@ constexpr float LOCAL_EPSILON = 1e-6f;
 
 float AngleBetweenDegrees(const Vec3& a, const Vec3& b) {
     // TODO: return the angle in degrees. Return 0 for zero-length input.
-    (void)a;
-    (void)b;
-    return 0.0f;
+    if (LengthHelper(a) < LOCAL_EPSILON || LengthHelper(b) < LOCAL_EPSILON) {
+          return 0.0f;
+      }
+    float dotresult = dot(NormalizeHelper(a),NormalizeHelper(b));
+    if(dotresult < -1){
+        dotresult = -1;
+    }
+    if (dotresult > 1){
+        dotresult = 1;
+    }
+    return acos( dotresult) * 180/LOCAL_PI;
 }
 
 bool RunTests() {
