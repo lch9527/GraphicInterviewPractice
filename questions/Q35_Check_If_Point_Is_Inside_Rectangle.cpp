@@ -22,6 +22,19 @@ Notes:
 
 bool PointInRect(const Vec2& p, const Vec2& rectMin, const Vec2& rectMax) {
     // TODO: implement this function.
+    Vec2 coner1, coner2;
+    coner1.x = rectMax.x;
+    coner1.y = rectMin.y;
+
+    coner2.x = rectMin.x;
+    coner2.y = rectMax.y;
+
+
+    if(p.x >= rectMin.x && p.x <= rectMax.x && p.y >= rectMin.y && p.y <= rectMax.y ){
+        return true;
+    }
+
+
     return false;
 }
 

@@ -1,42 +1,52 @@
 /*
 CoderPad Rendering Question 14: Frame Budget and CPU/GPU Bottleneck
 
+Task:
 Implement simple frame budget and bottleneck detection helpers.
+
+Concepts tested:
+- frame pacing
+- CPU-bound vs GPU-bound
+- 60/90/120 FPS budgets
+- rendering performance reasoning
 */
 
 #include "MathTypes.h"
-#include <algorithm>
-#include <cstring>
 #include <iostream>
+#include <string>
+
+constexpr float LOCAL_EPSILON_MS = 0.25f;
 
 float FrameBudgetMs(int fps) {
-    // TODO: convert frames per second to milliseconds per frame.
-    return 1000.0f / static_cast<float>(fps);
+    // TODO: return 1000.0f / fps, handling invalid fps defensively.
+    (void)fps;
+    return 0.0f;
 }
 
 bool IsFrameOverBudget(float cpuFrameMs, float gpuFrameMs, float targetFps) {
-    // TODO: simple frame time is the slower of CPU and GPU frame times.
-    float frameTime = std::max(cpuFrameMs, gpuFrameMs);
-    return frameTime > (1000.0f / targetFps);
+    // TODO: frame time is modeled as max(cpuFrameMs, gpuFrameMs).
+    (void)cpuFrameMs;
+    (void)gpuFrameMs;
+    (void)targetFps;
+    return false;
 }
 
 const char* DetectBottleneck(float cpuFrameMs, float gpuFrameMs) {
-    // TODO: use a small tolerance to avoid overclassifying near-equal timings.
-    constexpr float toleranceMs = 0.25f;
-    if (cpuFrameMs > gpuFrameMs + toleranceMs) return "CPU-bound";
-    if (gpuFrameMs > cpuFrameMs + toleranceMs) return "GPU-bound";
-    return "balanced/mixed";
+    // TODO: return "CPU-bound", "GPU-bound", or "Balanced".
+    (void)cpuFrameMs;
+    (void)gpuFrameMs;
+    return "Balanced";
 }
 
 bool RunTests() {
     EXPECT_NEAR(FrameBudgetMs(60), 16.666666f);
     EXPECT_NEAR(FrameBudgetMs(90), 11.111111f);
     EXPECT_NEAR(FrameBudgetMs(120), 8.333333f);
+    EXPECT_TRUE(IsFrameOverBudget(10.0f, 17.0f, 60.0f));
     EXPECT_FALSE(IsFrameOverBudget(8.0f, 10.0f, 60.0f));
-    EXPECT_TRUE(IsFrameOverBudget(8.0f, 18.0f, 60.0f));
-    EXPECT_TRUE(std::strcmp(DetectBottleneck(18.0f, 10.0f), "CPU-bound") == 0);
-    EXPECT_TRUE(std::strcmp(DetectBottleneck(8.0f, 12.0f), "GPU-bound") == 0);
-    EXPECT_TRUE(std::strcmp(DetectBottleneck(10.0f, 10.1f), "balanced/mixed") == 0);
+    EXPECT_TRUE(std::string(DetectBottleneck(12.0f, 8.0f)) == "CPU-bound");
+    EXPECT_TRUE(std::string(DetectBottleneck(8.0f, 12.0f)) == "GPU-bound");
+    EXPECT_TRUE(std::string(DetectBottleneck(10.0f, 10.1f)) == "Balanced");
     return true;
 }
 
@@ -48,6 +58,6 @@ int main() {
 
 /*
 Interview explanation:
-Frame rate is limited by the slower side of the CPU/GPU pipeline. A 60 FPS
-target gives about 16.67 ms, while 90 and 120 FPS require tighter budgets.
+A simple frame model uses max(CPU time, GPU time), because those timelines often
+overlap. The slower side determines whether the frame misses the target budget.
 */

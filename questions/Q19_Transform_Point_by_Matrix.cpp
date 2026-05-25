@@ -21,19 +21,20 @@ Notes:
 #include "MathTypes.h"
 
 Vec3 TransformPoint(const Mat4& m, const Vec3& p) {
-    // TODO: implement this function.
-    Vec4 transformedPoint = Mul(m, Vec4{p.x, p.y, p.z, 1.0f});
-    if (transformedPoint.w != 0.0f) {
-        transformedPoint.x /= transformedPoint.w;
-        transformedPoint.y /= transformedPoint.w;
-        transformedPoint.z /= transformedPoint.w;
+    Vec4 transformed = Mul(m, Vec4{p.x, p.y, p.z, 1.0f});
+
+    if (std::fabs(transformed.w) > EPSILON) {
+        transformed.x /= transformed.w;
+        transformed.y /= transformed.w;
+        transformed.z /= transformed.w;
     }
-    return Vec3{transformedPoint.x, transformedPoint.y, transformedPoint.z};    
+
+    return Vec3{transformed.x, transformed.y, transformed.z};
 }
 
 bool RunTests() {
 
-    Mat4 t = Identity4(); t.m[3][0] = 10.0f;
+    Mat4 t = Identity4(); t.m[0][3] = 10.0f;
     EXPECT_VEC3(TransformPoint(t, {1,2,3}), Vec3{11,2,3});
     Mat4 s = Identity4(); s.m[0][0] = 2.0f; s.m[1][1] = 3.0f; s.m[2][2] = 4.0f;
     EXPECT_VEC3(TransformPoint(s, {1,2,3}), Vec3{2,6,12});

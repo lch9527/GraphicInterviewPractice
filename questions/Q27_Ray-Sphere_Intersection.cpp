@@ -23,32 +23,29 @@ Notes:
 bool RaySphereIntersection(const Vec3& rayOrigin, const Vec3& rayDir, const Vec3& sphereCenter, float sphereRadius, float& outT) {
     Vec3 oc = rayOrigin - sphereCenter;
 
-    float a = Dot(rayDir, rayDir);
-    float b = 2.0f * Dot(oc, rayDir);
-    float c = Dot(oc, oc) - sphereRadius * sphereRadius;
+    float a = dot(rayDir, rayDir);
+    float b = 2.0f * dot(oc, rayDir);
+    float c = dot(oc, oc) - sphereRadius * sphereRadius;
 
     float discriminant = b * b - 4.0f * a * c;
     if (discriminant < 0.0f) {
-        outT = 0.0f;
         return false;
     }
 
-    float sqrtD = sqrt(discriminant);
-    float inv2a = 0.5f / a;
-    float t0 = (-b - sqrtD) * inv2a;
-    float t1 = (-b + sqrtD) * inv2a;
+    float sqrtDiscriminant = std::sqrt(discriminant);
+    float t0 = (-b - sqrtDiscriminant) / (2.0f * a);
+    float t1 = (-b + sqrtDiscriminant) / (2.0f * a);
 
-    const float eps = 1e-6f;
-    if (t0 > eps) {
+    if (t0 >= 0.0f) {
         outT = t0;
         return true;
     }
-    if (t1 > eps) {
+
+    if (t1 >= 0.0f) {
         outT = t1;
         return true;
     }
 
-    outT = 0.0f;
     return false;
 }
 
@@ -67,3 +64,16 @@ bool RunTests() {
 RUN_TESTS()
 
 
+
+/*
+  dot(oc + D * t, oc + D * t) = r^2
+
+  dot(oc,oc) + 2dot(oc,d*t) + dot(d*t,d*t) = r^2
+
+  dot(oc,oc) + t*2 dot(oc,d) + t^2*dot(d,d) - r^2 = 0
+
+  a = dot(d,d)
+  b = 2 * dot(oc,d)
+  c = dot(oc,oc) - r * 2
+
+*/

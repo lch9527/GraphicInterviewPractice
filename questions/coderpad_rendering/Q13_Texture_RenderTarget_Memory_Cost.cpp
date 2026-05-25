@@ -1,27 +1,40 @@
 /*
 CoderPad Rendering Question 13: Texture and Render Target Memory Cost
 
-Estimate memory cost for textures, mipmaps, and MSAA render targets.
+Task:
+Estimate memory cost for textures and render targets.
+
+Concepts tested:
+- memory footprint
+- mipmaps
+- MSAA cost
+- embedded rendering constraints
 */
 
 #include "MathTypes.h"
 #include <iostream>
 
 int TextureMemoryBytes(int width, int height, int bytesPerPixel, bool hasMipmaps) {
-    // TODO: base texture cost, with full mip chain approximated as base * 4 / 3.
-    int baseSize = width * height * bytesPerPixel;
-    if (!hasMipmaps) return baseSize;
-    return baseSize * 4 / 3;
+    // TODO: compute base texture cost, then approximate full mip chain as base * 4 / 3.
+    (void)width;
+    (void)height;
+    (void)bytesPerPixel;
+    (void)hasMipmaps;
+    return 0;
 }
 
 int RenderTargetMemoryBytes(int width, int height, int bytesPerPixel, int sampleCount) {
-    // TODO: MSAA cost is proportional to sample count.
-    return width * height * bytesPerPixel * sampleCount;
+    // TODO: include MSAA sample count in the memory estimate.
+    (void)width;
+    (void)height;
+    (void)bytesPerPixel;
+    (void)sampleCount;
+    return 0;
 }
 
 bool RunTests() {
-    EXPECT_EQ_INT(TextureMemoryBytes(1024, 1024, 4, false), 4194304);
-    EXPECT_EQ_INT(TextureMemoryBytes(1024, 1024, 4, true), 5592405);
+    EXPECT_EQ_INT(TextureMemoryBytes(100, 50, 4, false), 20000);
+    EXPECT_EQ_INT(TextureMemoryBytes(300, 300, 4, true), 480000);
     EXPECT_EQ_INT(RenderTargetMemoryBytes(1920, 1080, 4, 1), 8294400);
     EXPECT_EQ_INT(RenderTargetMemoryBytes(1920, 1080, 4, 4), 33177600);
     return true;
@@ -35,6 +48,6 @@ int main() {
 
 /*
 Interview explanation:
-Mipmaps add memory but improve texture sampling quality and cache behavior.
-MSAA increases render target memory and bandwidth roughly by sample count.
+Mipmaps increase memory but improve texture sampling quality and cache behavior.
+MSAA increases memory and bandwidth roughly proportional to the sample count.
 */

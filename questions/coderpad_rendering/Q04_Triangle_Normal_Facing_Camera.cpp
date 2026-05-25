@@ -1,24 +1,37 @@
 /*
 CoderPad Rendering Question 4: Triangle Normal and Facing Camera
 
-Calculate a triangle normal and test whether the triangle faces the camera.
-This is a CoderPad-focused variation of the existing triangle questions.
+Task:
+1. Calculate a triangle normal.
+2. Check whether the triangle faces the camera.
+
+Concepts tested:
+- cross product
+- winding order
+- triangle center
+- view direction
+- dot product facing test
 */
 
 #include "MathTypes.h"
 #include <iostream>
 
 Vec3 CalculateTriangleNormal(const Vec3& a, const Vec3& b, const Vec3& c) {
-    // TODO: use winding order: normal = normalize(cross(b - a, c - a)).
-    return NormalizeHelper(CrossHelper(b - a, c - a));
+    // TODO: compute NormalizeSafe(Cross(b - a, c - a)).
+    (void)a;
+    (void)b;
+    (void)c;
+    return {};
 }
 
-bool IsTriangleFacingCamera(const Vec3& a, const Vec3& b, const Vec3& c, const Vec3& cameraPos) {
-    // TODO: compute triangle center, direction to camera, then dot with normal.
-    Vec3 normal = CalculateTriangleNormal(a, b, c);
-    Vec3 center = (a + b + c) / 3.0f;
-    Vec3 viewDir = NormalizeHelper(cameraPos - center);
-    return DotHelper(normal, viewDir) > 0.0f;
+bool IsTriangleFacingCamera(const Vec3& a, const Vec3& b, const Vec3& c,
+                            const Vec3& cameraPos) {
+    // TODO: compare the triangle normal against the direction from triangle center to camera.
+    (void)a;
+    (void)b;
+    (void)c;
+    (void)cameraPos;
+    return false;
 }
 
 bool RunTests() {
@@ -37,6 +50,6 @@ int main() {
 
 /*
 Interview explanation:
-The normal sign depends on winding order. With viewDir from surface to camera,
-a positive dot means the surface normal points toward the camera.
+Winding order controls normal direction. If viewDir points from the surface to
+the camera, a positive dot(normal, viewDir) means the triangle faces the camera.
 */

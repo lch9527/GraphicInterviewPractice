@@ -22,7 +22,9 @@ Notes:
 
 float SmoothStep(float edge0, float edge1, float x) {
     // TODO: implement this function.
-    return 0.0f;
+      float t = (x - edge0) / (edge1 - edge0);
+        //t = Clamp(t, 0.0f, 1.0f);
+        return t * t * (3.0f - 2.0f * t);
 }
 
 bool RunTests() {

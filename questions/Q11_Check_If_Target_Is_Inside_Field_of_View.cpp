@@ -21,19 +21,17 @@ Notes:
 #include "MathTypes.h"
 
 bool IsInsideFOV(const Vec3& actorPos, const Vec3& actorForward, const Vec3& targetPos, float fovDegrees) {
-    // TODO: implement this function.
-    Vec3 toTarget = {targetPos.x - actorPos.x, targetPos.y - actorPos.y, targetPos.z - actorPos.z};
-    float helffov = fovDegrees / 2.0f;
-    Vec3 newActorForward = NormalizeHelper(actorForward);
-    Vec3 newToTarget = NormalizeHelper(toTarget);
-    float dot = Dot(newActorForward, newToTarget);
-    dot = std::clamp(dot, -1.0f, 1.0f);
-    float angle = std::acos(dot) * 180.0f / 3.14159265f;
-    
-    if (angle <= helffov) {
-        return true;
-    }
-    return false;
+    Vec3 totarget = NormalizeHelper(targetPos - actorPos);
+
+    float helffovR = (fovDegrees/2) * 3.1415926 / 180;
+
+    float dotValue = dot(totarget,actorForward);
+
+    float cosHelfFov = cos(helffovR);
+
+    return dotValue >= cosHelfFov;
+
+
 }
 
 bool RunTests() {

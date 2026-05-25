@@ -21,6 +21,19 @@ Notes:
 #include "MathTypes.h"
 
 void BuildBillboardQuad(const Vec3& center, float width, float height, const Vec3& cameraRight, const Vec3& cameraUp, Vec3 outCorners[4]) {
+
+    Vec3 boardnormal = cross(cameraRight, cameraUp) * -1;
+
+    Vec3 toppoint = cameraUp * (height/2);
+    Vec3 rightpoit = cameraRight * (width/2);
+
+    outCorners[0] = (toppoint * -1) + (rightpoit * -1) + center;
+    outCorners[1] = (toppoint * -1) + (rightpoit) + center;
+    outCorners[2] = toppoint + rightpoit + center;
+    outCorners[3] = toppoint + (rightpoit * -1) + center; 
+
+
+
     // TODO: implement this function.
     // fill outCorners[0..3]
 }

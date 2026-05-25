@@ -1,9 +1,14 @@
 /*
 CoderPad Rendering Question 9: Sphere Frustum Culling
 
-Given six frustum planes and a bounding sphere, return whether the sphere is
-inside or intersecting the frustum. This is a CoderPad-focused variation of the
-existing frustum sphere question.
+Task:
+Given 6 frustum planes and a bounding sphere, return whether the sphere is
+inside or intersecting the frustum.
+
+Concepts tested:
+- frustum culling
+- signed plane distance
+- conservative bounding sphere visibility
 */
 
 #include "MathTypes.h"
@@ -15,23 +20,22 @@ struct Sphere {
 };
 
 bool SphereInFrustum(const Plane planes[6], const Sphere& sphere) {
-    // TODO: cull only when the sphere is fully outside any plane.
-    for (int i = 0; i < 6; ++i) {
-        float distance = DotHelper(planes[i].normal, sphere.center) + planes[i].d;
-        if (distance < -sphere.radius) return false;
-    }
-    return true;
+    // TODO: reject only when signed distance is less than -sphere.radius.
+    (void)planes;
+    (void)sphere;
+    return false;
 }
 
 bool RunTests() {
     Plane planes[6] = {
-        {{1,0,0}, 1}, {{-1,0,0}, 1},
-        {{0,1,0}, 1}, {{0,-1,0}, 1},
-        {{0,0,1}, 1}, {{0,0,-1}, 1}
+        {{ 1, 0, 0}, 1}, {{-1, 0, 0}, 1},
+        {{ 0, 1, 0}, 1}, {{ 0,-1, 0}, 1},
+        {{ 0, 0, 1}, 1}, {{ 0, 0,-1}, 1}
     };
+
     EXPECT_TRUE(SphereInFrustum(planes, {{0,0,0}, 0.5f}));
     EXPECT_TRUE(SphereInFrustum(planes, {{1.2f,0,0}, 0.3f}));
-    EXPECT_FALSE(SphereInFrustum(planes, {{2.0f,0,0}, 0.5f}));
+    EXPECT_FALSE(SphereInFrustum(planes, {{2.0f,0,0}, 0.3f}));
     return true;
 }
 
@@ -43,6 +47,6 @@ int main() {
 
 /*
 Interview explanation:
-Negative signed distance means the center is outside a plane. A sphere is only
-rejected when that distance is more negative than its radius.
+Negative distance means the center is outside a plane, but the sphere may still
+intersect the frustum. Cull only when it is farther outside than its radius.
 */

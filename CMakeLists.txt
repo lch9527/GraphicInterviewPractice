@@ -18,18 +18,21 @@ foreach(qfile ${QUESTION_FILES})
         string(FIND "${qdir}" "tesla" is_tesla)
         if(is_coderpad GREATER -1)
             set(short_name "coderpad_q${CMAKE_MATCH_1}")
+            set(output_dir "${CMAKE_SOURCE_DIR}/questions_artifacts/coderpad_rendering")
         elseif(is_tesla GREATER -1)
             set(short_name "tesla_q${CMAKE_MATCH_1}")
+            set(output_dir "${CMAKE_SOURCE_DIR}/questions_artifacts/tesla")
         else()
             set(short_name "q${CMAKE_MATCH_1}")
+            set(output_dir "${CMAKE_SOURCE_DIR}/questions_artifacts")
         endif()
         set_target_properties(${qname} PROPERTIES
             OUTPUT_NAME "${short_name}"
-            RUNTIME_OUTPUT_DIRECTORY "${qdir}"
-            RUNTIME_OUTPUT_DIRECTORY_DEBUG "${qdir}"
-            RUNTIME_OUTPUT_DIRECTORY_RELEASE "${qdir}"
-            RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "${qdir}"
-            RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "${qdir}"
+            RUNTIME_OUTPUT_DIRECTORY "${output_dir}"
+            RUNTIME_OUTPUT_DIRECTORY_DEBUG "${output_dir}"
+            RUNTIME_OUTPUT_DIRECTORY_RELEASE "${output_dir}"
+            RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "${output_dir}"
+            RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "${output_dir}"
         )
     endif()
 endforeach()

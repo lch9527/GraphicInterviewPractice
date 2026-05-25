@@ -1,8 +1,14 @@
 /*
 CoderPad Rendering Question 6: Ray-Plane Intersection
 
-Implement ray-plane intersection. This is a CoderPad-focused variation of the
-existing ray-plane question.
+Task:
+Implement ray-plane intersection and return whether the hit is in front of the ray.
+
+Concepts tested:
+- ray equation P = O + tD
+- plane equation dot(N, X) + d = 0
+- parallel ray handling
+- t >= 0 hit check
 */
 
 #include "MathTypes.h"
@@ -10,14 +16,16 @@ existing ray-plane question.
 
 constexpr float LOCAL_EPSILON = 1e-6f;
 
-bool RayPlaneIntersection(const Vec3& rayOrigin, const Vec3& rayDir, const Vec3& planeNormal,
-                          const Vec3& pointOnPlane, float& outT) {
-    // TODO: solve ray equation P = O + tD against the plane equation.
-    float planeD = -DotHelper(planeNormal, pointOnPlane);
-    float normalDotRayDir = DotHelper(planeNormal, rayDir);
-    if (std::fabs(normalDotRayDir) < LOCAL_EPSILON) return false;
-    outT = -(DotHelper(planeNormal, rayOrigin) + planeD) / normalDotRayDir;
-    return outT >= 0.0f;
+bool RayPlaneIntersection(const Vec3& rayOrigin, const Vec3& rayDir,
+                          const Vec3& planeNormal, const Vec3& pointOnPlane,
+                          float& outT) {
+    // TODO: use planeD and normalDotRayDir to solve for t.
+    (void)rayOrigin;
+    (void)rayDir;
+    (void)planeNormal;
+    (void)pointOnPlane;
+    outT = 0.0f;
+    return false;
 }
 
 bool RunTests() {
@@ -37,6 +45,6 @@ int main() {
 
 /*
 Interview explanation:
-The dot of the plane normal and ray direction tells whether the ray is parallel.
-The solved t value must be non-negative for a forward ray hit.
+The denominator dot(N, D) tells whether the ray points toward the plane. If it
+is near zero, the ray is parallel and cannot produce a stable intersection.
 */

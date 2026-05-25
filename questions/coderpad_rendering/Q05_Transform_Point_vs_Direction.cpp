@@ -1,42 +1,52 @@
 /*
 CoderPad Rendering Question 5: TransformPoint vs TransformDirection
 
-Implement point and direction transformation. This is a CoderPad-focused
-variation of the existing matrix transform questions.
+Task:
+Implement TransformPoint and TransformDirection.
+
+Concepts tested:
+- homogeneous coordinates
+- points use w = 1
+- directions use w = 0
+- translation affects points but not directions
 */
 
 #include "MathTypes.h"
 #include <iostream>
 
 Vec3 TransformPoint(const Mat4& m, const Vec3& p) {
-    // TODO: transform with w = 1 and divide by w when needed.
-    Vec4 input{p.x, p.y, p.z, 1.0f};
-    Vec4 r = Mul(m, input);
-    if (std::fabs(r.w) > EPSILON && !AlmostEqual(r.w, 1.0f)) {
-        return {r.x / r.w, r.y / r.w, r.z / r.w};
-    }
-    return {r.x, r.y, r.z};
+    // TODO: multiply p as a Vec4 with w = 1, then perspective divide if needed.
+    (void)m;
+    (void)p;
+    return {};
 }
 
 Vec3 TransformDirection(const Mat4& m, const Vec3& dir) {
-    // TODO: transform with w = 0 so translation is ignored.
-    Vec4 input{dir.x, dir.y, dir.z, 0.0f};
-    Vec4 r = Mul(m, input);
-    return {r.x, r.y, r.z};
+    // TODO: multiply dir as a Vec4 with w = 0 so translation is ignored.
+    (void)m;
+    (void)dir;
+    return {};
+}
+
+Mat4 MakeTranslation(float x, float y, float z) {
+    Mat4 m = Identity4();
+    m.m[3][0] = x;
+    m.m[3][1] = y;
+    m.m[3][2] = z;
+    return m;
 }
 
 bool RunTests() {
-    Mat4 t = Identity4();
-    t.m[0][3] = 10.0f;
-    t.m[1][3] = -2.0f;
-    Mat4 s = Identity4();
-    s.m[0][0] = 2.0f;
-    s.m[1][1] = 3.0f;
-    s.m[2][2] = 4.0f;
-    EXPECT_VEC3(TransformPoint(t, {1,2,3}), Vec3{11,0,3});
-    EXPECT_VEC3(TransformDirection(t, {1,2,3}), Vec3{1,2,3});
-    EXPECT_VEC3(TransformPoint(s, {1,2,3}), Vec3{2,6,12});
-    EXPECT_VEC3(TransformDirection(s, {1,2,3}), Vec3{2,6,12});
+    Mat4 translation = MakeTranslation(10.0f, 20.0f, 30.0f);
+    EXPECT_VEC3(TransformPoint(translation, {1,2,3}), Vec3{11,22,33});
+    EXPECT_VEC3(TransformDirection(translation, {1,2,3}), Vec3{1,2,3});
+
+    Mat4 scale = Identity4();
+    scale.m[0][0] = 2.0f;
+    scale.m[1][1] = 3.0f;
+    scale.m[2][2] = 4.0f;
+    EXPECT_VEC3(TransformPoint(scale, {1,2,3}), Vec3{2,6,12});
+    EXPECT_VEC3(TransformDirection(scale, {1,2,3}), Vec3{2,6,12});
     return true;
 }
 
@@ -48,6 +58,6 @@ int main() {
 
 /*
 Interview explanation:
-Points use w = 1, so translation applies. Directions use w = 0, so only the
-upper-left 3x3 rotation/scale portion affects them.
+TransformPoint applies rotation, scale, and translation. TransformDirection
+applies rotation and scale, but ignores translation because w is 0.
 */

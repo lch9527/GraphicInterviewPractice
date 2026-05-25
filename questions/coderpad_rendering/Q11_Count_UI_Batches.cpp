@@ -1,34 +1,37 @@
 /*
 CoderPad Rendering Question 11: Count UI Batches
 
-Count draw batches for UI quads with texture IDs. This is a CoderPad-focused
-variation of the existing UI batching question.
+Task:
+Given UI quads with texture IDs, count draw batches when order cannot change
+and when order can change.
+
+Concepts tested:
+- batching
+- texture binding changes
+- draw-call count
+- ordered transparent UI
+- unordered opaque UI
 */
 
 #include "MathTypes.h"
 #include <iostream>
-#include <unordered_set>
 #include <vector>
+#include <unordered_set>
 
 int CountBatchesOrderCannotChange(const std::vector<UIQuad>& quads) {
-    // TODO: count runs of identical texture IDs in the original order.
-    if (quads.empty()) return 0;
-    int batches = 1;
-    for (size_t i = 1; i < quads.size(); ++i) {
-        if (quads[i].textureId != quads[i - 1].textureId) ++batches;
-    }
-    return batches;
+    // TODO: count contiguous runs of the same textureId.
+    (void)quads;
+    return 0;
 }
 
 int CountBatchesOrderCanChange(const std::vector<UIQuad>& quads) {
-    // TODO: count unique texture IDs when order is allowed to change.
-    std::unordered_set<int> textureIds;
-    for (const UIQuad& quad : quads) textureIds.insert(quad.textureId);
-    return static_cast<int>(textureIds.size());
+    // TODO: count unique texture IDs.
+    (void)quads;
+    return 0;
 }
 
 bool RunTests() {
-    std::vector<UIQuad> quads = {{1},{1},{2},{2},{1},{3}};
+    std::vector<UIQuad> quads = {{1}, {1}, {2}, {2}, {1}, {3}};
     EXPECT_EQ_INT(CountBatchesOrderCannotChange(quads), 4);
     EXPECT_EQ_INT(CountBatchesOrderCanChange(quads), 3);
     EXPECT_EQ_INT(CountBatchesOrderCannotChange({}), 0);
@@ -44,6 +47,7 @@ int main() {
 
 /*
 Interview explanation:
-Transparent UI often cannot be reordered, so each texture change can force a
-new batch. Opaque or reorderable UI can group by unique texture.
+If UI order cannot change, each texture change creates a new batch. If order can
+change, quads can be grouped by texture, so the number of batches is the number
+of unique texture IDs.
 */

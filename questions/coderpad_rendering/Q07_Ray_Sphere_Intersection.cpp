@@ -1,28 +1,29 @@
 /*
 CoderPad Rendering Question 7: Ray-Sphere Intersection
 
-Return the nearest positive ray-sphere intersection distance. This is a
-CoderPad-focused variation of the existing ray-sphere question.
+Task:
+Implement ray-sphere intersection and return the nearest positive t.
+
+Concepts tested:
+- ray equation
+- sphere equation
+- quadratic equation
+- discriminant
+- choosing nearest positive intersection
 */
 
 #include "MathTypes.h"
 #include <iostream>
 
-bool RaySphereIntersection(const Vec3& rayOrigin, const Vec3& rayDir, const Vec3& sphereCenter,
-                           float sphereRadius, float& outT) {
-    // TODO: build and solve the quadratic equation.
-    Vec3 oc = rayOrigin - sphereCenter;
-    float a = DotHelper(rayDir, rayDir);
-    float b = 2.0f * DotHelper(oc, rayDir);
-    float c = DotHelper(oc, oc) - sphereRadius * sphereRadius;
-    float discriminant = b * b - 4.0f * a * c;
-    if (discriminant < 0.0f) return false;
-
-    float sqrtDisc = std::sqrt(discriminant);
-    float t0 = (-b - sqrtDisc) / (2.0f * a);
-    float t1 = (-b + sqrtDisc) / (2.0f * a);
-    if (t0 >= 0.0f) { outT = t0; return true; }
-    if (t1 >= 0.0f) { outT = t1; return true; }
+bool RaySphereIntersection(const Vec3& rayOrigin, const Vec3& rayDir,
+                           const Vec3& sphereCenter, float sphereRadius,
+                           float& outT) {
+    // TODO: build the quadratic coefficients and solve for the nearest positive t.
+    (void)rayOrigin;
+    (void)rayDir;
+    (void)sphereCenter;
+    (void)sphereRadius;
+    outT = 0.0f;
     return false;
 }
 

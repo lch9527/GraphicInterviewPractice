@@ -1,26 +1,28 @@
 /*
 CoderPad Rendering Question 2: Angle Between Vectors
 
-Return the angle between two vectors in degrees. This is a CoderPad-focused
-variation of the existing angle question.
+Task:
+Given two vectors, return the angle between them in degrees.
+
+Concepts tested:
+- dot product
+- acos
+- radians-to-degrees conversion
+- clamping before acos
+- zero-length vector handling
 */
 
 #include "MathTypes.h"
-#include <algorithm>
 #include <iostream>
 
-constexpr float PI = 3.1415926535f;
+constexpr float LOCAL_PI = 3.1415926535f;
 constexpr float LOCAL_EPSILON = 1e-6f;
 
 float AngleBetweenDegrees(const Vec3& a, const Vec3& b) {
-    // TODO: use dot, lengths, clamp, acos, then convert radians to degrees.
-    float lenA = LengthHelper(a);
-    float lenB = LengthHelper(b);
-    if (lenA < LOCAL_EPSILON || lenB < LOCAL_EPSILON) return 0.0f;
-
-    float cosTheta = DotHelper(a, b) / (lenA * lenB);
-    cosTheta = std::max(-1.0f, std::min(1.0f, cosTheta));
-    return std::acos(cosTheta) * 180.0f / PI;
+    // TODO: return the angle in degrees. Return 0 for zero-length input.
+    (void)a;
+    (void)b;
+    return 0.0f;
 }
 
 bool RunTests() {
@@ -39,6 +41,6 @@ int main() {
 
 /*
 Interview explanation:
-Clamp before acos because floating-point rounding can push a mathematically
-valid cosine slightly outside [-1, 1].
+The normalized dot product gives cos(theta). Clamp the value before acos to
+avoid NaN from tiny floating-point error outside [-1, 1].
 */

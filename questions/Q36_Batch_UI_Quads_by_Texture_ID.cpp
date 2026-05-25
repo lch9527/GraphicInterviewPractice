@@ -22,7 +22,25 @@ Notes:
 
 int CountUIBatches(const std::vector<UIQuad>& quads, bool canReorder) {
     // TODO: implement this function.
-    return 0;
+
+    if(quads.empty()){
+        return 0;
+    }
+    if (canReorder){
+            std::unordered_set <int> uset;
+        for(auto i: quads){
+        uset.insert(i.textureId);
+    }
+    return uset.size();
+    }
+
+    int res = 1;
+    for (int i = 1; i<quads.size(); ++i){
+        if(quads[i].textureId != quads[i-1].textureId){
+            res ++;
+        }
+    }
+    return res;
 }
 
 bool RunTests() {

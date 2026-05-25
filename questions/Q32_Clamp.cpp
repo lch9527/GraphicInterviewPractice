@@ -22,7 +22,14 @@ Notes:
 
 float Clamp(float x, float minValue, float maxValue) {
     // TODO: implement this function.
-    return 0.0f;
+    if (x <= minValue){
+        return minValue;
+    }
+    else if (x >= maxValue ){
+        return maxValue;
+    }
+
+    return x;
 }
 
 bool RunTests() {
