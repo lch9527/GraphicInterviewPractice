@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q18_Build_Scale_Matrix.cpp -o ../questions_artifacts/q18 && ../questions_artifacts/q18
+
 // Build: cmake --build build --config Debug --target Q18_Build_Scale_Matrix
 // Run: .\build\Debug\Q18_Build_Scale_Matrix.exe
 /*

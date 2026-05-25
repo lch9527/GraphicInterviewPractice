@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/tesla && g++ -std=c++17 -I../../include Q05_Number_of_Islands.cpp -o ../../questions_artifacts/tesla/tesla_q05 && ../../questions_artifacts/tesla/tesla_q05
+
 // Tesla Q05: Number of Islands
 /*
 Description:

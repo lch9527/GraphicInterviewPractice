@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q02_Implement_Vector_Subtraction.cpp -o ../questions_artifacts/q02 && ../questions_artifacts/q02
+
 // Build: cmake --build build --config Debug --target Q02_Implement_Vector_Subtraction
 // Run: .\build\Debug\Q02_Implement_Vector_Subtraction.exe
 /*

@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q01_Implement_Vector_Addition.cpp -o ../questions_artifacts/q01 && ../questions_artifacts/q01
+
 // Build: cmake --build build --config Debug --target Q01_Implement_Vector_Addition
 // Run: .\build\Debug\Q01_Implement_Vector_Addition.exe
 /*

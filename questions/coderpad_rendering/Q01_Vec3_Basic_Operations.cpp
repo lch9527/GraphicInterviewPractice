@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/coderpad_rendering && g++ -std=c++17 -I../../include Q01_Vec3_Basic_Operations.cpp -o ../../questions_artifacts/coderpad_rendering/coderpad_q01 && ../../questions_artifacts/coderpad_rendering/coderpad_q01
+
 /*
 CoderPad Rendering Question 1: Vec3 Basic Operations
 

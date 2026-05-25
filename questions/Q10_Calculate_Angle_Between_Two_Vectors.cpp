@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q10_Calculate_Angle_Between_Two_Vectors.cpp -o ../questions_artifacts/q10 && ../questions_artifacts/q10
+
 // Build: cmake --build build --config Debug --target Q10_Calculate_Angle_Between_Two_Vectors
 // Run: .\build\Debug\Q10_Calculate_Angle_Between_Two_Vectors.exe
 /*

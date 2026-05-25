@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q09_Check_If_Two_Vectors_Point_Same_Direction.cpp -o ../questions_artifacts/q09 && ../questions_artifacts/q09
+
 // Build: cmake --build build --config Debug --target Q09_Check_If_Two_Vectors_Point_Same_Direction
 // Run: .\build\Debug\Q09_Check_If_Two_Vectors_Point_Same_Direction.exe
 /*

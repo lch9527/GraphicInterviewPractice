@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/tesla && g++ -std=c++17 -I../../include Q02_Minimum_Changes_To_Make_Alternating_Binary_String.cpp -o ../../questions_artifacts/tesla/tesla_q02 && ../../questions_artifacts/tesla/tesla_q02
+
 // Tesla Q02: Minimum Changes To Make Alternating Binary String
 /*
 Description:

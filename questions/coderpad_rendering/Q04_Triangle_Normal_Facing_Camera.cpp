@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/coderpad_rendering && g++ -std=c++17 -I../../include Q04_Triangle_Normal_Facing_Camera.cpp -o ../../questions_artifacts/coderpad_rendering/coderpad_q04 && ../../questions_artifacts/coderpad_rendering/coderpad_q04
+
 /*
 CoderPad Rendering Question 4: Triangle Normal and Facing Camera
 

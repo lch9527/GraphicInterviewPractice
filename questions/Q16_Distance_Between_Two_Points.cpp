@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q16_Distance_Between_Two_Points.cpp -o ../questions_artifacts/q16 && ../questions_artifacts/q16
+
 // Build: cmake --build build --config Debug --target Q16_Distance_Between_Two_Points
 // Run: .\build\Debug\Q16_Distance_Between_Two_Points.exe
 /*

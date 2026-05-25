@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/tesla && g++ -std=c++17 -I../../include Q06_Design_Circular_Queue.cpp -o ../../questions_artifacts/tesla/tesla_q06 && ../../questions_artifacts/tesla/tesla_q06
+
 // Tesla Q06: Design Circular Queue
 /*
 Description:

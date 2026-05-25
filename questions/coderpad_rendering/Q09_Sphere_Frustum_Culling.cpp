@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/coderpad_rendering && g++ -std=c++17 -I../../include Q09_Sphere_Frustum_Culling.cpp -o ../../questions_artifacts/coderpad_rendering/coderpad_q09 && ../../questions_artifacts/coderpad_rendering/coderpad_q09
+
 /*
 CoderPad Rendering Question 9: Sphere Frustum Culling
 

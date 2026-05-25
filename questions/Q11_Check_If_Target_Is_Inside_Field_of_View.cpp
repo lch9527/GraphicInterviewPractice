@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q11_Check_If_Target_Is_Inside_Field_of_View.cpp -o ../questions_artifacts/q11 && ../questions_artifacts/q11
+
 // Build: cmake --build build --config Debug --target Q11_Check_If_Target_Is_Inside_Field_of_View
 // Run: .\build\Debug\Q11_Check_If_Target_Is_Inside_Field_of_View.exe
 /*

@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q07_Normalize_a_Vector_Safely.cpp -o ../questions_artifacts/q07 && ../questions_artifacts/q07
+
 // Build: cmake --build build --config Debug --target Q07_Normalize_a_Vector_Safely
 // Run: .\build\Debug\Q07_Normalize_a_Vector_Safely.exe
 /*

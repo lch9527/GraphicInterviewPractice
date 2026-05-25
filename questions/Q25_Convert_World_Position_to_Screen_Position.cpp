@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q25_Convert_World_Position_to_Screen_Position.cpp -o ../questions_artifacts/q25 && ../questions_artifacts/q25
+
 // Build: cmake --build build --config Debug --target Q25_Convert_World_Position_to_Screen_Position
 // Run: .\build\Debug\Q25_Convert_World_Position_to_Screen_Position.exe
 /*

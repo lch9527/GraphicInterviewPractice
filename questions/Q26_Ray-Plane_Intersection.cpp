@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q26_Ray-Plane_Intersection.cpp -o ../questions_artifacts/q26 && ../questions_artifacts/q26
+
 // Build: cmake --build build --config Debug --target Q26_Ray-Plane_Intersection
 // Run: .\build\Debug\Q26_Ray-Plane_Intersection.exe
 /*
@@ -28,6 +31,12 @@ bool RayPlaneIntersection(const Vec3& rayOrigin, const Vec3& rayDir, const Vec3&
         }
 
     outT = dot(planeNormal,pointOnPlane-rayOrigin)/d;
+
+    /*
+    dot(N, O + D * t - P) = 0
+    dot(N,O) + t*dot(N,D) - dot(N,p) = 0
+    t = dot(n,o-p)/dot(N,D) 
+    */
 
     if (outT < 0){
         return false;

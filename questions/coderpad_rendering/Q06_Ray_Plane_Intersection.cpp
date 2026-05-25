@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/coderpad_rendering && g++ -std=c++17 -I../../include Q06_Ray_Plane_Intersection.cpp -o ../../questions_artifacts/coderpad_rendering/coderpad_q06 && ../../questions_artifacts/coderpad_rendering/coderpad_q06
+
 /*
 CoderPad Rendering Question 6: Ray-Plane Intersection
 
@@ -19,14 +22,26 @@ constexpr float LOCAL_EPSILON = 1e-6f;
 bool RayPlaneIntersection(const Vec3& rayOrigin, const Vec3& rayDir,
                           const Vec3& planeNormal, const Vec3& pointOnPlane,
                           float& outT) {
-    // TODO: use planeD and normalDotRayDir to solve for t.
-    (void)rayOrigin;
-    (void)rayDir;
-    (void)planeNormal;
-    (void)pointOnPlane;
-    outT = 0.0f;
-    return false;
+/*
+    dot(o+dt - p, n) = 0;
+    dot(n,op+dt) = 0
+    dot(n,op) + dot(n,dt) = 0
+    dot(n,op) + t*dot(n,d) = 0
+    t = -dot(n,op)/dot(n,d);
+*/
+    float dome = dot(planeNormal, rayDir);
+    if (fabs(dome) < 0.0001){
+        return false;
+    }
+
+    outT = -dot(planeNormal,rayOrigin - pointOnPlane)/dome;
+
+    return outT > 0.00001;
 }
+
+/*
+
+*/
 
 bool RunTests() {
     float t = -1.0f;

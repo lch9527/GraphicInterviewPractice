@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q22_Convert_Degrees_to_Radians.cpp -o ../questions_artifacts/q22 && ../questions_artifacts/q22
+
 // Build: cmake --build build --config Debug --target Q22_Convert_Degrees_to_Radians
 // Run: .\build\Debug\Q22_Convert_Degrees_to_Radians.exe
 /*

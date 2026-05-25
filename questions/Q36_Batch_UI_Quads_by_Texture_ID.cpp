@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q36_Batch_UI_Quads_by_Texture_ID.cpp -o ../questions_artifacts/q36 && ../questions_artifacts/q36
+
 // Build: cmake --build build --config Debug --target Q36_Batch_UI_Quads_by_Texture_ID
 // Run: .\build\Debug\Q36_Batch_UI_Quads_by_Texture_ID.exe
 /*

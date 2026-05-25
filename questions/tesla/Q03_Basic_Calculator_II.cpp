@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/tesla && g++ -std=c++17 -I../../include Q03_Basic_Calculator_II.cpp -o ../../questions_artifacts/tesla/tesla_q03 && ../../questions_artifacts/tesla/tesla_q03
+
 // Tesla Q03: Basic Calculator II
 /*
 Description:

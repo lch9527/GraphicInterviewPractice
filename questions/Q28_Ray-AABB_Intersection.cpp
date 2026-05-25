@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q28_Ray-AABB_Intersection.cpp -o ../questions_artifacts/q28 && ../questions_artifacts/q28
+
 // Build: cmake --build build --config Debug --target Q28_Ray-AABB_Intersection
 // Run: .\build\Debug\Q28_Ray-AABB_Intersection.exe
 /*

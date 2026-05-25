@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q34_Make_Billboard_Quad_Face_Camera.cpp -o ../questions_artifacts/q34 && ../questions_artifacts/q34
+
 // Build: cmake --build build --config Debug --target Q34_Make_Billboard_Quad_Face_Camera
 // Run: .\build\Debug\Q34_Make_Billboard_Quad_Face_Camera.exe
 /*

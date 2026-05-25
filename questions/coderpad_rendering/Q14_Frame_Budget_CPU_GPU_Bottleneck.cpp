@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/coderpad_rendering && g++ -std=c++17 -I../../include Q14_Frame_Budget_CPU_GPU_Bottleneck.cpp -o ../../questions_artifacts/coderpad_rendering/coderpad_q14 && ../../questions_artifacts/coderpad_rendering/coderpad_q14
+
 /*
 CoderPad Rendering Question 14: Frame Budget and CPU/GPU Bottleneck
 

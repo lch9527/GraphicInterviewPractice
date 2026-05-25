@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q06_Compute_Vector_Length.cpp -o ../questions_artifacts/q06 && ../questions_artifacts/q06
+
 // Build: cmake --build build --config Debug --target Q06_Compute_Vector_Length
 // Run: .\build\Debug\Q06_Compute_Vector_Length.exe
 /*

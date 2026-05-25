@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q17_Build_Translation_Matrix.cpp -o ../questions_artifacts/q17 && ../questions_artifacts/q17
+
 // Build: cmake --build build --config Debug --target Q17_Build_Translation_Matrix
 // Run: .\build\Debug\Q17_Build_Translation_Matrix.exe
 /*

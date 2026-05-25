@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/coderpad_rendering && g++ -std=c++17 -I../../include Q03_Field_Of_View_Test.cpp -o ../../questions_artifacts/coderpad_rendering/coderpad_q03 && ../../questions_artifacts/coderpad_rendering/coderpad_q03
+
 /*
 CoderPad Rendering Question 3: Field Of View Cone Test
 
@@ -21,11 +24,16 @@ constexpr float LOCAL_EPSILON = 1e-6f;
 bool IsTargetInFOV(const Vec3& actorPos, const Vec3& actorForward,
                    const Vec3& targetPos, float fovDegrees) {
     // TODO: compare dot(normalizedForward, normalizedToTarget) to cos(halfFOV).
-    (void)actorPos;
-    (void)actorForward;
-    (void)targetPos;
-    (void)fovDegrees;
-    return false;
+    float halfR = (fovDegrees/2) * LOCAL_PI/180;
+
+    Vec3 forwordn = NormalizeHelper(actorForward);
+    Vec3 totargetn = NormalizeHelper(targetPos - actorPos);
+
+    if(LengthHelper(forwordn) < LOCAL_EPSILON || LengthHelper(totargetn) < LOCAL_EPSILON){
+        return false;
+    }
+
+    return dot(forwordn,totargetn) >= cos(halfR);
 }
 
 bool RunTests() {

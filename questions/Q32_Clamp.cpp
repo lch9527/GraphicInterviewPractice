@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q32_Clamp.cpp -o ../questions_artifacts/q32 && ../questions_artifacts/q32
+
 // Build: cmake --build build --config Debug --target Q32_Clamp
 // Run: .\build\Debug\Q32_Clamp.exe
 /*

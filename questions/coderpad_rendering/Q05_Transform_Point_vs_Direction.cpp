@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/coderpad_rendering && g++ -std=c++17 -I../../include Q05_Transform_Point_vs_Direction.cpp -o ../../questions_artifacts/coderpad_rendering/coderpad_q05 && ../../questions_artifacts/coderpad_rendering/coderpad_q05
+
 /*
 CoderPad Rendering Question 5: TransformPoint vs TransformDirection
 

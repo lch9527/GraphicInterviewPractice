@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q35_Check_If_Point_Is_Inside_Rectangle.cpp -o ../questions_artifacts/q35 && ../questions_artifacts/q35
+
 // Build: cmake --build build --config Debug --target Q35_Check_If_Point_Is_Inside_Rectangle
 // Run: .\build\Debug\Q35_Check_If_Point_Is_Inside_Rectangle.exe
 /*

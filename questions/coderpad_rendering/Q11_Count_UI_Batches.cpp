@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/coderpad_rendering && g++ -std=c++17 -I../../include Q11_Count_UI_Batches.cpp -o ../../questions_artifacts/coderpad_rendering/coderpad_q11 && ../../questions_artifacts/coderpad_rendering/coderpad_q11
+
 /*
 CoderPad Rendering Question 11: Count UI Batches
 

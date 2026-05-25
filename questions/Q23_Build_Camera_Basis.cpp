@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q23_Build_Camera_Basis.cpp -o ../questions_artifacts/q23 && ../questions_artifacts/q23
+
 // Build: cmake --build build --config Debug --target Q23_Build_Camera_Basis
 // Run: .\build\Debug\Q23_Build_Camera_Basis.exe
 /*

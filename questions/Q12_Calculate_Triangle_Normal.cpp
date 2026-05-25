@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q12_Calculate_Triangle_Normal.cpp -o ../questions_artifacts/q12 && ../questions_artifacts/q12
+
 // Build: cmake --build build --config Debug --target Q12_Calculate_Triangle_Normal
 // Run: .\build\Debug\Q12_Calculate_Triangle_Normal.exe
 /*

@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q05_Compute_Cross_Product.cpp -o ../questions_artifacts/q05 && ../questions_artifacts/q05
+
 // Build: cmake --build build --config Debug --target Q05_Compute_Cross_Product
 // Run: .\build\Debug\Q05_Compute_Cross_Product.exe
 /*

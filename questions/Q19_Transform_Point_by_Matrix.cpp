@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q19_Transform_Point_by_Matrix.cpp -o ../questions_artifacts/q19 && ../questions_artifacts/q19
+
 // Build: cmake --build build --config Debug --target Q19_Transform_Point_by_Matrix
 // Run: .\build\Debug\Q19_Transform_Point_by_Matrix.exe
 /*
