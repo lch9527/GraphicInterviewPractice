@@ -23,18 +23,8 @@ constexpr float LOCAL_EPSILON = 1e-6f;
 
 bool IsTargetInFOV(const Vec3& actorPos, const Vec3& actorForward,
                    const Vec3& targetPos, float fovDegrees) {
-    Vec3 toTarget = targetPos - actorPos;
-    float toTargetLen = LengthHelper(toTarget);
-    float forwardLen = LengthHelper(actorForward);
-    if (toTargetLen < LOCAL_EPSILON || forwardLen < LOCAL_EPSILON) {
-        return false;
-    }
-
-    Vec3 toTargetDir = toTarget / toTargetLen;
-    Vec3 forwardDir = actorForward / forwardLen;
-    float cosAngle = std::clamp(dot(toTargetDir, forwardDir), -1.0f, 1.0f);
-    float halfFovRadians = (fovDegrees * 0.5f) * LOCAL_PI / 180.0f;
-    return cosAngle >= std::cos(halfFovRadians);
+    // TODO: implement this function.
+    return false;
 }
 
 bool RunTests() {
@@ -51,8 +41,3 @@ int main() {
     return ok ? 0 : 1;
 }
 
-/*
-Interview explanation:
-For normalized vectors, dot product gives cos(theta). Comparing against
-cos(halfFOV) avoids the cost and edge cases of acos.
-*/

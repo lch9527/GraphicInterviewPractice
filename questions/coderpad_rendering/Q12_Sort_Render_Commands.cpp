@@ -28,38 +28,13 @@ struct RenderCommand {
 };
 
 std::vector<RenderCommand> SortOpaqueCommands(const std::vector<RenderCommand>& commands) {
-    std::vector<RenderCommand> result;
-
-    for (const RenderCommand& command : commands) {
-        if (!command.transparent) {
-            result.push_back(command);
-        }
-    }
-
-    std::sort(result.begin(), result.end(), [](const RenderCommand& a, const RenderCommand& b) {
-        if (a.materialId != b.materialId) {
-            return a.materialId < b.materialId;
-        }
-        return a.textureId < b.textureId;
-    });
-
-    return result;
+    // TODO: implement this function.
+    return {};
 }
 
 std::vector<RenderCommand> SortTransparentCommands(const std::vector<RenderCommand>& commands) {
-    std::vector<RenderCommand> result;
-
-    for (const RenderCommand& command : commands) {
-        if (command.transparent) {
-            result.push_back(command);
-        }
-    }
-
-    std::sort(result.begin(), result.end(), [](const RenderCommand& a, const RenderCommand& b) {
-        return a.depth > b.depth;
-    });
-
-    return result;
+    // TODO: implement this function.
+    return {};
 }
 
 bool RunTests() {
@@ -91,8 +66,3 @@ int main() {
     return ok ? 0 : 1;
 }
 
-/*
-Interview explanation:
-Opaque objects can be sorted to reduce state changes. Transparent objects
-usually need back-to-front sorting because blending is order-dependent.
-*/

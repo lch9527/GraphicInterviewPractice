@@ -22,26 +22,13 @@ Concepts tested:
 #include <unordered_set>
 
 int CountBatchesOrderCannotChange(const std::vector<UIQuad>& quads) {
-    if (quads.empty()) {
-        return 0;
-    }
-
-    int ans = 1;
-    for (size_t i = 1; i < quads.size(); i++) {
-        if (quads[i].textureId != quads[i - 1].textureId) {
-            ans++;
-        }
-    }
-    return ans;
+    // TODO: implement this function.
+    return 0;
 }
 
 int CountBatchesOrderCanChange(const std::vector<UIQuad>& quads) {
-    std::unordered_set<int> textureIds;
-    for (const UIQuad& quad : quads) {
-        textureIds.insert(quad.textureId);
-    }
-
-    return static_cast<int>(textureIds.size());
+    // TODO: implement this function.
+    return 0;
 }
 
 bool RunTests() {
@@ -59,9 +46,3 @@ int main() {
     return ok ? 0 : 1;
 }
 
-/*
-Interview explanation:
-If UI order cannot change, each texture change creates a new batch. If order can
-change, quads can be grouped by texture, so the number of batches is the number
-of unique texture IDs.
-*/

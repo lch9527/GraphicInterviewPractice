@@ -21,30 +21,18 @@ Concepts tested:
 constexpr float LOCAL_EPSILON_MS = 0.25f;
 
 float FrameBudgetMs(int fps) {
-    if (fps <= 0) {
-        return 0.0f;
-    }
-    return 1000.0f / static_cast<float>(fps);
+    // TODO: implement this function.
+    return 0.0f;
 }
 
 bool IsFrameOverBudget(float cpuFrameMs, float gpuFrameMs, float targetFps) {
-    if (targetFps <= 0.0f) {
-        return false;
-    }
-
-    float frameMs = std::max(cpuFrameMs, gpuFrameMs);
-    float budgetMs = 1000.0f / targetFps;
-    return frameMs > budgetMs;
+    // TODO: implement this function.
+    return false;
 }
 
 const char* DetectBottleneck(float cpuFrameMs, float gpuFrameMs) {
-    if (cpuFrameMs > gpuFrameMs + LOCAL_EPSILON_MS) {
-        return "CPU-bound";
-    }
-    if (gpuFrameMs > cpuFrameMs + LOCAL_EPSILON_MS) {
-        return "GPU-bound";
-    }
-    return "Balanced";
+    // TODO: implement this function.
+    return "";
 }
 
 bool RunTests() {
@@ -65,8 +53,3 @@ int main() {
     return ok ? 0 : 1;
 }
 
-/*
-Interview explanation:
-A simple frame model uses max(CPU time, GPU time), because those timelines often
-overlap. The slower side determines whether the frame misses the target budget.
-*/

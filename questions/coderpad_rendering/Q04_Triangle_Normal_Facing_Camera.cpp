@@ -20,16 +20,14 @@ Concepts tested:
 #include <iostream>
 
 Vec3 CalculateTriangleNormal(const Vec3& a, const Vec3& b, const Vec3& c) {
-    return NormalizeHelper(cross(b-a,c-a));
+    // TODO: implement this function.
+    return {};
 }
 
 bool IsTriangleFacingCamera(const Vec3& a, const Vec3& b, const Vec3& c,
                             const Vec3& cameraPos) {
-    Vec3 normal = CalculateTriangleNormal(a, b, c);
-    Vec3 center = (a + b + c) / 3.0f;
-    Vec3 viewDir = NormalizeHelper(cameraPos - center);
-
-    return dot(normal, viewDir) > 0.0f;
+    // TODO: implement this function.
+    return false;
 }
 
 bool RunTests() {
@@ -46,8 +44,3 @@ int main() {
     return ok ? 0 : 1;
 }
 
-/*
-Interview explanation:
-Winding order controls normal direction. If viewDir points from the surface to
-the camera, a positive dot(normal, viewDir) means the triangle faces the camera.
-*/

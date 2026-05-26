@@ -18,19 +18,13 @@ Concepts tested:
 #include <iostream>
 
 Vec3 TransformPoint(const Mat4& m, const Vec3& p) {
-    Vec4 res = Mul(m, Vec4{p.x, p.y, p.z, 1.0f});
-    if (std::fabs(res.w) > EPSILON && !AlmostEqual(res.w, 1.0f)) {
-        res.x /= res.w;
-        res.y /= res.w;
-        res.z /= res.w;
-    }
-
-    return {res.x, res.y, res.z};
+    // TODO: implement this function.
+    return {};
 }
 
 Vec3 TransformDirection(const Mat4& m, const Vec3& dir) {
-    Vec4 res = Mul(m, Vec4{dir.x, dir.y, dir.z, 0.0f});
-    return {res.x, res.y, res.z};
+    // TODO: implement this function.
+    return {};
 }
 
 Mat4 MakeTranslation(float x, float y, float z) {
@@ -61,8 +55,3 @@ int main() {
     return ok ? 0 : 1;
 }
 
-/*
-Interview explanation:
-TransformPoint applies rotation, scale, and translation. TransformDirection
-applies rotation and scale, but ignores translation because w is 0.
-*/

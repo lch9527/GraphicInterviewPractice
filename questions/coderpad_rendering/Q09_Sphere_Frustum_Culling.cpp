@@ -23,13 +23,8 @@ struct Sphere {
 };
 
 bool SphereInFrustum(const Plane planes[6], const Sphere& sphere) {
-    for (int i = 0; i < 6; i++) {
-        float distance = dot(planes[i].normal, sphere.center) + planes[i].d;
-        if (distance < -sphere.radius) {
-            return false;
-        }
-    }
-    return true;
+    // TODO: implement this function.
+    return false;
 }
 
 bool RunTests() {
@@ -52,8 +47,3 @@ int main() {
     return ok ? 0 : 1;
 }
 
-/*
-Interview explanation:
-Negative distance means the center is outside a plane, but the sphere may still
-intersect the frustum. Cull only when it is farther outside than its radius.
-*/

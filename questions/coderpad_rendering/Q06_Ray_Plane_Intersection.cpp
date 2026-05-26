@@ -22,16 +22,8 @@ constexpr float LOCAL_EPSILON = 1e-6f;
 bool RayPlaneIntersection(const Vec3& rayOrigin, const Vec3& rayDir,
                           const Vec3& planeNormal, const Vec3& pointOnPlane,
                           float& outT) {
-      float denom = dot(planeNormal, rayDir);
-      if (std::fabs(denom) < LOCAL_EPSILON) {
-        return false;
-      }
-
-      outT = dot(planeNormal, pointOnPlane - rayOrigin) / denom;
-      if (outT < 0.0f) {
-        return false;
-      }
-      return true;
+    // TODO: implement this function.
+    return false;
 }
 
 bool RunTests() {
@@ -49,8 +41,3 @@ int main() {
     return ok ? 0 : 1;
 }
 
-/*
-Interview explanation:
-The denominator dot(N, D) tells whether the ray points toward the plane. If it
-is near zero, the ray is parallel and cannot produce a stable intersection.
-*/

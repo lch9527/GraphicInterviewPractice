@@ -20,39 +20,38 @@ Concepts tested:
 constexpr float LOCAL_EPSILON = 1e-6f;
 
 Vec3 Add(const Vec3& a, const Vec3& b) {
-    return {a.x + b.x, a.y + b.y, a.z + b.z};
+    // TODO: implement this function.
+    return {};
 }
 
 Vec3 Subtract(const Vec3& a, const Vec3& b) {
-    return {a.x - b.x, a.y - b.y, a.z - b.z};
+    // TODO: implement this function.
+    return {};
 }
 
 Vec3 Multiply(const Vec3& v, float s) {
-    return {v.x * s, v.y * s, v.z * s};
+    // TODO: implement this function.
+    return {};
 }
 
 float Dot(const Vec3& a, const Vec3& b) {
-    return a.x * b.x + a.y * b.y + a.z * b.z;
+    // TODO: implement this function.
+    return 0.0f;
 }
 
 Vec3 Cross(const Vec3& a, const Vec3& b) {
-    return {
-        a.y * b.z - a.z * b.y,
-        a.z * b.x - a.x * b.z,
-        a.x * b.y - a.y * b.x
-    };
+    // TODO: implement this function.
+    return {};
 }
 
 float Length(const Vec3& v) {
-    return std::sqrt(Dot(v, v));
+    // TODO: implement this function.
+    return 0.0f;
 }
 
 Vec3 NormalizeSafe(const Vec3& v) {
-    float len = Length(v);
-    if (len < LOCAL_EPSILON) {
-        return {0,0,0};
-    }
-    return v / len;
+    // TODO: implement this function.
+    return {};
 }
 
 bool RunTests() {
@@ -73,8 +72,3 @@ int main() {
     return ok ? 0 : 1;
 }
 
-/*
-Interview explanation:
-Dot product measures alignment. Cross product creates a perpendicular vector.
-Safe normalization checks an epsilon before division to avoid invalid results.
-*/

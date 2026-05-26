@@ -18,23 +18,13 @@ Concepts tested:
 #include <iostream>
 
 int TextureMemoryBytes(int width, int height, int bytesPerPixel, bool hasMipmaps) {
-    if (width <= 0 || height <= 0 || bytesPerPixel <= 0) {
-        return 0;
-    }
-
-    int baseBytes = width * height * bytesPerPixel;
-    if (!hasMipmaps) {
-        return baseBytes;
-    }
-    return baseBytes * 4 / 3;
+    // TODO: implement this function.
+    return 0;
 }
 
 int RenderTargetMemoryBytes(int width, int height, int bytesPerPixel, int sampleCount) {
-    if (width <= 0 || height <= 0 || bytesPerPixel <= 0 || sampleCount <= 0) {
-        return 0;
-    }
-
-    return width * height * bytesPerPixel * sampleCount;
+    // TODO: implement this function.
+    return 0;
 }
 
 bool RunTests() {
@@ -51,8 +41,3 @@ int main() {
     return ok ? 0 : 1;
 }
 
-/*
-Interview explanation:
-Mipmaps increase memory but improve texture sampling quality and cache behavior.
-MSAA increases memory and bandwidth roughly proportional to the sample count.
-*/

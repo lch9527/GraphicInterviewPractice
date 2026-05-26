@@ -21,30 +21,7 @@ Concepts tested:
 bool RaySphereIntersection(const Vec3& rayOrigin, const Vec3& rayDir,
                            const Vec3& sphereCenter, float sphereRadius,
                            float& outT) {
-    Vec3 oc = rayOrigin - sphereCenter;
-    float a = dot(rayDir, rayDir);
-    if (a < EPSILON) {
-        return false;
-    }
-
-    float b = 2.0f * dot(oc, rayDir);
-    float c = dot(oc, oc) - sphereRadius * sphereRadius;
-    float discriminant = b * b - 4.0f * a * c;
-    if (discriminant < 0.0f) {
-        return false;
-    }
-
-    float root = std::sqrt(discriminant);
-    float t1 = (-b - root) / (2.0f * a);
-    float t2 = (-b + root) / (2.0f * a);
-    if (t1 >= 0.0f) {
-        outT = t1;
-        return true;
-    }
-    if (t2 >= 0.0f) {
-        outT = t2;
-        return true;
-    }
+    // TODO: implement this function.
     return false;
 }
 
@@ -64,8 +41,3 @@ int main() {
     return ok ? 0 : 1;
 }
 
-/*
-Interview explanation:
-The discriminant tells whether the ray misses, touches, or passes through the
-sphere. Use the smaller non-negative t for the closest visible hit.
-*/

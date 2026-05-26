@@ -22,15 +22,8 @@ constexpr float LOCAL_PI = 3.1415926535f;
 constexpr float LOCAL_EPSILON = 1e-6f;
 
 float AngleBetweenDegrees(const Vec3& a, const Vec3& b) {
-    float lenA = LengthHelper(a);
-    float lenB = LengthHelper(b);
-    if (lenA < LOCAL_EPSILON || lenB < LOCAL_EPSILON) {
-        return 0.0f;
-    }
-
-    float cosTheta = dot(a, b) / (lenA * lenB);
-    cosTheta = std::clamp(cosTheta, -1.0f, 1.0f);
-    return std::acos(cosTheta) * 180.0f / LOCAL_PI;
+    // TODO: implement this function.
+    return 0.0f;
 }
 
 bool RunTests() {
@@ -47,8 +40,3 @@ int main() {
     return ok ? 0 : 1;
 }
 
-/*
-Interview explanation:
-The normalized dot product gives cos(theta). Clamp the value before acos to
-avoid NaN from tiny floating-point error outside [-1, 1].
-*/

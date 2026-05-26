@@ -25,21 +25,13 @@ struct Rect {
 };
 
 bool RectsOverlap(const Rect& a, const Rect& b) {
-    return a.xMin < b.xMax && a.xMax > b.xMin &&
-           a.yMin < b.yMax && a.yMax > b.yMin;
+    // TODO: implement this function.
+    return false;
 }
 
 Rect IntersectRect(const Rect& a, const Rect& b) {
-    if (!RectsOverlap(a, b)) {
-        return {};
-    }
-
-    return {
-        std::max(a.xMin, b.xMin),
-        std::max(a.yMin, b.yMin),
-        std::min(a.xMax, b.xMax),
-        std::min(a.yMax, b.yMax)
-    };
+    // TODO: implement this function.
+    return {};
 }
 
 bool RectNear(const Rect& a, const Rect& b) {
@@ -71,8 +63,3 @@ int main() {
     return ok ? 0 : 1;
 }
 
-/*
-Interview explanation:
-UI clipping usually keeps the maximum of the minimum edges and the minimum of
-the maximum edges. Touching edges are not positive-area overlap.
-*/
