@@ -4,7 +4,34 @@
 // Tesla Q06: Design Circular Queue
 /*
 Description:
-Implement a fixed-capacity circular queue with O(1) enqueue, dequeue, front, and rear.
+Implement a fixed-capacity circular queue.
+
+A queue is FIFO: the first value enqueued is the first value dequeued.
+A circular queue reuses storage by wrapping the rear index back to the beginning
+when it reaches the end of the array.
+
+Required behavior:
+    enQueue(value) returns false when the queue is full, otherwise inserts value.
+    deQueue() returns false when the queue is empty, otherwise removes the front value.
+    Front() returns the front value, or -1 when empty.
+    Rear() returns the most recently inserted value, or -1 when empty.
+    isEmpty() reports whether the queue has zero elements.
+    isFull() reports whether the queue has k elements.
+
+Example with capacity 3:
+    enQueue(1) -> true
+    enQueue(2) -> true
+    enQueue(3) -> true
+    enQueue(4) -> false
+    Rear() -> 3
+    deQueue() -> true
+    enQueue(4) -> true
+    Rear() -> 4
+    Front() -> 2
+
+Edge cases:
+    Correctly handle wraparound after dequeue followed by enqueue.
+    Keep empty and full states distinguishable.
 */
 
 #include "MathTypes.h"
@@ -16,36 +43,34 @@ public:
         : data(k), head(0), tail(0), count(0) {}
 
     bool enQueue(int value) {
-        if (isFull()) return false;
-        data[tail] = value;
-        tail = (tail + 1) % static_cast<int>(data.size());
-        ++count;
-        return true;
+        // TODO: implement.
+        (void)value;
+        return false;
     }
 
     bool deQueue() {
-        if (isEmpty()) return false;
-        head = (head + 1) % static_cast<int>(data.size());
-        --count;
-        return true;
+        // TODO: implement.
+        return false;
     }
 
     int Front() const {
-        return isEmpty() ? -1 : data[head];
+        // TODO: implement.
+        return -1;
     }
 
     int Rear() const {
-        if (isEmpty()) return -1;
-        int index = (tail - 1 + static_cast<int>(data.size())) % static_cast<int>(data.size());
-        return data[index];
+        // TODO: implement.
+        return -1;
     }
 
     bool isEmpty() const {
-        return count == 0;
+        // TODO: implement.
+        return true;
     }
 
     bool isFull() const {
-        return count == static_cast<int>(data.size());
+        // TODO: implement.
+        return false;
     }
 
 private:

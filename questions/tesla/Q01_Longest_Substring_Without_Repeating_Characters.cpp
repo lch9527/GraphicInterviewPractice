@@ -4,7 +4,22 @@
 // Tesla Q01: Longest Substring Without Repeating Characters
 /*
 Description:
-Return the length of the longest contiguous substring that contains no repeated characters.
+A substring is a contiguous block of characters from the original string.
+Return the length of the longest substring that contains no repeated characters.
+
+Examples:
+    "abccabcbb" -> 3
+        The answer is "abc". When a repeated 'a' appears, the valid window must move forward.
+
+    "bbbbb" -> 1
+        Every valid substring can contain only one 'b'.
+
+    "pwwkew" -> 3
+        The answer is "wke". "pwke" is not valid because it is not contiguous.
+
+Edge cases:
+    "" -> 0
+    A string with all unique characters returns s.size().
 
 Task:
 Implement this function:
@@ -17,20 +32,20 @@ Implement this function:
 #include <algorithm>
 
 int LengthOfLongestSubstring(const std::string& s) {
-    std::vector<int> lastSeen(256, -1);
-    int best = 0;
-    int left = 0;
-
-    for (int right = 0; right < static_cast<int>(s.size()); ++right) {
-        unsigned char c = static_cast<unsigned char>(s[right]);
-        if (lastSeen[c] >= left) {
-            left = lastSeen[c] + 1;
+    std::unordered_set <char> cset;
+    int lindex = 0, ans = 0;
+    for(int i = 0; i < s.length(); ++i){
+        while(cset.find(s[i]) != cset.end()){
+            //cset.insert(s[i]);
+            cset.erase(s[lindex]);
+            lindex++;
         }
-        lastSeen[c] = right;
-        best = std::max(best, right - left + 1);
-    }
+        cset.insert(s[i]);
+        ans = std::max(ans,static_cast<int>(cset.size())); 
 
-    return best;
+    }
+    return ans;
+
 }
 
 bool RunTests() {
@@ -43,4 +58,3 @@ bool RunTests() {
 }
 
 RUN_TESTS()
-

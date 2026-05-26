@@ -4,7 +4,25 @@
 // Tesla Q04: Merge Intervals
 /*
 Description:
-Merge every overlapping closed interval and return the compact interval list.
+Given a list of closed intervals [start, end], merge every overlapping interval
+and return the compact list of non-overlapping intervals.
+
+Closed intervals include both endpoints, so [1,4] and [4,5] overlap and merge
+into [1,5].
+
+Examples:
+    {{1,3},{2,6},{8,10},{15,18}} -> {{1,6},{8,10},{15,18}}
+        [1,3] overlaps [2,6], so they become [1,6].
+
+    {{1,4},{4,5}} -> {{1,5}}
+        The intervals touch at 4, and because they are closed, they merge.
+
+    {{5,7},{1,2},{2,4}} -> {{1,4},{5,7}}
+        Input may be unsorted, so ordering by start is usually the first step.
+
+Edge cases:
+    Empty input returns an empty vector.
+    Fully contained intervals should not create extra output intervals.
 
 Task:
 Implement this function:
@@ -29,23 +47,9 @@ bool SameIntervals(const std::vector<Interval>& a, const std::vector<Interval>& 
 }
 
 std::vector<Interval> MergeIntervals(std::vector<Interval> intervals) {
-    if (intervals.empty()) return {};
-
-    std::sort(intervals.begin(), intervals.end(), [](const Interval& a, const Interval& b) {
-        if (a.start != b.start) return a.start < b.start;
-        return a.end < b.end;
-    });
-
-    std::vector<Interval> merged;
-    merged.push_back(intervals.front());
-    for (size_t i = 1; i < intervals.size(); ++i) {
-        if (intervals[i].start <= merged.back().end) {
-            merged.back().end = std::max(merged.back().end, intervals[i].end);
-        } else {
-            merged.push_back(intervals[i]);
-        }
-    }
-    return merged;
+    // TODO: implement.
+    (void)intervals;
+    return {};
 }
 
 bool RunTests() {

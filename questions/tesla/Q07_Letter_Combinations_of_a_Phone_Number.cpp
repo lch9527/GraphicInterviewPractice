@@ -4,7 +4,31 @@
 // Tesla Q07: Letter Combinations of a Phone Number
 /*
 Description:
-Return every possible letter combination for a digit string using telephone keypad mapping.
+Given a string of digits from '2' to '9', return every possible letter
+combination the digits could represent on a telephone keypad.
+
+Digit mapping:
+    2 -> abc
+    3 -> def
+    4 -> ghi
+    5 -> jkl
+    6 -> mno
+    7 -> pqrs
+    8 -> tuv
+    9 -> wxyz
+
+Examples:
+    "23" -> {"ad","ae","af","bd","be","bf","cd","ce","cf"}
+        Pick one letter from the mapping for '2' and one letter from the mapping for '3'.
+
+    "" -> {}
+        No digits means no combinations.
+
+    "7" -> {"p","q","r","s"}
+
+Edge cases:
+    The answer can be returned in any order.
+    Digits 0 and 1 are not part of this problem's input.
 
 Task:
 Implement this function:
@@ -21,30 +45,18 @@ void BuildCombinations(const std::string& digits,
                        int index,
                        std::string& current,
                        std::vector<std::string>& results) {
-    if (index == static_cast<int>(digits.size())) {
-        results.push_back(current);
-        return;
-    }
-
-    const std::string& letters = mapping[digits[index] - '0'];
-    for (char letter : letters) {
-        current.push_back(letter);
-        BuildCombinations(digits, mapping, index + 1, current, results);
-        current.pop_back();
-    }
+    // TODO: implement if you choose a backtracking solution.
+    (void)digits;
+    (void)mapping;
+    (void)index;
+    (void)current;
+    (void)results;
 }
 
 std::vector<std::string> LetterCombinations(const std::string& digits) {
-    if (digits.empty()) return {};
-
-    std::vector<std::string> mapping = {
-        "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"
-    };
-
-    std::vector<std::string> results;
-    std::string current;
-    BuildCombinations(digits, mapping, 0, current, results);
-    return results;
+    // TODO: implement.
+    (void)digits;
+    return {};
 }
 
 bool SameStrings(std::vector<std::string> a, std::vector<std::string> b) {

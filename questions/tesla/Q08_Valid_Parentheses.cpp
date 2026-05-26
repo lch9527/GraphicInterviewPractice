@@ -4,7 +4,29 @@
 // Tesla Q08: Valid Parentheses
 /*
 Description:
-Return true when each bracket closes in the correct order and with the matching type.
+Given a string containing only '(', ')', '[', ']', '{', and '}', return true
+when every opening bracket is closed by the same bracket type and in the correct
+nested order.
+
+Examples:
+    "()" -> true
+        One pair, correctly closed.
+
+    "()[]{}" -> true
+        Multiple independent valid pairs.
+
+    "(]" -> false
+        The opening '(' cannot be closed by ']'.
+
+    "([)]" -> false
+        The types match somewhere, but the nesting order is wrong.
+
+    "{[]}" -> true
+        Nested brackets close from the inside out.
+
+Edge cases:
+    "(" -> false because it is never closed.
+    A closing bracket with no earlier matching opener is invalid.
 
 Task:
 Implement this function:
@@ -16,22 +38,16 @@ Implement this function:
 #include <vector>
 
 bool Matches(char open, char close) {
-    return (open == '(' && close == ')') ||
-           (open == '[' && close == ']') ||
-           (open == '{' && close == '}');
+    // TODO: implement if you want to use this helper.
+    (void)open;
+    (void)close;
+    return false;
 }
 
 bool IsValidParentheses(const std::string& s) {
-    std::vector<char> stack;
-    for (char c : s) {
-        if (c == '(' || c == '[' || c == '{') {
-            stack.push_back(c);
-        } else {
-            if (stack.empty() || !Matches(stack.back(), c)) return false;
-            stack.pop_back();
-        }
-    }
-    return stack.empty();
+    // TODO: implement.
+    (void)s;
+    return false;
 }
 
 bool RunTests() {

@@ -4,7 +4,26 @@
 // Tesla Q02: Minimum Changes To Make Alternating Binary String
 /*
 Description:
-Given a binary string, return the fewest character flips needed to make it alternate.
+Given a binary string containing only '0' and '1', return the fewest character
+flips needed to make adjacent characters alternate.
+
+Only two final patterns are possible:
+    010101...
+    101010...
+
+Examples:
+    "0100" -> 1
+        Change the last '0' to '1', producing "0101".
+
+    "10" -> 0
+        The string already alternates.
+
+    "1111" -> 2
+        Change either positions 0 and 2 to get "0101", or positions 1 and 3 to get "1010".
+
+Edge cases:
+    A length-1 string is already alternating.
+    You only count character changes, not swaps or deletions.
 
 Task:
 Implement this function:
@@ -16,17 +35,22 @@ Implement this function:
 #include <algorithm>
 
 int MinOperationsToAlternate(const std::string& s) {
-    int flipsStartingWithZero = 0;
-    int flipsStartingWithOne = 0;
+    int flipsStartZero = 0;
+    int flipsStartOne = 0;
 
     for (int i = 0; i < static_cast<int>(s.size()); ++i) {
-        char expectedZeroPattern = (i % 2 == 0) ? '0' : '1';
-        char expectedOnePattern = (i % 2 == 0) ? '1' : '0';
-        if (s[i] != expectedZeroPattern) ++flipsStartingWithZero;
-        if (s[i] != expectedOnePattern) ++flipsStartingWithOne;
+        char expectedStartZero = (i % 2 == 0) ? '0' : '1';
+        char expectedStartOne = (i % 2 == 0) ? '1' : '0';
+
+        if (s[i] != expectedStartZero) {
+            ++flipsStartZero;
+        }
+        if (s[i] != expectedStartOne) {
+            ++flipsStartOne;
+        }
     }
 
-    return std::min(flipsStartingWithZero, flipsStartingWithOne);
+    return std::min(flipsStartZero, flipsStartOne);
 }
 
 bool RunTests() {
@@ -38,4 +62,3 @@ bool RunTests() {
 }
 
 RUN_TESTS()
-

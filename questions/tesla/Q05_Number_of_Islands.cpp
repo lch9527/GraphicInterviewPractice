@@ -4,7 +4,31 @@
 // Tesla Q05: Number of Islands
 /*
 Description:
-Count connected groups of land cells in a grid. Land connects horizontally and vertically.
+Given a 2D grid of strings where '1' is land and '0' is water, count how many
+separate islands exist.
+
+An island is a group of land cells connected horizontally or vertically.
+Diagonal touching does not connect islands.
+
+Examples:
+    {"11110",
+     "11010",
+     "11000",
+     "00000"} -> 1
+        All land cells are connected into one island.
+
+    {"11000",
+     "11000",
+     "00100",
+     "00011"} -> 3
+        There are three separate land groups.
+
+    {"10101"} -> 3
+        Each '1' is separated by water, so each is its own island.
+
+Edge cases:
+    Empty input returns 0.
+    You may modify the grid copy passed into the function.
 
 Task:
 Implement this function:
@@ -16,29 +40,16 @@ Implement this function:
 #include <vector>
 
 void FloodFill(std::vector<std::string>& grid, int row, int col) {
-    if (row < 0 || col < 0 || row >= static_cast<int>(grid.size()) ||
-        col >= static_cast<int>(grid[row].size()) || grid[row][col] != '1') {
-        return;
-    }
-
-    grid[row][col] = '0';
-    FloodFill(grid, row + 1, col);
-    FloodFill(grid, row - 1, col);
-    FloodFill(grid, row, col + 1);
-    FloodFill(grid, row, col - 1);
+    // TODO: implement if you choose a flood-fill solution.
+    (void)grid;
+    (void)row;
+    (void)col;
 }
 
 int NumIslands(std::vector<std::string> grid) {
-    int count = 0;
-    for (int row = 0; row < static_cast<int>(grid.size()); ++row) {
-        for (int col = 0; col < static_cast<int>(grid[row].size()); ++col) {
-            if (grid[row][col] == '1') {
-                ++count;
-                FloodFill(grid, row, col);
-            }
-        }
-    }
-    return count;
+    // TODO: implement.
+    (void)grid;
+    return 0;
 }
 
 bool RunTests() {
