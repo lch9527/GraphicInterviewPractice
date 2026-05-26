@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/tesla && g++ -std=c++17 -I../../include Q08_Valid_Parentheses.cpp -o ../../questions_artifacts/tesla/tesla_q08 && ../../questions_artifacts/tesla/tesla_q08
+
 // Tesla Q08: Valid Parentheses
 /*
 Description:

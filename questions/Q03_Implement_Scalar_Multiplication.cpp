@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q03_Implement_Scalar_Multiplication.cpp -o ../questions_artifacts/q03 && ../questions_artifacts/q03
+
 // Build: cmake --build build --config Debug --target Q03_Implement_Scalar_Multiplication
 // Run: .\build\Debug\Q03_Implement_Scalar_Multiplication.exe
 /*

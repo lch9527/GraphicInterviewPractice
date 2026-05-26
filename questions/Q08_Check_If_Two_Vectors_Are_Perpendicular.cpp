@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q08_Check_If_Two_Vectors_Are_Perpendicular.cpp -o ../questions_artifacts/q08 && ../questions_artifacts/q08
+
 // Build: cmake --build build --config Debug --target Q08_Check_If_Two_Vectors_Are_Perpendicular
 // Run: .\build\Debug\Q08_Check_If_Two_Vectors_Are_Perpendicular.exe
 /*

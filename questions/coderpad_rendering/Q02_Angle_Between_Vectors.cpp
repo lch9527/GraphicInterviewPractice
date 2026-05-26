@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/coderpad_rendering && g++ -std=c++17 -I../../include Q02_Angle_Between_Vectors.cpp -o ../../questions_artifacts/coderpad_rendering/coderpad_q02 && ../../questions_artifacts/coderpad_rendering/coderpad_q02
+
 /*
 CoderPad Rendering Question 2: Angle Between Vectors
 
@@ -20,17 +23,14 @@ constexpr float LOCAL_EPSILON = 1e-6f;
 
 float AngleBetweenDegrees(const Vec3& a, const Vec3& b) {
     // TODO: return the angle in degrees. Return 0 for zero-length input.
-    if (LengthHelper(a) < LOCAL_EPSILON || LengthHelper(b) < LOCAL_EPSILON) {
-          return 0.0f;
-      }
-    float dotresult = dot(NormalizeHelper(a),NormalizeHelper(b));
-    if(dotresult < -1){
-        dotresult = -1;
+    if(LengthHelper(a) < 0.001 || LengthHelper(b)< 0.001){
+        return 0.0f;
     }
-    if (dotresult > 1){
-        dotresult = 1;
-    }
-    return acos( dotresult) * 180/LOCAL_PI;
+    float cosTheta = dot(NormalizeHelper(a), NormalizeHelper(b));
+    cosTheta = std::clamp(cosTheta, -1.0f, 1.0f);
+    float rad = acos(cosTheta);
+
+    return rad * 180/LOCAL_PI;
 }
 
 bool RunTests() {

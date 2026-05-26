@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/tesla && g++ -std=c++17 -I../../include Q04_Merge_Intervals.cpp -o ../../questions_artifacts/tesla/tesla_q04 && ../../questions_artifacts/tesla/tesla_q04
+
 // Tesla Q04: Merge Intervals
 /*
 Description:

@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q33_Frustum_Sphere_Test.cpp -o ../questions_artifacts/q33 && ../questions_artifacts/q33
+
 // Build: cmake --build build --config Debug --target Q33_Frustum_Sphere_Test
 // Run: .\build\Debug\Q33_Frustum_Sphere_Test.exe
 /*

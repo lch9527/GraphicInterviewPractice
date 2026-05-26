@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q21_Compose_Transform_Matrix.cpp -o ../questions_artifacts/q21 && ../questions_artifacts/q21
+
 // Build: cmake --build build --config Debug --target Q21_Compose_Transform_Matrix
 // Run: .\build\Debug\Q21_Compose_Transform_Matrix.exe
 /*

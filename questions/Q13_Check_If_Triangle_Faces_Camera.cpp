@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q13_Check_If_Triangle_Faces_Camera.cpp -o ../questions_artifacts/q13 && ../questions_artifacts/q13
+
 // Build: cmake --build build --config Debug --target Q13_Check_If_Triangle_Faces_Camera
 // Run: .\build\Debug\Q13_Check_If_Triangle_Faces_Camera.exe
 /*

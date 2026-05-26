@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/tesla && g++ -std=c++17 -I../../include Q07_Letter_Combinations_of_a_Phone_Number.cpp -o ../../questions_artifacts/tesla/tesla_q07 && ../../questions_artifacts/tesla/tesla_q07
+
 // Tesla Q07: Letter Combinations of a Phone Number
 /*
 Description:

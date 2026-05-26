@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q04_Compute_Dot_Product.cpp -o ../questions_artifacts/q04 && ../questions_artifacts/q04
+
 // Build: cmake --build build --config Debug --target Q04_Compute_Dot_Product
 // Run: .\build\Debug\Q04_Compute_Dot_Product.exe
 /*

@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q30_Vector_Lerp.cpp -o ../questions_artifacts/q30 && ../questions_artifacts/q30
+
 // Build: cmake --build build --config Debug --target Q30_Vector_Lerp
 // Run: .\build\Debug\Q30_Vector_Lerp.exe
 /*

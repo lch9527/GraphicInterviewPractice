@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/coderpad_rendering && g++ -std=c++17 -I../../include Q12_Sort_Render_Commands.cpp -o ../../questions_artifacts/coderpad_rendering/coderpad_q12 && ../../questions_artifacts/coderpad_rendering/coderpad_q12
+
 /*
 CoderPad Rendering Question 12: Sort Render Commands
 

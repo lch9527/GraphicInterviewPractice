@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q29_Linear_Interpolation.cpp -o ../questions_artifacts/q29 && ../questions_artifacts/q29
+
 // Build: cmake --build build --config Debug --target Q29_Linear_Interpolation
 // Run: .\build\Debug\Q29_Linear_Interpolation.exe
 /*

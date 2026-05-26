@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/tesla && g++ -std=c++17 -I../../include Q01_Longest_Substring_Without_Repeating_Characters.cpp -o ../../questions_artifacts/tesla/tesla_q01 && ../../questions_artifacts/tesla/tesla_q01
+
 // Tesla Q01: Longest Substring Without Repeating Characters
 /*
 Description:

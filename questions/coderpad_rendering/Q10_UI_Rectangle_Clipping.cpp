@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/coderpad_rendering && g++ -std=c++17 -I../../include Q10_UI_Rectangle_Clipping.cpp -o ../../questions_artifacts/coderpad_rendering/coderpad_q10 && ../../questions_artifacts/coderpad_rendering/coderpad_q10
+
 /*
 CoderPad Rendering Question 10: UI Rectangle Intersection and Clipping
 

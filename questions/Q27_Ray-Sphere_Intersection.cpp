@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q27_Ray-Sphere_Intersection.cpp -o ../questions_artifacts/q27 && ../questions_artifacts/q27
+
 // Build: cmake --build build --config Debug --target Q27_Ray-Sphere_Intersection
 // Run: .\build\Debug\Q27_Ray-Sphere_Intersection.exe
 /*

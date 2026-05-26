@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q15_Project_One_Vector_Onto_Another.cpp -o ../questions_artifacts/q15 && ../questions_artifacts/q15
+
 // Build: cmake --build build --config Debug --target Q15_Project_One_Vector_Onto_Another
 // Run: .\build\Debug\Q15_Project_One_Vector_Onto_Another.exe
 /*

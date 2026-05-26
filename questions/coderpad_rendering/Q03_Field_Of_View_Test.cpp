@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../../questions_artifacts/coderpad_rendering && g++ -std=c++17 -I../../include Q03_Field_Of_View_Test.cpp -o ../../questions_artifacts/coderpad_rendering/coderpad_q03 && ../../questions_artifacts/coderpad_rendering/coderpad_q03
+
 /*
 CoderPad Rendering Question 3: Field Of View Cone Test
 

@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q14_Reflect_a_Vector_Around_a_Normal.cpp -o ../questions_artifacts/q14 && ../questions_artifacts/q14
+
 // Build: cmake --build build --config Debug --target Q14_Reflect_a_Vector_Around_a_Normal
 // Run: .\build\Debug\Q14_Reflect_a_Vector_Around_a_Normal.exe
 /*

@@ -1,3 +1,6 @@
+// Run from this file directory:
+//   mkdir -p ../questions_artifacts && g++ -std=c++17 -I../include Q31_SmoothStep.cpp -o ../questions_artifacts/q31 && ../questions_artifacts/q31
+
 // Build: cmake --build build --config Debug --target Q31_SmoothStep
 // Run: .\build\Debug\Q31_SmoothStep.exe
 /*
