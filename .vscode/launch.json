@@ -2,30 +2,16 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Run active question (GCC/Linux)",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${workspaceFolder}/questions_artifacts/vscode/active_question",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${fileDirname}",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "gdb",
-      "miDebuggerPath": "/usr/bin/gdb",
-      "preLaunchTask": "Build active question (GCC)"
-    },
-    {
-      "name": "Run active question (MSVC/Windows)",
+      "name": "Run active C++ file (MSVC)",
       "type": "cppvsdbg",
       "request": "launch",
       "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
+      "cwd": "${fileDirname}",
       "environment": [],
       "console": "integratedTerminal",
-      "preLaunchTask": "Build active question (MSVC)"
+      "preLaunchTask": "Build active C++ file (MSVC)"
     }
   ]
 }

@@ -25,28 +25,21 @@ struct Rect {
 };
 
 bool RectsOverlap(const Rect& a, const Rect& b) {
-    // TODO: return true only when the rectangles have positive-area overlap.
-    bool bxoverlap = (a.xMax > b.xMin && a.xMin < b.xMax);
-    bool byoverlap = (a.yMax > b.yMin && a.yMin < b.yMax);
-    
-    return bxoverlap && byoverlap;
+    return a.xMin < b.xMax && a.xMax > b.xMin &&
+           a.yMin < b.yMax && a.yMax > b.yMin;
 }
 
 Rect IntersectRect(const Rect& a, const Rect& b) {
-    // TODO: return the overlapped rectangle, or an empty rectangle if no overlap exists.
-
-    if(RectsOverlap(a,b)){
-    Rect ans;
-    ans.xMin= b.xMin;
-    ans.yMin= b.yMin;
-    ans.xMax = a.xMax;
-    ans.yMax = a.yMax;
-
-    return ans;
-
+    if (!RectsOverlap(a, b)) {
+        return {};
     }
-    
-    return {};
+
+    return {
+        std::max(a.xMin, b.xMin),
+        std::max(a.yMin, b.yMin),
+        std::min(a.xMax, b.xMax),
+        std::min(a.yMax, b.yMax)
+    };
 }
 
 bool RectNear(const Rect& a, const Rect& b) {

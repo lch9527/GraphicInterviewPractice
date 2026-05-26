@@ -21,26 +21,27 @@ Concepts tested:
 bool RaySphereIntersection(const Vec3& rayOrigin, const Vec3& rayDir,
                            const Vec3& sphereCenter, float sphereRadius,
                            float& outT) {
-    /*
-    dot(o+dt-c,o+dt-c) = r^2
-    dot(oc,oc)-r*r + t*2dot(oc,d) + t^2* dot(d,d) = 0
-    */
-    float c = dot(rayOrigin-sphereCenter,rayOrigin-sphereCenter) - sphereRadius*sphereRadius;
-    float a = dot(rayDir,rayDir);
-    float b = 2*dot(rayOrigin-sphereCenter,rayDir);
-
-    if(b*b - 4*a*c < 0.00001){
+    Vec3 oc = rayOrigin - sphereCenter;
+    float a = dot(rayDir, rayDir);
+    if (a < EPSILON) {
         return false;
     }
 
-    float t1 = (-b - sqrt(b*b - 4*a*c))/(2*a);
-    float t2 = (-b + sqrt(b*b - 4*a*c))/(2*a);
+    float b = 2.0f * dot(oc, rayDir);
+    float c = dot(oc, oc) - sphereRadius * sphereRadius;
+    float discriminant = b * b - 4.0f * a * c;
+    if (discriminant < 0.0f) {
+        return false;
+    }
 
-    if(t1 > 0){
+    float root = std::sqrt(discriminant);
+    float t1 = (-b - root) / (2.0f * a);
+    float t2 = (-b + root) / (2.0f * a);
+    if (t1 >= 0.0f) {
         outT = t1;
         return true;
     }
-    if(t2 > 0){
+    if (t2 >= 0.0f) {
         outT = t2;
         return true;
     }

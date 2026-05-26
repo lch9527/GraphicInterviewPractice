@@ -21,23 +21,29 @@ Concepts tested:
 constexpr float LOCAL_EPSILON_MS = 0.25f;
 
 float FrameBudgetMs(int fps) {
-    // TODO: return 1000.0f / fps, handling invalid fps defensively.
-    (void)fps;
-    return 0.0f;
+    if (fps <= 0) {
+        return 0.0f;
+    }
+    return 1000.0f / static_cast<float>(fps);
 }
 
 bool IsFrameOverBudget(float cpuFrameMs, float gpuFrameMs, float targetFps) {
-    // TODO: frame time is modeled as max(cpuFrameMs, gpuFrameMs).
-    (void)cpuFrameMs;
-    (void)gpuFrameMs;
-    (void)targetFps;
-    return false;
+    if (targetFps <= 0.0f) {
+        return false;
+    }
+
+    float frameMs = std::max(cpuFrameMs, gpuFrameMs);
+    float budgetMs = 1000.0f / targetFps;
+    return frameMs > budgetMs;
 }
 
 const char* DetectBottleneck(float cpuFrameMs, float gpuFrameMs) {
-    // TODO: return "CPU-bound", "GPU-bound", or "Balanced".
-    (void)cpuFrameMs;
-    (void)gpuFrameMs;
+    if (cpuFrameMs > gpuFrameMs + LOCAL_EPSILON_MS) {
+        return "CPU-bound";
+    }
+    if (gpuFrameMs > cpuFrameMs + LOCAL_EPSILON_MS) {
+        return "GPU-bound";
+    }
     return "Balanced";
 }
 

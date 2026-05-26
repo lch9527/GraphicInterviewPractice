@@ -22,26 +22,17 @@ constexpr float LOCAL_EPSILON = 1e-6f;
 bool RayPlaneIntersection(const Vec3& rayOrigin, const Vec3& rayDir,
                           const Vec3& planeNormal, const Vec3& pointOnPlane,
                           float& outT) {
-/*
-    dot(o+dt - p, n) = 0;
-    dot(n,op+dt) = 0
-    dot(n,op) + dot(n,dt) = 0
-    dot(n,op) + t*dot(n,d) = 0
-    t = -dot(n,op)/dot(n,d);
-*/
-    float dome = dot(planeNormal, rayDir);
-    if (fabs(dome) < 0.0001){
+      float denom = dot(planeNormal, rayDir);
+      if (std::fabs(denom) < LOCAL_EPSILON) {
         return false;
-    }
+      }
 
-    outT = -dot(planeNormal,rayOrigin - pointOnPlane)/dome;
-
-    return outT > 0.00001;
+      outT = dot(planeNormal, pointOnPlane - rayOrigin) / denom;
+      if (outT < 0.0f) {
+        return false;
+      }
+      return true;
 }
-
-/*
-
-*/
 
 bool RunTests() {
     float t = -1.0f;

@@ -22,13 +22,13 @@ Concepts tested:
 #include <unordered_set>
 
 int CountBatchesOrderCannotChange(const std::vector<UIQuad>& quads) {
-    // TODO: count contiguous runs of the same textureId.
     if (quads.empty()) {
-          return 0;
-      }
+        return 0;
+    }
+
     int ans = 1;
-    for (int i = 1; i < quads.size(); i++){
-        if(quads[i].textureId != quads[i-1].textureId){
+    for (size_t i = 1; i < quads.size(); i++) {
+        if (quads[i].textureId != quads[i - 1].textureId) {
             ans++;
         }
     }
@@ -36,13 +36,12 @@ int CountBatchesOrderCannotChange(const std::vector<UIQuad>& quads) {
 }
 
 int CountBatchesOrderCanChange(const std::vector<UIQuad>& quads) {
-    // TODO: count unique texture IDs.
-    std::unordered_set<int> set;
-    for(auto i : quads){
-        set.insert(i.textureId);
+    std::unordered_set<int> textureIds;
+    for (const UIQuad& quad : quads) {
+        textureIds.insert(quad.textureId);
     }
 
-    return set.size();
+    return static_cast<int>(textureIds.size());
 }
 
 bool RunTests() {

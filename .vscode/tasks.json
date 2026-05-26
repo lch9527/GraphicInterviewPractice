@@ -2,23 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build active question (GCC)",
-            "type": "shell",
-            "command": "${workspaceFolder}/scripts/build_active_gcc.sh",
-            "args": [
-                "${workspaceFolder}",
-                "${file}"
-            ],
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
-            "label": "Build active question (MSVC)",
+            "label": "Build active C++ file (MSVC)",
             "type": "shell",
             "command": "powershell",
             "args": [
@@ -41,7 +25,7 @@
             ],
             "group": {
                 "kind": "build",
-                "isDefault": false
+                "isDefault": true
             }
         }
     ]

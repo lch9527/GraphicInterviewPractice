@@ -27,7 +27,29 @@ if (-not $vsDevCmd) {
     throw "MSVC toolchain not found. Install Desktop development with C++ workload."
 }
 
-$includeDir = Join-Path $FileDir "..\include"
+$projectRoot = $null
+$searchDir = [System.IO.DirectoryInfo]::new($FileDir)
+while ($searchDir) {
+    $candidate = Join-Path $searchDir.FullName "include\MathTypes.h"
+    if (Test-Path $candidate) {
+        $projectRoot = $searchDir.FullName
+        break
+    }
+    $searchDir = $searchDir.Parent
+}
+
+if (-not $projectRoot) {
+    $workspaceCandidate = Join-Path $WorkspaceFolder "GraphicInterviewPractice\include\MathTypes.h"
+    if (Test-Path $workspaceCandidate) {
+        $projectRoot = Join-Path $WorkspaceFolder "GraphicInterviewPractice"
+    }
+}
+
+if (-not $projectRoot) {
+    throw "Could not find include\MathTypes.h for $FilePath."
+}
+
+$includeDir = Join-Path $projectRoot "include"
 $outExe = Join-Path $buildDir ($FileBaseNameNoExtension + ".exe")
 $outObj = Join-Path $buildDir ($FileBaseNameNoExtension + ".obj")
 

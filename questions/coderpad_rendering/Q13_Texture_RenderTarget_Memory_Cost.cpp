@@ -18,21 +18,23 @@ Concepts tested:
 #include <iostream>
 
 int TextureMemoryBytes(int width, int height, int bytesPerPixel, bool hasMipmaps) {
-    // TODO: compute base texture cost, then approximate full mip chain as base * 4 / 3.
-    (void)width;
-    (void)height;
-    (void)bytesPerPixel;
-    (void)hasMipmaps;
-    return 0;
+    if (width <= 0 || height <= 0 || bytesPerPixel <= 0) {
+        return 0;
+    }
+
+    int baseBytes = width * height * bytesPerPixel;
+    if (!hasMipmaps) {
+        return baseBytes;
+    }
+    return baseBytes * 4 / 3;
 }
 
 int RenderTargetMemoryBytes(int width, int height, int bytesPerPixel, int sampleCount) {
-    // TODO: include MSAA sample count in the memory estimate.
-    (void)width;
-    (void)height;
-    (void)bytesPerPixel;
-    (void)sampleCount;
-    return 0;
+    if (width <= 0 || height <= 0 || bytesPerPixel <= 0 || sampleCount <= 0) {
+        return 0;
+    }
+
+    return width * height * bytesPerPixel * sampleCount;
 }
 
 bool RunTests() {

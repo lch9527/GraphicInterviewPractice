@@ -20,22 +20,16 @@ Concepts tested:
 #include <iostream>
 
 Vec3 CalculateTriangleNormal(const Vec3& a, const Vec3& b, const Vec3& c) {
-    // TODO: compute NormalizeSafe(Cross(b - a, c - a)).
-
     return NormalizeHelper(cross(b-a,c-a));
 }
 
 bool IsTriangleFacingCamera(const Vec3& a, const Vec3& b, const Vec3& c,
                             const Vec3& cameraPos) {
-    // TODO: compare the triangle normal against the direction from triangle center to camera.
-    (void)a;
-    (void)b;
-    (void)c;
-    (void)cameraPos;
-    Vec3 tn = CalculateTriangleNormal(a,b,c);
-    Vec3 tcenter = a+b+c/3;
+    Vec3 normal = CalculateTriangleNormal(a, b, c);
+    Vec3 center = (a + b + c) / 3.0f;
+    Vec3 viewDir = NormalizeHelper(cameraPos - center);
 
-    return dot(tn,NormalizeHelper(cameraPos - tcenter)) > 0;
+    return dot(normal, viewDir) > 0.0f;
 }
 
 bool RunTests() {
