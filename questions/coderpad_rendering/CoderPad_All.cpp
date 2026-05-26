@@ -210,12 +210,18 @@ Concepts tested:
 
 Vec3 CalculateTriangleNormal(const Vec3& a, const Vec3& b, const Vec3& c) {
     // TODO: implement this function.
-    return {};
+
+    return NormalizeHelper(cross(a-c,b-c));
 }
 
 bool IsTriangleFacingCamera(const Vec3& a, const Vec3& b, const Vec3& c,
                             const Vec3& cameraPos) {
-    // TODO: implement this function.
+    Vec3 Tn = CalculateTriangleNormal(a,b,c);
+    Vec3 Tpos = (a+b+c)/3;
+    Vec3 CtoT = Tpos - cameraPos;
+    if(dot(Tn,NormalizeHelper(CtoT)) < 0){
+        return true;
+    }
     return false;
 }
 
@@ -246,13 +252,13 @@ Concepts tested:
 
 
 Vec3 TransformPoint(const Mat4& m, const Vec3& p) {
-    // TODO: implement this function.
-    return {};
+    Vec4 res = Mul(m, Vec4{p.x, p.y, p.z, 1.0f});
+    return {res.x, res.y, res.z};
 }
 
 Vec3 TransformDirection(const Mat4& m, const Vec3& dir) {
-    // TODO: implement this function.
-    return {};
+    Vec4 res = Mul(m, Vec4{dir.x, dir.y, dir.z, 0.0f});
+      return {res.x, res.y, res.z};
 }
 
 Mat4 MakeTranslation(float x, float y, float z) {
@@ -300,8 +306,23 @@ constexpr float LOCAL_EPSILON = 1e-6f;
 bool RayPlaneIntersection(const Vec3& rayOrigin, const Vec3& rayDir,
                           const Vec3& planeNormal, const Vec3& pointOnPlane,
                           float& outT) {
-    // TODO: implement this function.
+    /*
+        dot(o+dt - p,n) = 0;
+        dot(op,n) + t*dot(d,n) = 0
+        t = dot(po,n)/dot(d,n)
+    */
+   float dotDN = dot(rayDir,planeNormal);
+   if(fabs(dotDN)< 0.0001){
     return false;
+   }
+
+    Vec3 po = pointOnPlane - rayOrigin;
+    outT = dot(po,planeNormal)/dot(rayDir,planeNormal);
+
+    if(outT < 0){
+        return false;
+    }
+    return true;
 }
 
 bool RunTests06() {
