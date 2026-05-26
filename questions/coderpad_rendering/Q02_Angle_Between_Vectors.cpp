@@ -22,8 +22,19 @@ constexpr float LOCAL_PI = 3.1415926535f;
 constexpr float LOCAL_EPSILON = 1e-6f;
 
 float AngleBetweenDegrees(const Vec3& a, const Vec3& b) {
-    // TODO: implement this function.
-    return 0.0f;
+    float la = LengthHelper(a);
+    float lb = LengthHelper(b);
+    if(la < LOCAL_EPSILON || lb < LOCAL_EPSILON){
+        return 0.0f;
+    }
+
+    float dotab = dot(a,b);
+
+    float abr = dotab/la/lb;
+
+    abr = std::clamp(abr,-1.0f,1.0f);
+
+    return acos(abr)*180/LOCAL_PI;
 }
 
 bool RunTests() {

@@ -21,37 +21,44 @@ constexpr float LOCAL_EPSILON = 1e-6f;
 
 Vec3 Add(const Vec3& a, const Vec3& b) {
     // TODO: implement this function.
-    return {};
+
+    return Vec3{a.x+b.x, a.y+b.y, a.z+b.z};
 }
 
 Vec3 Subtract(const Vec3& a, const Vec3& b) {
     // TODO: implement this function.
-    return {};
+    return Vec3{a.x-b.x, a.y-b.y, a.z-b.z};
 }
 
 Vec3 Multiply(const Vec3& v, float s) {
     // TODO: implement this function.
-    return {};
+    return Vec3{v.x*s, v.y*s, v.z*s};
 }
 
 float Dot(const Vec3& a, const Vec3& b) {
     // TODO: implement this function.
-    return 0.0f;
+    return a.x*b.x + a.y*b.y + a.z*b.z;
 }
 
 Vec3 Cross(const Vec3& a, const Vec3& b) {
     // TODO: implement this function.
-    return {};
+    Vec3 ans = {a.y*b.z - a.z*b.y,
+                a.z*b.x - a.x*b.z,
+                a.x*b.y - a.y*b.x};
+    return ans;
 }
 
 float Length(const Vec3& v) {
     // TODO: implement this function.
-    return 0.0f;
+    return fsqrt(v.x*v.x + v.y*v.y + v.z*v.z);
 }
 
 Vec3 NormalizeSafe(const Vec3& v) {
-    // TODO: implement this function.
-    return {};
+    float lv = Length(v);
+    if(lv<LOCAL_EPSILON){
+        return{0,0,0};
+    }
+    return {v.x/lv,v.y/lv,v.z/lv};
 }
 
 bool RunTests() {

@@ -2,6 +2,18 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Build CoderPad All",
+            "type": "shell",
+            "command": "mkdir -p ${workspaceFolder}/questions_artifacts/coderpad_rendering && g++ -std=c++17 -g -I${workspaceFolder}/include ${workspaceFolder}/questions/coderpad_rendering/CoderPad_All.cpp -o ${workspaceFolder}/questions_artifacts/coderpad_rendering/coderpad_all",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
             "label": "Build active C++ file (MSVC)",
             "type": "shell",
             "command": "powershell",
@@ -23,10 +35,7 @@
             "problemMatcher": [
                 "$msCompile"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "group": "build"
         }
     ]
 }

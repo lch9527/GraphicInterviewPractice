@@ -23,7 +23,7 @@ constexpr float LOCAL_EPSILON = 1e-6f;
 
 bool IsTargetInFOV(const Vec3& actorPos, const Vec3& actorForward,
                    const Vec3& targetPos, float fovDegrees) {
-    // TODO: implement this function.
+    
     return false;
 }
 
