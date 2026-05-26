@@ -21,9 +21,13 @@ struct Sphere {
 
 bool SphereInFrustum(const Plane planes[6], const Sphere& sphere) {
     // TODO: reject only when signed distance is less than -sphere.radius.
-    (void)planes;
-    (void)sphere;
-    return false;
+    for (int i = 0; i < 6; i++) {
+        float distance = dot(planes[i].normal, sphere.center) + planes[i].d;
+        if (distance < -sphere.radius) {
+            return false;
+        }
+    }
+    return true;
 }
 
 bool RunTests() {
@@ -35,6 +39,7 @@ bool RunTests() {
 
     EXPECT_TRUE(SphereInFrustum(planes, {{0,0,0}, 0.5f}));
     EXPECT_TRUE(SphereInFrustum(planes, {{1.2f,0,0}, 0.3f}));
+    EXPECT_TRUE(SphereInFrustum(planes, {{1.3f,0,0}, 0.3f}));
     EXPECT_FALSE(SphereInFrustum(planes, {{2.0f,0,0}, 0.3f}));
     return true;
 }

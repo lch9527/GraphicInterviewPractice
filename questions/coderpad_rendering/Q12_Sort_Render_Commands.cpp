@@ -26,14 +26,43 @@ struct RenderCommand {
 
 std::vector<RenderCommand> SortOpaqueCommands(const std::vector<RenderCommand>& commands) {
     // TODO: keep only opaque commands and sort by materialId, then textureId.
-    (void)commands;
-    return {};
+      std::vector<RenderCommand> result;
+
+      for (const RenderCommand& command : commands) {
+          if (!command.transparent) {
+              result.push_back(command);
+          }
+      }
+
+      
+      sort(result.begin(),result.end(),[](RenderCommand& a, RenderCommand& b){
+        if(a.materialId != b.materialId){
+            return a.materialId < b.materialId;
+        }
+
+        return a.textureId < b.textureId;
+
+      });
+
+      return result;
 }
 
 std::vector<RenderCommand> SortTransparentCommands(const std::vector<RenderCommand>& commands) {
     // TODO: keep only transparent commands and sort back-to-front by descending depth.
-    (void)commands;
-    return {};
+          std::vector<RenderCommand> result;
+
+      for (const RenderCommand& command : commands) {
+          if (command.transparent) {
+              result.push_back(command);
+          }
+      }
+
+      sort(result.begin(),result.end(),[](const RenderCommand& a,const RenderCommand& b){
+        return a.depth > b.depth;
+
+      });
+
+      return result;
 }
 
 bool RunTests() {

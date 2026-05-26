@@ -274,6 +274,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{DB944385-522A-3C60-8D48-CB9488DAF4F4}</Project>
       <Name>Q09_Check_If_Two_Vectors_Point_Same_Direction</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q09_Implement_Singly_Linked_List.vcxproj">
+      <Project>{543D3D30-7435-3C9F-95C0-C39BBA61A999}</Project>
+      <Name>Q09_Implement_Singly_Linked_List</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q09_Sphere_Frustum_Culling.vcxproj">
       <Project>{032E7CB0-996F-38EA-B1ED-F32D712F78A8}</Project>
       <Name>Q09_Sphere_Frustum_Culling</Name>
@@ -281,6 +285,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q10_Calculate_Angle_Between_Two_Vectors.vcxproj">
       <Project>{F7C1F63E-43F2-33E0-8391-7EEB19FE2213}</Project>
       <Name>Q10_Calculate_Angle_Between_Two_Vectors</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q10_Implement_Doubly_Linked_List.vcxproj">
+      <Project>{2BCC2129-69E5-33AF-BD21-7D7607797672}</Project>
+      <Name>Q10_Implement_Doubly_Linked_List</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q10_UI_Rectangle_Clipping.vcxproj">
       <Project>{D4CB9F58-5216-3B1A-BDC5-18862017CBEA}</Project>
@@ -294,9 +302,17 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{D18C8C5C-FA3B-3878-9475-890C98EF2CB3}</Project>
       <Name>Q11_Count_UI_Batches</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q11_Implement_Binary_Search_Tree.vcxproj">
+      <Project>{26738FB2-6844-37C2-B23C-1A3233CEEFA4}</Project>
+      <Name>Q11_Implement_Binary_Search_Tree</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q12_Calculate_Triangle_Normal.vcxproj">
       <Project>{0352DF4A-BD81-3746-B2BE-F2DF0216C961}</Project>
       <Name>Q12_Calculate_Triangle_Normal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q12_Implement_Min_Heap.vcxproj">
+      <Project>{FD2B4EAB-DD27-3CFB-97DB-E7E4CE30D815}</Project>
+      <Name>Q12_Implement_Min_Heap</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q12_Sort_Render_Commands.vcxproj">
       <Project>{1B11703F-5367-3022-99B7-404C31CDE7CD}</Project>
@@ -306,6 +322,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{5439758A-A636-3899-A658-3DFA67231A60}</Project>
       <Name>Q13_Check_If_Triangle_Faces_Camera</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q13_Implement_Hash_Map.vcxproj">
+      <Project>{B28FABF6-B9CF-3AF2-82B4-770EB23DFD3B}</Project>
+      <Name>Q13_Implement_Hash_Map</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q13_Texture_RenderTarget_Memory_Cost.vcxproj">
       <Project>{89BB58C3-6A5D-33CC-88CA-9906B1DD14EF}</Project>
       <Name>Q13_Texture_RenderTarget_Memory_Cost</Name>
@@ -314,9 +334,17 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{72830DEB-F679-333C-8C4F-5E5019331DCC}</Project>
       <Name>Q14_Frame_Budget_CPU_GPU_Bottleneck</Name>
     </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q14_Implement_Trie.vcxproj">
+      <Project>{A859D478-AEDB-3C85-9DF6-07EF32FCFE16}</Project>
+      <Name>Q14_Implement_Trie</Name>
+    </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q14_Reflect_a_Vector_Around_a_Normal.vcxproj">
       <Project>{EA098A78-AF0D-34D3-8098-E34D5F2CFB73}</Project>
       <Name>Q14_Reflect_a_Vector_Around_a_Normal</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q15_Implement_Circular_Buffer_Queue.vcxproj">
+      <Project>{3F37CABB-D54F-3A56-BDB6-96C769DFA41A}</Project>
+      <Name>Q15_Implement_Circular_Buffer_Queue</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q15_Project_One_Vector_Onto_Another.vcxproj">
       <Project>{E3ECFA82-DA46-34B0-A313-88CA02E94B64}</Project>
@@ -325,6 +353,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q16_Distance_Between_Two_Points.vcxproj">
       <Project>{5766C8D3-F6BA-353B-A338-8B7621FC0136}</Project>
       <Name>Q16_Distance_Between_Two_Points</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q16_Implement_Graph_Adjacency_List.vcxproj">
+      <Project>{E92A6DBE-5FFF-3142-9A4A-630D461BAD3A}</Project>
+      <Name>Q16_Implement_Graph_Adjacency_List</Name>
     </ProjectReference>
     <ProjectReference Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\build\Q17_Build_Translation_Matrix.vcxproj">
       <Project>{CAA50D0B-557F-3239-BD8B-07F45ED2F6A6}</Project>

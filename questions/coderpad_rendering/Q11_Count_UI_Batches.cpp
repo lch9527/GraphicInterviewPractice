@@ -20,14 +20,26 @@ Concepts tested:
 
 int CountBatchesOrderCannotChange(const std::vector<UIQuad>& quads) {
     // TODO: count contiguous runs of the same textureId.
-    (void)quads;
-    return 0;
+    if (quads.empty()) {
+          return 0;
+      }
+    int ans = 1;
+    for (int i = 1; i < quads.size(); i++){
+        if(quads[i].textureId != quads[i-1].textureId){
+            ans++;
+        }
+    }
+    return ans;
 }
 
 int CountBatchesOrderCanChange(const std::vector<UIQuad>& quads) {
     // TODO: count unique texture IDs.
-    (void)quads;
-    return 0;
+    std::unordered_set<int> set;
+    for(auto i : quads){
+        set.insert(i.textureId);
+    }
+
+    return set.size();
 }
 
 bool RunTests() {

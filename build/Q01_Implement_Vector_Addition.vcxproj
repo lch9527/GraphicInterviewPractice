@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions_artifacts\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Q01_Implement_Vector_Addition.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">q01</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions_artifacts\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Q01_Implement_Vector_Addition.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">q01</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions_artifacts\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Q01_Implement_Vector_Addition.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">q01</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions_artifacts\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Q01_Implement_Vector_Addition.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">q01</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -132,7 +132,7 @@
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
       <ImportLibrary>E:/GraphicInterviewPractice/GraphicInterviewPractice/build/Debug/q01.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions/q01.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions_artifacts/q01.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -189,7 +189,7 @@
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
       <ImportLibrary>E:/GraphicInterviewPractice/GraphicInterviewPractice/build/Release/q01.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions/q01.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions_artifacts/q01.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -246,7 +246,7 @@
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
       <ImportLibrary>E:/GraphicInterviewPractice/GraphicInterviewPractice/build/MinSizeRel/q01.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions/q01.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions_artifacts/q01.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -302,7 +302,7 @@
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
       <ImportLibrary>E:/GraphicInterviewPractice/GraphicInterviewPractice/build/RelWithDebInfo/q01.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions/q01.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions_artifacts/q01.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem>Console</SubSystem>
     </Link>

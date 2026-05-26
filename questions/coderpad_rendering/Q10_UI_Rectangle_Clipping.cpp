@@ -23,15 +23,26 @@ struct Rect {
 
 bool RectsOverlap(const Rect& a, const Rect& b) {
     // TODO: return true only when the rectangles have positive-area overlap.
-    (void)a;
-    (void)b;
-    return false;
+    bool bxoverlap = (a.xMax > b.xMin && a.xMin < b.xMax);
+    bool byoverlap = (a.yMax > b.yMin && a.yMin < b.yMax);
+    
+    return bxoverlap && byoverlap;
 }
 
 Rect IntersectRect(const Rect& a, const Rect& b) {
     // TODO: return the overlapped rectangle, or an empty rectangle if no overlap exists.
-    (void)a;
-    (void)b;
+
+    if(RectsOverlap(a,b)){
+    Rect ans;
+    ans.xMin= b.xMin;
+    ans.yMin= b.yMin;
+    ans.xMax = a.xMax;
+    ans.yMax = a.yMax;
+
+    return ans;
+
+    }
+    
     return {};
 }
 
