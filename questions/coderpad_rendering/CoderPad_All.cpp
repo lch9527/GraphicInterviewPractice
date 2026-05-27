@@ -29,56 +29,48 @@ CoderPad Rendering Question 1: Vec3 Basic Operations
 Task:
 Implement addition, subtraction, scalar multiplication, dot product, cross product,
 length, and safe normalization for Vec3.
-
-Concepts tested:
-- vector math
-- dot/cross product
-- safe normalization with an epsilon
 */
-
 
 constexpr float LOCAL_EPSILON = 1e-6f;
 
 Vec3 Add(const Vec3& a, const Vec3& b) {
-    // TODO: implement this function.
-
-    return Vec3{a.x+b.x, a.y+b.y, a.z+b.z};
+  return Vec3{a.x+b.x, a.y+b.y,a.z+b.z};
 }
 
 Vec3 Subtract(const Vec3& a, const Vec3& b) {
-    // TODO: implement this function.
-    return Vec3{a.x-b.x, a.y-b.y, a.z-b.z};
+    return Vec3{a.x-b.x, a.y-b.y,a.z-b.z};
 }
 
 Vec3 Multiply(const Vec3& v, float s) {
-    // TODO: implement this function.
-    return Vec3{v.x*s, v.y*s, v.z*s};
+
+    return Vec3{v.x*s, v.y*s,v.z*s};
 }
 
 float Dot(const Vec3& a, const Vec3& b) {
-    // TODO: implement this function.
     return a.x*b.x + a.y*b.y + a.z*b.z;
 }
 
 Vec3 Cross(const Vec3& a, const Vec3& b) {
-    // TODO: implement this function.
-    Vec3 ans = {a.y*b.z - a.z*b.y,
+    Vec3 ans = { a.y*b.z - a.z*b.y,
                 a.z*b.x - a.x*b.z,
-                a.x*b.y - a.y*b.x};
+                a.x*b.y - a.y*b.x
+    };
     return ans;
 }
 
 float Length(const Vec3& v) {
-    // TODO: implement this function.
-    return fsqrt(v.x*v.x + v.y*v.y + v.z*v.z);
+    return sqrtf(v.x*v.x + v.y*v.y + v.z*v.z);
 }
 
 Vec3 NormalizeSafe(const Vec3& v) {
-    float lv = Length(v);
-    if(lv<LOCAL_EPSILON){
-        return{0,0,0};
+    float vl = Length(v);
+    Vec3 ans = {0,0,0};
+    if(vl > LOCAL_EPSILON){
+        ans.x = v.x/vl;
+        ans.y = v.y/vl;
+        ans.z = v.z/vl;
     }
-    return {v.x/lv,v.y/lv,v.z/lv};
+    return ans;
 }
 
 bool RunTests01() {
@@ -102,33 +94,22 @@ CoderPad Rendering Question 2: Angle Between Vectors
 
 Task:
 Given two vectors, return the angle between them in degrees.
-
-Concepts tested:
-- dot product
-- acos
-- radians-to-degrees conversion
-- clamping before acos
-- zero-length vector handling
 */
-
 
 constexpr float LOCAL_PI = 3.1415926535f;
 constexpr float LOCAL_EPSILON = 1e-6f;
 
 float AngleBetweenDegrees(const Vec3& a, const Vec3& b) {
-    float la = LengthHelper(a);
-    float lb = LengthHelper(b);
-    if(la < LOCAL_EPSILON || lb < LOCAL_EPSILON){
-        return 0.0f;
+    Vec3 na = NormalizeHelper(a);
+    Vec3 nb = NormalizeHelper(b);
+    if(LengthHelper(na) < LOCAL_EPSILON || LengthHelper(nb) < LOCAL_EPSILON){
+        return 0;
     }
 
-    float dotab = dot(a,b);
+    float dotValue = std::clamp(dot(na, nb), -1.0f, 1.0f);
+    float r = acos(dotValue);
 
-    float abr = dotab/la/lb;
-
-    abr = std::clamp(abr,-1.0f,1.0f);
-
-    return acos(abr)*180/LOCAL_PI;
+    return r * 180/LOCAL_PI;
 }
 
 bool RunTests02() {
@@ -149,14 +130,7 @@ CoderPad Rendering Question 3: Field Of View Cone Test
 Task:
 Given an actor position, forward direction, target position, and FOV angle,
 return whether the target is inside the actor's FOV cone.
-
-Concepts tested:
-- forward and to-target vectors
-- normalized dot product
-- avoiding acos
-- degree-to-radian conversion
 */
-
 
 constexpr float LOCAL_PI = 3.1415926535f;
 constexpr float LOCAL_EPSILON = 1e-6f;
@@ -164,20 +138,20 @@ constexpr float LOCAL_EPSILON = 1e-6f;
 bool IsTargetInFOV(const Vec3& actorPos, const Vec3& actorForward,
                    const Vec3& targetPos, float fovDegrees) {
 
-    Vec3 at = targetPos - actorPos;
-    float forwardLen = LengthHelper(actorForward);
-    float targetLen = LengthHelper(at);
+    Vec3 ToTarget = targetPos - actorPos;
 
-  if (forwardLen < LOCAL_EPSILON || targetLen < LOCAL_EPSILON) {
-      return false;
-  }
+    if(LengthHelper(ToTarget) < LOCAL_EPSILON || LengthHelper(actorForward) < LOCAL_EPSILON){
+        return false;
+    }
 
-    float fovR = (fovDegrees/2) * (LOCAL_PI/180);
-
+    Vec3 nt = NormalizeHelper(ToTarget);
     Vec3 nf = NormalizeHelper(actorForward);
-    Vec3 nat = NormalizeHelper(at);
 
-    return dot(nf,nat) >= cos(fovR);
+    float dotresult = dot(nt,nf);
+    dotresult = std::clamp(dotresult, -1.0f, 1.0f);
+
+    float halfFovRadians = fovDegrees/2 * LOCAL_PI/180;
+    return dotresult >= cos(halfFovRadians);
 }
 
 bool RunTests03() {
@@ -196,33 +170,21 @@ namespace Q04 {
 CoderPad Rendering Question 4: Triangle Normal and Facing Camera
 
 Task:
-1. Calculate a triangle normal.
-2. Check whether the triangle faces the camera.
-
-Concepts tested:
-- cross product
-- winding order
-- triangle center
-- view direction
-- dot product facing test
+Calculate a triangle normal and check whether the triangle faces the camera.
 */
 
-
 Vec3 CalculateTriangleNormal(const Vec3& a, const Vec3& b, const Vec3& c) {
-    // TODO: implement this function.
-
-    return NormalizeHelper(cross(a-c,b-c));
+    Vec3 ab = b-a;
+    Vec3 ac = c-a;
+    return NormalizeHelper(cross(ab,ac));
 }
 
 bool IsTriangleFacingCamera(const Vec3& a, const Vec3& b, const Vec3& c,
                             const Vec3& cameraPos) {
-    Vec3 Tn = CalculateTriangleNormal(a,b,c);
-    Vec3 Tpos = (a+b+c)/3;
-    Vec3 CtoT = Tpos - cameraPos;
-    if(dot(Tn,NormalizeHelper(CtoT)) < 0){
-        return true;
-    }
-    return false;
+    Vec3 tn = CalculateTriangleNormal(a,b,c);
+    Vec3 tp = NormalizeHelper(cameraPos-(a+b+c)/3);
+    float dotresult = dot(tn,tp);
+    return dotresult > 0;
 }
 
 bool RunTests04() {
@@ -242,23 +204,16 @@ CoderPad Rendering Question 5: TransformPoint vs TransformDirection
 
 Task:
 Implement TransformPoint and TransformDirection.
-
-Concepts tested:
-- homogeneous coordinates
-- points use w = 1
-- directions use w = 0
-- translation affects points but not directions
 */
 
-
 Vec3 TransformPoint(const Mat4& m, const Vec3& p) {
-    Vec4 res = Mul(m, Vec4{p.x, p.y, p.z, 1.0f});
-    return {res.x, res.y, res.z};
+    Vec4 ans = Mul(m,Vec4{p.x,p.y,p.z,1});
+    return Vec3{ans.x,ans.y,ans.z};
 }
 
 Vec3 TransformDirection(const Mat4& m, const Vec3& dir) {
-    Vec4 res = Mul(m, Vec4{dir.x, dir.y, dir.z, 0.0f});
-      return {res.x, res.y, res.z};
+    Vec4 ans = Mul(m,Vec4{dir.x,dir.y,dir.z,0});
+    return Vec3{ans.x,ans.y,ans.z};
 }
 
 Mat4 MakeTranslation(float x, float y, float z) {
@@ -292,34 +247,29 @@ CoderPad Rendering Question 6: Ray-Plane Intersection
 
 Task:
 Implement ray-plane intersection and return whether the hit is in front of the ray.
-
-Concepts tested:
-- ray equation P = O + tD
-- plane equation dot(N, X) + d = 0
-- parallel ray handling
-- t >= 0 hit check
 */
-
 
 constexpr float LOCAL_EPSILON = 1e-6f;
 
 bool RayPlaneIntersection(const Vec3& rayOrigin, const Vec3& rayDir,
                           const Vec3& planeNormal, const Vec3& pointOnPlane,
                           float& outT) {
-    /*
-        dot(o+dt - p,n) = 0;
-        dot(op,n) + t*dot(d,n) = 0
-        t = dot(po,n)/dot(d,n)
-    */
-   float dotDN = dot(rayDir,planeNormal);
-   if(fabs(dotDN)< 0.0001){
-    return false;
-   }
+/*
+    dot(dt+o - p,n) = 0
+    dot(dt+op,n)
+    dot(dt,n) + dot(op,n)
+    tdot(d,n) + dot(op,n)
+    t = -dot(op,n)/dot(d,n)
+*/
+    Vec3 op = rayOrigin - pointOnPlane;
+    float dotresult = dot(rayDir,planeNormal);
 
-    Vec3 po = pointOnPlane - rayOrigin;
-    outT = dot(po,planeNormal)/dot(rayDir,planeNormal);
+    if(fabs(dotresult) < LOCAL_EPSILON){
+        return false;
+    }
 
-    if(outT < 0){
+    outT = -dot(op,planeNormal)/dotresult;
+    if(outT < 0.0f){
         return false;
     }
     return true;
@@ -343,21 +293,47 @@ CoderPad Rendering Question 7: Ray-Sphere Intersection
 
 Task:
 Implement ray-sphere intersection and return the nearest positive t.
-
-Concepts tested:
-- ray equation
-- sphere equation
-- quadratic equation
-- discriminant
-- choosing nearest positive intersection
 */
-
 
 bool RaySphereIntersection(const Vec3& rayOrigin, const Vec3& rayDir,
                            const Vec3& sphereCenter, float sphereRadius,
                            float& outT) {
-    // TODO: implement this function.
+    /*
+    dot(o+dt -c,o+dt-c) = r^2
+    dot(oc,oc) + 2dot(dt,oc) + t*tdot(d,d) - r*r = 0
+    a = dot(d,d)
+    b = 2dot(d,oc)
+    c = dot(oc,oc) - r*r
+    */
+    Vec3 oc = rayOrigin - sphereCenter;
+    float a = dot(rayDir, rayDir);
+    if (a < 1e-6f) {
+        return false;
+    }
+    float b = 2.0f * dot(rayDir, oc);
+    float c = dot(oc, oc) - sphereRadius * sphereRadius;
+
+    float discriminant = b*b - 4*a*c;
+
+    if(discriminant < 0.0f){
+        return false;
+    }
+
+    float sqrtDiscriminant = sqrt(discriminant);
+    float t1 = (-b - sqrtDiscriminant) / (2.0f * a);
+    float t2 = (-b + sqrtDiscriminant) / (2.0f * a);
+
+    if(t1 >= 0.0f){
+        outT = t1;
+        return true;
+    }
+
+    if(t2 >= 0.0f){
+        outT = t2;
+        return true;
+    }
     return false;
+
 }
 
 bool RunTests07() {
@@ -379,21 +355,44 @@ CoderPad Rendering Question 8: Ray-AABB Intersection
 
 Task:
 Implement ray-AABB intersection using the slab method.
-
-Concepts tested:
-- axis-aligned bounding boxes
-- min/max t intervals
-- parallel axis handling
 */
 
-
 constexpr float LOCAL_EPSILON = 1e-6f;
+
+bool AABBhelper(const float& rayOrigin, const float& rayDir,
+                const float& boxMin, const float& boxMax, float& Tenter, float& Texit){
+
+    if(fabs(rayDir) < LOCAL_EPSILON){
+         return rayOrigin >= boxMin && rayOrigin <= boxMax;
+    }
+        float t1 = (boxMin - rayOrigin)/rayDir;
+        float t2 = (boxMax - rayOrigin)/rayDir;
+
+        float Tenterx = std::min(t1,t2);
+        float Texitx = std::max(t1,t2);
+
+        Tenter = std::max(Tenterx,Tenter);
+        Texit = std::min(Texitx,Texit);
+        return Tenter <= Texit;
+}
 
 bool RayAABBIntersection(const Vec3& rayOrigin, const Vec3& rayDir,
                          const Vec3& boxMin, const Vec3& boxMax,
                          float& outT) {
-    // TODO: implement this function.
-    return false;
+
+    float Tenter = -std::numeric_limits<float>::max();
+    float Texit = std::numeric_limits<float>::max();
+    //const float& rayOrigin, const float& rayDir,
+               // const float& boxMin, const float& boxMax, float& Tenter, float& Texit
+    if (!AABBhelper(rayOrigin.x, rayDir.x, boxMin.x, boxMax.x, Tenter, Texit)) return false;
+    if (!AABBhelper(rayOrigin.y, rayDir.y, boxMin.y, boxMax.y, Tenter, Texit)) return false;
+    if (!AABBhelper(rayOrigin.z, rayDir.z, boxMin.z, boxMax.z, Tenter, Texit)) return false;
+    if (Texit < 0.0f) {
+      return false;
+    }
+
+    outT = std::max(Tenter, 0.0f);
+    return true;
 }
 
 bool RunTests08() {
@@ -416,13 +415,7 @@ CoderPad Rendering Question 9: Sphere Frustum Culling
 Task:
 Given 6 frustum planes and a bounding sphere, return whether the sphere is
 inside or intersecting the frustum.
-
-Concepts tested:
-- frustum culling
-- signed plane distance
-- conservative bounding sphere visibility
 */
-
 
 struct Sphere {
     Vec3 center;
@@ -430,8 +423,15 @@ struct Sphere {
 };
 
 bool SphereInFrustum(const Plane planes[6], const Sphere& sphere) {
-    // TODO: implement this function.
-    return false;
+    for(int i=0; i<6; i++){
+        float distance = dot(planes[i].normal,sphere.center)+planes[i].d;
+         if (distance < -sphere.radius) {
+              return false;
+          }
+
+    }
+
+    return true;
 }
 
 bool RunTests09() {
@@ -457,14 +457,7 @@ CoderPad Rendering Question 10: UI Rectangle Intersection and Clipping
 
 Task:
 Implement rectangle overlap and intersection for UI clipping/scissor logic.
-
-Concepts tested:
-- 2D UI math
-- clipping
-- scissor rectangles
-- min/max edge cases
 */
-
 
 struct Rect {
     float xMin = 0.0f;
@@ -474,13 +467,21 @@ struct Rect {
 };
 
 bool RectsOverlap(const Rect& a, const Rect& b) {
-    // TODO: implement this function.
-    return false;
+    return a.xMin < b.xMax && a.xMax > b.xMin &&
+           a.yMin < b.yMax && a.yMax > b.yMin;
 }
 
 Rect IntersectRect(const Rect& a, const Rect& b) {
-    // TODO: implement this function.
-    return {};
+    if (!RectsOverlap(a, b)) {
+        return {};
+    }
+
+    return {
+        std::max(a.xMin, b.xMin),
+        std::max(a.yMin, b.yMin),
+        std::min(a.xMax, b.xMax),
+        std::min(a.yMax, b.yMax)
+    };
 }
 
 bool RectNear(const Rect& a, const Rect& b) {
@@ -516,24 +517,34 @@ CoderPad Rendering Question 11: Count UI Batches
 Task:
 Given UI quads with texture IDs, count draw batches when order cannot change
 and when order can change.
-
-Concepts tested:
-- batching
-- texture binding changes
-- draw-call count
-- ordered transparent UI
-- unordered opaque UI
 */
 
-
 int CountBatchesOrderCannotChange(const std::vector<UIQuad>& quads) {
-    // TODO: implement this function.
-    return 0;
+    int ans = 1;
+    if(quads.empty()){
+        return 0;
+    }
+    UIQuad tmp = quads[0];
+    for(int i = 1; i< quads.size(); i++){
+        if(quads[i].textureId != tmp.textureId){
+            ans++;
+            tmp = quads[i];
+        }
+    }
+    return ans;
 }
 
 int CountBatchesOrderCanChange(const std::vector<UIQuad>& quads) {
-    // TODO: implement this function.
-    return 0;
+    int ans = 1;
+    if(quads.empty()){
+        return 0;
+    }
+    std::unordered_set<int> Uiset;
+    for(auto i : quads){
+        Uiset.insert(i.textureId);
+    }
+    return Uiset.size();
+
 }
 
 bool RunTests11() {
@@ -554,15 +565,7 @@ CoderPad Rendering Question 12: Sort Render Commands
 
 Task:
 Separate opaque and transparent commands and sort them correctly.
-
-Concepts tested:
-- std::vector
-- std::sort
-- custom comparators
-- material/texture batching
-- alpha blending order
 */
-
 
 struct RenderCommand {
     int materialId = 0;
@@ -572,13 +575,38 @@ struct RenderCommand {
 };
 
 std::vector<RenderCommand> SortOpaqueCommands(const std::vector<RenderCommand>& commands) {
-    // TODO: implement this function.
-    return {};
+ std::vector<RenderCommand> Renders;
+
+      for (const RenderCommand& i : commands) {
+          if (!i.transparent) {
+              Renders.push_back(i);
+          }
+      }
+
+      std::sort(Renders.begin(), Renders.end(), [](const RenderCommand& a, const RenderCommand& b) {
+          if (a.materialId != b.materialId) {
+              return a.materialId < b.materialId;
+          }
+          return a.textureId < b.textureId;
+      });
+
+      return Renders;
 }
 
 std::vector<RenderCommand> SortTransparentCommands(const std::vector<RenderCommand>& commands) {
-    // TODO: implement this function.
-    return {};
+    std::vector<RenderCommand> renders;
+
+    for (const RenderCommand& command : commands) {
+        if (command.transparent) {
+            renders.push_back(command);
+        }
+    }
+
+    std::sort(renders.begin(), renders.end(), [](const RenderCommand& a, const RenderCommand& b) {
+        return a.depth > b.depth;
+    });
+
+    return renders;
 }
 
 bool RunTests12() {
@@ -613,23 +641,18 @@ CoderPad Rendering Question 13: Texture and Render Target Memory Cost
 
 Task:
 Estimate memory cost for textures and render targets.
-
-Concepts tested:
-- memory footprint
-- mipmaps
-- MSAA cost
-- embedded rendering constraints
 */
 
-
 int TextureMemoryBytes(int width, int height, int bytesPerPixel, bool hasMipmaps) {
-    // TODO: implement this function.
-    return 0;
+    int baseBytes = width * height * bytesPerPixel;
+    if (!hasMipmaps) {
+        return baseBytes;
+    }
+    return baseBytes * 4 / 3;
 }
 
 int RenderTargetMemoryBytes(int width, int height, int bytesPerPixel, int sampleCount) {
-    // TODO: implement this function.
-    return 0;
+    return width * height * bytesPerPixel * sampleCount;
 }
 
 bool RunTests13() {
@@ -649,30 +672,30 @@ CoderPad Rendering Question 14: Frame Budget and CPU/GPU Bottleneck
 
 Task:
 Implement simple frame budget and bottleneck detection helpers.
-
-Concepts tested:
-- frame pacing
-- CPU-bound vs GPU-bound
-- 60/90/120 FPS budgets
-- rendering performance reasoning
 */
-
 
 constexpr float LOCAL_EPSILON_MS = 0.25f;
 
 float FrameBudgetMs(int fps) {
-    // TODO: implement this function.
-    return 0.0f;
+    if (fps <= 0) {
+        return 0.0f;
+    }
+    return 1000.0f / static_cast<float>(fps);
 }
 
 bool IsFrameOverBudget(float cpuFrameMs, float gpuFrameMs, float targetFps) {
-    // TODO: implement this function.
-    return false;
+    if (targetFps <= 0.0f) {
+        return false;
+    }
+    float budgetMs = 1000.0f / targetFps;
+    return std::max(cpuFrameMs, gpuFrameMs) > budgetMs;
 }
 
 const char* DetectBottleneck(float cpuFrameMs, float gpuFrameMs) {
-    // TODO: implement this function.
-    return "";
+    if (std::fabs(cpuFrameMs - gpuFrameMs) <= LOCAL_EPSILON_MS) {
+        return "Balanced";
+    }
+    return cpuFrameMs > gpuFrameMs ? "CPU-bound" : "GPU-bound";
 }
 
 bool RunTests14() {
