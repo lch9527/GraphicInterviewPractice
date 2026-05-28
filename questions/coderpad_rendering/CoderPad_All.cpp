@@ -356,7 +356,23 @@ Concepts tested:
 bool RaySphereIntersection(const Vec3& rayOrigin, const Vec3& rayDir,
                            const Vec3& sphereCenter, float sphereRadius,
                            float& outT) {
-    // TODO: implement this function.
+    /*
+        |o+dt - c|^2 = r^2
+        dot(o+dt -c, o+dt-c) = r^2
+        dot(oc + dt,oc+dt) = r^2
+        dot(oc,oc) + 2dot(oc,dt) + dot(dt,dt) - r^2 = 0
+        dot(oc,oc) + t*2dot(oc,d) + t^2*dot(d,d) - r^2 = 0
+        a = dot(d,d)
+        b = 2dot(oc,d) 
+        c = dot(oc, oc) - r*r
+    */
+        Vec3 oc = rayOrigin - sphereCenter;
+        int a = dot(rayDir,rayDir);
+        int b = 2*dot(oc, rayDir);
+        int c = dot(oc,oc) - (sphereRadius * sphereRadius);
+
+        
+
     return false;
 }
 

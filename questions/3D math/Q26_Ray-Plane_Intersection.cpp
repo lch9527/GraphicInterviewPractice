@@ -1,0 +1,60 @@
+// Run from this file directory:
+//   mkdir -p "../../questions_artifacts/3D math" && g++ -std=c++17 -I../../include Q26_Ray-Plane_Intersection.cpp -o "../../questions_artifacts/3D math/3d_math_q26" && "../../questions_artifacts/3D math/3d_math_q26"
+
+// Build: cmake --build build --config Debug --target Q26_Ray-Plane_Intersection
+// Run: .\build\Debug\Q26_Ray-Plane_Intersection.exe
+/*
+Question 26: Ray-Plane Intersection
+
+Description:
+Given a ray and plane defined by normal + point, return whether they intersect and output t.
+
+Task:
+Implement this function:
+    bool RayPlaneIntersection(const Vec3& rayOrigin, const Vec3& rayDir, const Vec3& planeNormal, const Vec3& pointOnPlane, float& outT);
+
+How to run this file:
+    g++ -std=c++17 -I../../include Q26_Ray-Plane_Intersection.cpp -o q26 && ./q26
+
+Notes:
+- Edit only the TODO function unless you want to add your own tests.
+- The tests are at the bottom of this file.
+*/
+
+#include "MathTypes.h"
+
+bool RayPlaneIntersection(const Vec3& rayOrigin, const Vec3& rayDir, const Vec3& planeNormal,
+     const Vec3& pointOnPlane, float& outT) {
+    float d = dot(rayDir,planeNormal);
+        if(fabs(d) < 0.0001){
+            return false;
+        }
+
+    outT = dot(planeNormal,pointOnPlane-rayOrigin)/d;
+
+    /*
+    dot(N, O + D * t - P) = 0
+    dot(N,O) + t*dot(N,D) - dot(N,p) = 0
+    t = dot(n,o-p)/dot(N,D) 
+    */
+
+    if (outT < 0){
+        return false;
+    }
+    return true;
+}
+
+bool RunTests() {
+
+    float t = 0.0f;
+    EXPECT_TRUE(RayPlaneIntersection({0,0,0}, {0,1,0}, {0,1,0}, {0,5,0}, t));
+    EXPECT_NEAR(t, 5.0f);
+    EXPECT_FALSE(RayPlaneIntersection({0,0,0}, {1,0,0}, {0,1,0}, {0,5,0}, t));
+    EXPECT_FALSE(RayPlaneIntersection({0,0,0}, {0,-1,0}, {0,1,0}, {0,5,0}, t));
+
+    return true;
+}
+
+RUN_TESTS()
+
+

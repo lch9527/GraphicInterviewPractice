@@ -14,6 +14,19 @@
             }
         },
         {
+            "label": "Build active C++ file (GCC)",
+            "type": "shell",
+            "command": "${workspaceFolder}/scripts/build_active_gcc.sh",
+            "args": [
+                "${workspaceFolder}",
+                "${file}"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
             "label": "Build active C++ file (MSVC)",
             "type": "shell",
             "command": "powershell",
