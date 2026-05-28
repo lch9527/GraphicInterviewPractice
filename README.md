@@ -9,24 +9,27 @@ You edit the TODO function, compile the file, and run its built-in tests.
 
 ```text
 include/MathTypes.h      Shared Vec2, Vec3, Mat4, test macros, helpers
-questions/Q##_*.cpp      One editable problem per file
+questions/3D math/Q##_*.cpp
+                         3D graphics math practice problems
+questions/data_structure_builder/Q##_*.cpp
+                         Data-structure construction and serialization problems
 scripts/run_all.sh       Compiles and runs every question
 CMakeLists.txt           Optional CMake build
 ```
 
 ## Run one question
 
-From the `questions` folder:
+From the `questions/3D math` folder:
 
 ```bash
-g++ -std=c++17 -I../include Q04_Compute_Dot_Product.cpp -o q04
+g++ -std=c++17 -I../../include Q04_Compute_Dot_Product.cpp -o q04
 ./q04
 ```
 
 On Windows with Visual Studio Developer Command Prompt, you can use:
 
 ```bat
-cl /std:c++17 /EHsc /I..\include Q04_Compute_Dot_Product.cpp
+cl /std:c++17 /EHsc /I..\..\include Q04_Compute_Dot_Product.cpp
 Q04_Compute_Dot_Product.exe
 ```
 

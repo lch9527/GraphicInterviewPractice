@@ -4,8 +4,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(include)
 file(GLOB QUESTION_FILES
-    questions/Q*.cpp
+    "questions/3D math/Q*.cpp"
     questions/coderpad_rendering/Q*.cpp
+    questions/data_structure_builder/Q*.cpp
     questions/tesla/Q*.cpp
 )
 foreach(qfile ${QUESTION_FILES})
@@ -14,11 +15,19 @@ foreach(qfile ${QUESTION_FILES})
     string(REGEX MATCH "^Q([0-9]+)" _ "${qname}")
     if(CMAKE_MATCH_1)
         get_filename_component(qdir ${qfile} DIRECTORY)
+        string(FIND "${qdir}" "3D math" is_3d_math)
         string(FIND "${qdir}" "coderpad_rendering" is_coderpad)
+        string(FIND "${qdir}" "data_structure_builder" is_data_structure_builder)
         string(FIND "${qdir}" "tesla" is_tesla)
-        if(is_coderpad GREATER -1)
+        if(is_3d_math GREATER -1)
+            set(short_name "3d_math_q${CMAKE_MATCH_1}")
+            set(output_dir "${CMAKE_SOURCE_DIR}/questions_artifacts/3D math")
+        elseif(is_coderpad GREATER -1)
             set(short_name "coderpad_q${CMAKE_MATCH_1}")
             set(output_dir "${CMAKE_SOURCE_DIR}/questions_artifacts/coderpad_rendering")
+        elseif(is_data_structure_builder GREATER -1)
+            set(short_name "data_structure_builder_q${CMAKE_MATCH_1}")
+            set(output_dir "${CMAKE_SOURCE_DIR}/questions_artifacts/data_structure_builder")
         elseif(is_tesla GREATER -1)
             set(short_name "tesla_q${CMAKE_MATCH_1}")
             set(output_dir "${CMAKE_SOURCE_DIR}/questions_artifacts/tesla")
