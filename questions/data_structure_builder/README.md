@@ -15,3 +15,4 @@ This folder contains data-structure construction and byte-buffer serialization e
 | `Q15_Implement_Circular_Buffer_Queue.cpp` | Build a functional circular buffer queue | Queue |
 | `Q16_Implement_Graph_Adjacency_List.cpp` | Build a functional directed graph | Graph |
 | `Q17_Prepare_Buffer_For_Send.cpp` | Serialize structured scene data into a contiguous byte buffer | Serialization, Binary Protocols |
+| `Q18_Implement_Priority_Queue.cpp` | Build a functional heap-backed max-priority queue | Heap, Priority Queue |

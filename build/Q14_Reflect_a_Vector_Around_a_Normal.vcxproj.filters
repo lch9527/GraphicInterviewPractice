@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\questions\Q14_Reflect_a_Vector_Around_a_Normal.cpp">
+    <ClCompile Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\questions\3D math\Q14_Reflect_a_Vector_Around_a_Normal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

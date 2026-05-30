@@ -59,27 +59,27 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions_artifacts\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions_artifacts\3D math\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Q05_Compute_Cross_Product.dir\Debug\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">q05</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">3d_math_q05</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions_artifacts\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions_artifacts\3D math\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Q05_Compute_Cross_Product.dir\Release\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">q05</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">3d_math_q05</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions_artifacts\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions_artifacts\3D math\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Q05_Compute_Cross_Product.dir\MinSizeRel\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">q05</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">3d_math_q05</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions_artifacts\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\GraphicInterviewPractice\GraphicInterviewPractice\questions_artifacts\3D math\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Q05_Compute_Cross_Product.dir\RelWithDebInfo\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">q05</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">3d_math_q05</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
@@ -130,9 +130,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>E:/GraphicInterviewPractice/GraphicInterviewPractice/build/Debug/q05.lib</ImportLibrary>
+      <ImportLibrary>E:/GraphicInterviewPractice/GraphicInterviewPractice/build/Debug/3d_math_q05.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions_artifacts/q05.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions_artifacts/3D math/3d_math_q05.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -187,9 +187,9 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>E:/GraphicInterviewPractice/GraphicInterviewPractice/build/Release/q05.lib</ImportLibrary>
+      <ImportLibrary>E:/GraphicInterviewPractice/GraphicInterviewPractice/build/Release/3d_math_q05.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions_artifacts/q05.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions_artifacts/3D math/3d_math_q05.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -244,9 +244,9 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>E:/GraphicInterviewPractice/GraphicInterviewPractice/build/MinSizeRel/q05.lib</ImportLibrary>
+      <ImportLibrary>E:/GraphicInterviewPractice/GraphicInterviewPractice/build/MinSizeRel/3d_math_q05.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions_artifacts/q05.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions_artifacts/3D math/3d_math_q05.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -300,9 +300,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
-      <ImportLibrary>E:/GraphicInterviewPractice/GraphicInterviewPractice/build/RelWithDebInfo/q05.lib</ImportLibrary>
+      <ImportLibrary>E:/GraphicInterviewPractice/GraphicInterviewPractice/build/RelWithDebInfo/3d_math_q05.lib</ImportLibrary>
       <LinkErrorReporting></LinkErrorReporting>
-      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions_artifacts/q05.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>E:/GraphicInterviewPractice/GraphicInterviewPractice/questions_artifacts/3D math/3d_math_q05.pdb</ProgramDataBaseFile>
       <RandomizedBaseAddress></RandomizedBaseAddress>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -368,7 +368,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\questions\Q05_Compute_Cross_Product.cpp" />
+    <ClCompile Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\questions\3D math\Q05_Compute_Cross_Product.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\questions\Q07_Normalize_a_Vector_Safely.cpp">
+    <ClCompile Include="E:\GraphicInterviewPractice\GraphicInterviewPractice\questions\3D math\Q07_Normalize_a_Vector_Safely.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
