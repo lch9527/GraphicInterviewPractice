@@ -1,9 +1,8 @@
 # C++ Graphics Math Interview Practice
 
-This project contains 36 standalone C++ practice questions for graphics/math interviews.
+This project contains standalone C++ practice questions for graphics/math, rendering, data structures, and LeetCode-style interviews.
 
-Each question is a separate `.cpp` file inside `questions/`.
-You edit the TODO function, compile the file, and run its built-in tests.
+Each buildable answer/exercise file is a separate `.cpp` file inside `questions/` with built-in tests. LeetCode prompts are intentionally separate from their answer files.
 
 ## Folder structure
 
@@ -11,15 +10,23 @@ You edit the TODO function, compile the file, and run its built-in tests.
 include/MathTypes.h      Shared Vec2, Vec3, Mat4, test macros, helpers
 questions/3D math/Q##_*.cpp
                          3D graphics math practice problems
+questions/coderpad_rendering/Q*.cpp
+                         Rendering-focused CoderPad practice problems
 questions/data_structure_builder/Q##_*.cpp
                          Data-structure construction and serialization problems
-scripts/run_all.sh       Compiles and runs every question
+questions/leetcode/neetcode_150/Prompt_NC###_*.cpp
+                         Empty CoderPad-style LeetCode prompts
+questions/leetcode/neetcode_150/Answer_NC###_*.cpp
+                         NeetCode 150 answer workspaces
+questions/leetcode/Answer_Q##_...cpp
+                         Extra solved non-roadmap LeetCode examples
+scripts/run_all.sh       Compiles and runs every buildable answer/exercise file
 CMakeLists.txt           Optional CMake build
 ```
 
 ## Run one question
 
-From the `questions/3D math` folder:
+From a question folder:
 
 ```bash
 g++ -std=c++17 -I../../include Q04_Compute_Dot_Product.cpp -o q04
@@ -33,7 +40,7 @@ cl /std:c++17 /EHsc /I..\..\include Q04_Compute_Dot_Product.cpp
 Q04_Compute_Dot_Product.exe
 ```
 
-## Run all questions
+## Run all buildable files
 
 From the project root:
 
@@ -41,9 +48,9 @@ From the project root:
 bash scripts/run_all.sh
 ```
 
-At first, most tests will fail because the TODO functions are empty. That is expected.
+Generated NeetCode roadmap files under `questions/leetcode/neetcode_150/Prompt_NC###_*` and `questions/leetcode/neetcode_150/Answer_NC###_*` are starter workspaces. The current CMake and `run_all.sh` LeetCode build only includes the extra solved non-roadmap `Answer_Q##_...cpp` examples.
 
-## Suggested practice order
+## Suggested graphics practice order
 
 1. Q04 Dot product
 2. Q05 Cross product

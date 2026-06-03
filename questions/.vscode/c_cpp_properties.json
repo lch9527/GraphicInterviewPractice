@@ -10,7 +10,7 @@
                 "${workspaceFolder}/questions/3D math",
                 "${workspaceFolder}/questions/coderpad_rendering",
                 "${workspaceFolder}/questions/data_structure_builder",
-                "${workspaceFolder}/questions/tesla",
+                "${workspaceFolder}/questions/leetcode",
                 "${workspaceFolder}/../include",
                 "${workspaceFolder}/../questions"
             ],
@@ -22,3 +22,4 @@
         }
     ]
 }
+

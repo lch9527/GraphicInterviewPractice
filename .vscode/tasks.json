@@ -4,27 +4,29 @@
         {
             "label": "Build CoderPad All",
             "type": "shell",
-            "command": "mkdir -p ${workspaceFolder}/questions_artifacts/coderpad_rendering && g++ -std=c++17 -g -I${workspaceFolder}/include ${workspaceFolder}/questions/coderpad_rendering/CoderPad_All.cpp -o ${workspaceFolder}/questions_artifacts/coderpad_rendering/coderpad_all",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}\\scripts\\build_active_msvc.ps1",
+                "-WorkspaceFolder",
+                "${workspaceFolder}",
+                "-FilePath",
+                "${workspaceFolder}\\questions\\coderpad_rendering\\CoderPad_All.cpp",
+                "-FileDir",
+                "${workspaceFolder}\\questions\\coderpad_rendering",
+                "-FileBaseNameNoExtension",
+                "CoderPad_All"
+            ],
             "problemMatcher": [
-                "$gcc"
+                "$msCompile"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
-        },
-        {
-            "label": "Build active C++ file (GCC)",
-            "type": "shell",
-            "command": "${workspaceFolder}/scripts/build_active_gcc.sh",
-            "args": [
-                "${workspaceFolder}",
-                "${file}"
-            ],
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": "build"
         },
         {
             "label": "Build active C++ file (MSVC)",
