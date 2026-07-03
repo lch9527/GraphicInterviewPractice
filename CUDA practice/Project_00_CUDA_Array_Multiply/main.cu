@@ -21,7 +21,9 @@
 __global__ void MultiplyKernel(const float* a, const float* b, float* c, int n)
 {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
-    // TODO: guard i and compute c[i].
+    if (i < n) {
+        c[i] = a[i] * b[i];
+    }
 }
 
 static double ElapsedMs(cudaEvent_t start, cudaEvent_t stop)

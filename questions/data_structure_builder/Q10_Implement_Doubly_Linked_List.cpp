@@ -9,42 +9,112 @@ can be traversed forward and backward.
 #include <vector>
 
 class DoublyLinkedList {
+private:
+    struct Node {
+        int val;
+        Node* next;
+        Node* prv;
+        Node(int v): val(v), next(nullptr), prv(nullptr){}
+    };
+
+    Node* head;
+    Node* tail;
+    int size;
 public:
+    DoublyLinkedList(): head(nullptr), tail(nullptr), size(0){}
+
     void PushFront(int value) {
-        // TODO: insert value at the head.
-        (void)value;
+        Node* newNode = new Node(value);
+        if(head == nullptr){
+            head = newNode;
+            tail = newNode;
+        }
+        else{
+            newNode->next = head;
+            head->prv = newNode;
+            head = newNode;
+        }
+        size++;
     }
 
     void PushBack(int value) {
-        // TODO: insert value at the tail.
-        (void)value;
+        Node* newNode = new Node(value);
+        if(tail == nullptr){
+            tail = newNode;
+            head = newNode;
+        }
+        else{
+            tail->next = newNode;
+            newNode->prv = tail;
+            tail = newNode;
+        }
+        size++;
     }
 
     bool PopFront(int& outValue) {
-        // TODO: remove head and write its value.
-        (void)outValue;
-        return false;
+        if(head==nullptr){
+            return false;
+        }
+
+        Node* needDelete = head;
+        head = head->next;
+        if(head){
+            head->prv = nullptr;
+        }
+        else{
+            tail = nullptr;
+        }
+        outValue = needDelete->val;
+        delete needDelete;
+        size--;
+        return true;
     }
 
     bool PopBack(int& outValue) {
-        // TODO: remove tail and write its value.
-        (void)outValue;
-        return false;
+        if(tail == nullptr){
+            return false;
+        }
+
+        Node* needDelete = tail;
+        tail = tail->prv;
+        if(tail){
+            tail->next = nullptr;
+        }
+        else{
+            head = nullptr;
+        }
+        outValue = needDelete->val;
+        delete needDelete;
+        size--;
+        return true;
     }
 
     int Size() const {
-        // TODO: return the number of nodes.
-        return 0;
+        return size;
     }
 
     std::vector<int> ToVectorForward() const {
-        // TODO: return values from head to tail.
-        return {};
+        Node* curr = head;
+        std::vector<int> ans;
+        ans.reserve(size);
+
+        while(curr){
+            ans.emplace_back(curr->val);
+            curr = curr->next;
+        }
+        return ans;
     }
 
     std::vector<int> ToVectorBackward() const {
-        // TODO: return values from tail to head.
-        return {};
+        Node* curr = tail;
+        std::vector<int> ans;
+        ans.reserve(size);
+
+        while(curr){
+            ans.emplace_back(curr->val);
+            curr = curr->prv;
+        }
+        return ans;
     }
 };
 

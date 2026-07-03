@@ -35,3 +35,62 @@ nvcc -O0 -DNUMTRIALS=1048576 -DBLOCKSIZE=128 main.cu -o main.exe
 ```
 
 The course page warns not to use aggressive optimization for benchmark assignments. These skeletons default examples to `-O0` for that reason.
+
+## nvcc Command-Line Practice
+
+Use these commands while working through each CUDA project in WSL. The `-arch=sm_89` flag targets the RTX 4060 laptop GPU and avoids relying on driver-side PTX JIT for this setup.
+
+Check the CUDA tools:
+
+```bash
+nvidia-smi
+nvcc --version
+```
+
+Build and run the current project:
+
+```bash
+nvcc -O0 -arch=sm_89 main.cu -o main
+./main
+```
+
+Build with benchmark constants:
+
+```bash
+nvcc -O0 -arch=sm_89 -DSIZE=1048576 -DBLOCKSIZE=128 main.cu -o main
+./main
+```
+
+Keep source line information for profiling or debugging:
+
+```bash
+nvcc -O0 -arch=sm_89 -lineinfo main.cu -o main
+```
+
+Generate intermediate files to see what `nvcc` is doing:
+
+```bash
+nvcc -O0 -arch=sm_89 --keep main.cu -o main
+```
+
+Compile only, then link separately:
+
+```bash
+nvcc -O0 -arch=sm_89 -c main.cu -o main.o
+nvcc main.o -o main
+```
+
+Clean local build outputs:
+
+```bash
+rm -f main main.o *.ptx *.cubin *.fatbin *.ii *.i *.cudafe* *.module_id *.gpu *.cpp*
+```
+
+Suggested drill for each project:
+
+1. Build once with plain `-O0 -arch=sm_89`.
+2. Rebuild with two different `-D` values, such as `BLOCKSIZE=64` and `BLOCKSIZE=256`.
+3. Add `-lineinfo` and confirm the program still runs.
+4. Use `--keep` once, inspect the generated files, then clean them.
+
+
