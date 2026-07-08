@@ -58,12 +58,48 @@ void send(const char* buffer, size_t size) {
     (void)size;
 }
 
+template <typename T>
+void AppendValue(ByteBuffer& buffer, const T& value) {
+    const size_t oldSize = buffer.size();
+    buffer.resize(oldSize + sizeof(T));
+    std::memcpy(buffer.data() + oldSize, &value, sizeof(T));
+}
+
+void AppendVec3(ByteBuffer& buffer, const Vec3& value) {
+    AppendValue(buffer, value.x);
+    AppendValue(buffer, value.y);
+    AppendValue(buffer, value.z);
+}
+
 ByteBuffer PrepareSendBuffer(const Scene& scene) {
-    // TODO: build a contiguous byte buffer using the required binary layout.
-    // Hint: append counts first, then append each scalar field explicitly with
-    // std::memcpy into a std::vector<char>.
-    (void)scene;
-    return {};
+    ByteBuffer buffer;
+
+    const uint32_t carCount = static_cast<uint32_t>(scene.cars.size());
+    const uint32_t signCount = static_cast<uint32_t>(scene.signs.size());
+
+    AppendValue(buffer, carCount);
+    AppendValue(buffer, signCount);
+
+    for (const Car& car : scene.cars) {
+        AppendVec3(buffer, car.location);
+        AppendVec3(buffer, car.direction);
+        AppendVec3(buffer, car.size);
+
+        const int32_t type = static_cast<int32_t>(car.type);
+        AppendValue(buffer, type);
+    }
+
+    for (const Sign& sign : scene.signs) {
+        AppendVec3(buffer, sign.location);
+        AppendVec3(buffer, sign.normal);
+
+        const int32_t type = static_cast<int32_t>(sign.type);
+        const int32_t value = static_cast<int32_t>(sign.value);
+        AppendValue(buffer, type);
+        AppendValue(buffer, value);
+    }
+
+    return buffer;
 }
 
 template <typename T>
@@ -80,6 +116,54 @@ bool ReadVec3(const ByteBuffer& buffer, size_t& offset, Vec3& outValue) {
     return ReadValue(buffer, offset, outValue.x) &&
            ReadValue(buffer, offset, outValue.y) &&
            ReadValue(buffer, offset, outValue.z);
+}
+
+Scene ReceiveBuffer(const ByteBuffer& buffer) {
+    Scene scene;
+    size_t offset = 0;
+
+    uint32_t carCount = 0;
+    uint32_t signCount = 0;
+    if (!ReadValue(buffer, offset, carCount) ||
+        !ReadValue(buffer, offset, signCount)) {
+        return {};
+    }
+
+    scene.cars.reserve(carCount);
+    for (uint32_t i = 0; i < carCount; ++i) {
+        Car car;
+        int32_t type = 0;
+        if (!ReadVec3(buffer, offset, car.location) ||
+            !ReadVec3(buffer, offset, car.direction) ||
+            !ReadVec3(buffer, offset, car.size) ||
+            !ReadValue(buffer, offset, type)) {
+            return {};
+        }
+        car.type = type;
+        scene.cars.push_back(car);
+    }
+
+    scene.signs.reserve(signCount);
+    for (uint32_t i = 0; i < signCount; ++i) {
+        Sign sign;
+        int32_t type = 0;
+        int32_t value = 0;
+        if (!ReadVec3(buffer, offset, sign.location) ||
+            !ReadVec3(buffer, offset, sign.normal) ||
+            !ReadValue(buffer, offset, type) ||
+            !ReadValue(buffer, offset, value)) {
+            return {};
+        }
+        sign.type = type;
+        sign.value = value;
+        scene.signs.push_back(sign);
+    }
+
+    if (offset != buffer.size()) {
+        return {};
+    }
+
+    return scene;
 }
 
 bool RunTests() {
@@ -136,6 +220,21 @@ bool RunTests() {
     EXPECT_EQ_INT(static_cast<int>(offset), static_cast<int>(buffer.size()));
 
     send(buffer.data(), buffer.size());
+    Scene received = ReceiveBuffer(buffer);
+    EXPECT_EQ_INT(static_cast<int>(received.cars.size()), 2);
+    EXPECT_EQ_INT(static_cast<int>(received.signs.size()), 1);
+    EXPECT_VEC3(received.cars[0].location, Vec3{1, 2, 3});
+    EXPECT_VEC3(received.cars[0].direction, Vec3{0, 0, 1});
+    EXPECT_VEC3(received.cars[0].size, Vec3{4, 5, 6});
+    EXPECT_EQ_INT(received.cars[0].type, 7);
+    EXPECT_VEC3(received.cars[1].location, Vec3{8, 9, 10});
+    EXPECT_VEC3(received.cars[1].direction, Vec3{1, 0, 0});
+    EXPECT_VEC3(received.cars[1].size, Vec3{2, 2, 2});
+    EXPECT_EQ_INT(received.cars[1].type, 3);
+    EXPECT_VEC3(received.signs[0].location, Vec3{11, 12, 13});
+    EXPECT_VEC3(received.signs[0].normal, Vec3{0, 1, 0});
+    EXPECT_EQ_INT(received.signs[0].type, 4);
+    EXPECT_EQ_INT(received.signs[0].value, 55);
     return true;
 }
 

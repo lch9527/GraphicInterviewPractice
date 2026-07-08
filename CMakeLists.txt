@@ -7,6 +7,7 @@ file(GLOB QUESTION_FILES
     "questions/3D math/Q*.cpp"
     questions/coderpad_rendering/Q*.cpp
     questions/data_structure_builder/Q*.cpp
+    questions/tesla/Q*.cpp
     questions/leetcode/Answer_Q*.cpp
 )
 foreach(qfile ${QUESTION_FILES})
@@ -19,6 +20,7 @@ foreach(qfile ${QUESTION_FILES})
         string(FIND "${qdir}" "3D math" is_3d_math)
         string(FIND "${qdir}" "coderpad_rendering" is_coderpad)
         string(FIND "${qdir}" "data_structure_builder" is_data_structure_builder)
+        string(FIND "${qdir}" "tesla" is_tesla)
         string(FIND "${qdir}" "leetcode" is_leetcode)
         if(is_3d_math GREATER -1)
             set(short_name "3d_math_q${qnumber}")
@@ -32,6 +34,9 @@ foreach(qfile ${QUESTION_FILES})
         elseif(is_leetcode GREATER -1)
             set(short_name "leetcode_q${qnumber}")
             set(output_dir "${CMAKE_SOURCE_DIR}/questions_artifacts/leetcode")
+        elseif(is_tesla GREATER -1)
+            set(short_name "tesla_q${qnumber}")
+            set(output_dir "${CMAKE_SOURCE_DIR}/questions_artifacts/tesla")
         else()
             set(short_name "q${qnumber}")
             set(output_dir "${CMAKE_SOURCE_DIR}/questions_artifacts")
