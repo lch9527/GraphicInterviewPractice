@@ -54,18 +54,28 @@ __global__ void CastleKernel(const float* g, const float* h, const float* d,
     float vy = v[i] * sinf(radians);
 
     int hit = 0;
-    // TODO: implement the same geometric tests as the original Monte Carlo project:
-    // 1. Does the ball reach the cliff face?
-    // 2. Is it high enough at the cliff face?
-    // 3. Where does it intersect the upper deck height on the way down?
-    // 4. Is the landing distance within tol of the castle distance?
-    (void)gravity;
-    (void)tol;
-    (void)vx;
-    (void)vy;
-    (void)g;
-    (void)h;
-    (void)d;
+    float tGround = -vy / (0.5f * gravity);
+    float xGround = vx * tGround;
+    if (xGround > g[i]) {
+        float tCliff = g[i] / vx;
+        float yCliff = vy * tCliff + 0.5f * gravity * tCliff * tCliff;
+        if (yCliff > h[i]) {
+            float A = 0.5f * gravity;
+            float B = vy;
+            float C = -h[i];
+            float disc = B * B - 4.0f * A * C;
+            if (disc >= 0.0f) {
+                float sqrtDisc = sqrtf(disc);
+                float t1 = (-B + sqrtDisc) / (2.0f * A);
+                float t2 = (-B - sqrtDisc) / (2.0f * A);
+                float tDeck = fmaxf(t1, t2);
+                float upperDist = vx * tDeck - g[i];
+                if (fabsf(upperDist - d[i]) <= tol) {
+                    hit = 1;
+                }
+            }
+        }
+    }
 
     hits[i] = hit;
 }
